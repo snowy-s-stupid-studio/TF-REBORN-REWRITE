@@ -1,0 +1,17 @@
+"solo_data"
+{
+	"Credits"		"0"
+	"UnlockedItems"
+	{
+		"saxxy"		"1"
+		"Taunt Robot"		"1"
+		"Taunt Werewolf"		"1"
+		"Taunt Frankenheavy"		"1"
+		"Taunt ComeAndGetMe"		"1"
+		"Taunt Thriller"		"1"
+		"Taunt HeroPose"		"1"
+		"Shocking Truth"		"1"
+		"Bottled Sorrow"		"1"
+		"The Giger Counter"		"1"
+	}
+}

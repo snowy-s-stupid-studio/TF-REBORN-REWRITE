@@ -1,0 +1,19 @@
+^D:\TF2--REBORN\SRC\GAME\SHARED\BASE_GCMESSAGES.PROTO
+if not exist ..\..\game\server\generated_proto_mod_tf mkdir ..\..\game\server\generated_proto_mod_tf
+..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=D:\TF2--REBORN\src\game\shared\ --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\server\generated_proto_mod_tf D:\TF2--REBORN\src\game\shared\base_gcmessages.proto
+^D:\TF2--REBORN\SRC\GAME\SHARED\ECON\ECON_GCMESSAGES.PROTO
+if not exist ..\..\game\server\generated_proto_mod_tf mkdir ..\..\game\server\generated_proto_mod_tf
+..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=D:\TF2--REBORN\src\game\shared\econ\ --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\server\generated_proto_mod_tf D:\TF2--REBORN\src\game\shared\econ\econ_gcmessages.proto
+^D:\TF2--REBORN\SRC\GCSDK\STEAMMESSAGES.PROTO
+if not exist ..\..\game\server\generated_proto_mod_tf mkdir ..\..\game\server\generated_proto_mod_tf
+..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=D:\TF2--REBORN\src\gcsdk\ --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\server\generated_proto_mod_tf D:\TF2--REBORN\src\gcsdk\steammessages.proto
+^D:\TF2--REBORN\SRC\GAME\SHARED\TF\TF_GCMESSAGES.PROTO
+if not exist ..\..\game\server\generated_proto_mod_tf mkdir ..\..\game\server\generated_proto_mod_tf
+..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=D:\TF2--REBORN\src\game\shared\tf\ --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\server\generated_proto_mod_tf D:\TF2--REBORN\src\game\shared\tf\tf_gcmessages.proto
+^D:\TF2--REBORN\SRC\GAME\SHARED\TF\TF_PROTO_DEF_MESSAGES.PROTO
+if not exist ..\..\game\server\generated_proto_mod_tf mkdir ..\..\game\server\generated_proto_mod_tf
+..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=D:\TF2--REBORN\src\game\shared\tf\ --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\server\generated_proto_mod_tf D:\TF2--REBORN\src\game\shared\tf\tf_proto_def_messages.proto
+^D:\TF2--REBORN\SRC\GAME\SERVER\SPAWN_HELPER.NUT
+python ..\..\devtools\bin\texttoarray.py D:\TF2--REBORN\src\game\server\spawn_helper.nut g_Script_spawn_helper> spawn_helper_nut.h
+^D:\TF2--REBORN\SRC\GAME\SERVER\VSCRIPT_SERVER.NUT
+python ..\..\devtools\bin\texttoarray.py D:\TF2--REBORN\src\game\server\vscript_server.nut g_Script_vscript_server> vscript_server_nut.h

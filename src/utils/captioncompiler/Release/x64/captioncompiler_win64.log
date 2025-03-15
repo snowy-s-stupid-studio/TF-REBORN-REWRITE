@@ -1,0 +1,14 @@
+﻿  cmdlib.cpp
+  filesystem_helpers.cpp
+  filesystem_init.cpp
+  pacifier.cpp
+  scriplib.cpp
+  stringregistry.cpp
+  captioncompiler.cpp
+  compiledcaptionswap.cpp
+  filesystem_tools.cpp
+D:\TF2--REBORN\holdon\utils\captioncompiler\captioncompiler.cpp(322,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  memoverride.cpp
+     Creating library .\Release\x64\captioncompiler.lib and object .\Release\x64\captioncompiler.exp
+  captioncompiler_win64.vcxproj -> D:\TF2--REBORN\holdon\utils\captioncompiler\Release\x64\captioncompiler.exe
+  Publishing to ..\..\..\game\bin\x64

@@ -1,0 +1,13 @@
+"vpc_cache"
+{
+	"CacheVersion"		"1"
+	"win64"
+	{
+		"CRCFile"		"game_shader_generic_example_win64_tf.vcxproj.vpc_crc"
+		"OutputFiles"
+		{
+			"0"		"game_shader_generic_example_win64_tf.vcxproj"
+			"1"		"game_shader_generic_example_win64_tf.vcxproj.filters"
+		}
+	}
+}

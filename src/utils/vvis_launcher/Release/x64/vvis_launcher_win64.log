@@ -1,0 +1,6 @@
+﻿  StdAfx.cpp
+  memoverride.cpp
+  vvis_launcher.cpp
+     Creating library .\Release\x64\vvis.lib and object .\Release\x64\vvis.exp
+  vvis_launcher_win64.vcxproj -> D:\TF2--REBORN\holdon\utils\vvis_launcher\Release\x64\vvis.exe
+  Publishing to ..\..\..\game\bin\x64

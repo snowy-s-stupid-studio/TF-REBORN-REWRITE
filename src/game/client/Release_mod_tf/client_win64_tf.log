@@ -1,0 +1,49 @@
+﻿libprotobuf.lib(common.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(common.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(once.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(once.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(generated_message_util.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(generated_message_util.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(message_lite.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(message_lite.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(descriptor.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(descriptor.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(message.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(message.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(repeated_field.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(repeated_field.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(unknown_field_set.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(unknown_field_set.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(coded_stream.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(coded_stream.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(wire_format_lite.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(wire_format_lite.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(generated_message_reflection.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(generated_message_reflection.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(reflection_ops.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(reflection_ops.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(wire_format.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(wire_format.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(extension_set.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(extension_set.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(descriptor.pb.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(descriptor.pb.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(text_format.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(text_format.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(zero_copy_stream_impl_lite.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(zero_copy_stream_impl_lite.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(atomicops_internals_x86_msvc.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(atomicops_internals_x86_msvc.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(descriptor_database.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(descriptor_database.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(dynamic_message.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(dynamic_message.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(strtod.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(strtod.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(tokenizer.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(tokenizer.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(strutil.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(strutil.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(substitute.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(substitute.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(zero_copy_stream_impl.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(zero_copy_stream_impl.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(extension_set_heavy.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(extension_set_heavy.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(structurally_valid.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(structurally_valid.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(stringprintf.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(stringprintf.obj)' or at ''; linking object as if no debug info
+libprotobuf.lib(zero_copy_stream.obj) : warning LNK4099: PDB '' was not found with 'libprotobuf.lib(zero_copy_stream.obj)' or at ''; linking object as if no debug info
+     Creating library D:\TF2--REBORN\game\mod_tf\\client.lib and object D:\TF2--REBORN\game\mod_tf\\client.exp
+  client_win64_tf.vcxproj -> D:\TF2--REBORN\game\mod_tf\client.dll
+  Publishing to ..\..\..\game\mod_tf\bin\x64
+          1 file(s) copied.
+  The system cannot find the file specified.
+  *** ERROR! PostBuildStep FAILED for Client (TF)! EXE or DLL is probably running. ***
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: The command "if not exist "..\..\..\game\mod_tf\bin\x64" mkdir "..\..\..\game\mod_tf\bin\x64"
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: copy "D:\TF2--REBORN\game\mod_tf\client.dll" "..\..\..\game\mod_tf\bin\x64\client.dll"
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: if ERRORLEVEL 1 goto BuildEventFailed
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: if exist "D:\TF2--REBORN\game\mod_tf\client.map" copy "D:\TF2--REBORN\game\mod_tf\client.map" ..\..\..\game\mod_tf\bin\x64\client.map
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: copy "D:\TF2--REBORN\game\mod_tf\client.pdb" ..\..\..\game\mod_tf\bin\x64\client.pdb
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: if ERRORLEVEL 1 goto BuildEventFailed
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: goto BuildEventOK
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: :BuildEventFailed
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: echo *** ERROR! PostBuildStep FAILED for Client (TF)! EXE or DLL is probably running. ***
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: del /q "D:\TF2--REBORN\game\mod_tf\client.dll"
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: exit 1
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: :BuildEventOK
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: 
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: :VCEnd" exited with code 1.

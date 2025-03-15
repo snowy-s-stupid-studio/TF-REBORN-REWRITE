@@ -1,0 +1,73 @@
+﻿  BSPTreeData.cpp
+  disp_common.cpp
+  disp_powerinfo.cpp
+  disp_vrad.cpp
+  filesystem_init.cpp
+  filesystem_tools.cpp
+  imagepacker.cpp
+  incremental.cpp
+  leaf_ambient_lighting.cpp
+  lightmap.cpp
+  loadcmdline.cpp
+D:\TF2--REBORN\holdon\utils\vrad\lightmap.cpp(1548,17): warning C4101: 'dest': unreferenced local variable
+D:\TF2--REBORN\holdon\utils\vrad\lightmap.cpp(2440,9): warning C4101: 'v': unreferenced local variable
+D:\TF2--REBORN\holdon\utils\vrad\lightmap.cpp(3068,9): warning C4101: 'spot': unreferenced local variable
+  lumpfiles.cpp
+  macro_texture.cpp
+  memoverride.cpp
+D:\TF2--REBORN\holdon\utils\vrad\macro_texture.cpp(156,9): warning C4101: 'vGlobal': unreferenced local variable
+  MySqlDatabase.cpp
+  pacifier.cpp
+  physdll.cpp
+  radial.cpp
+  SampleHash.cpp
+  trace.cpp
+  utilmatlib.cpp
+D:\TF2--REBORN\holdon\utils\vrad\trace.cpp(408,29): warning C4101: 'skytrans': unreferenced local variable
+  vismat.cpp
+  vrad.cpp
+D:\TF2--REBORN\holdon\utils\vrad\vrad.cpp(1117,9): warning C4101: 'delta': unreferenced local variable
+  VRAD_DispColl.cpp
+  VradDetailProps.cpp
+  VRadDisps.cpp
+  vraddll.cpp
+  VRadStaticProps.cpp
+D:\TF2--REBORN\holdon\utils\vrad\vraddll.cpp(180,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  zip_utils.cpp
+D:\TF2--REBORN\holdon\utils\vrad\VRadStaticProps.cpp(177,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\TF2--REBORN\holdon\utils\vrad\VRadStaticProps.cpp(178,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\TF2--REBORN\holdon\utils\vrad\VRadStaticProps.cpp(179,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\TF2--REBORN\holdon\utils\vrad\VRadStaticProps.cpp(180,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\TF2--REBORN\holdon\utils\vrad\VRadStaticProps.cpp(185,10): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\TF2--REBORN\holdon\utils\vrad\VRadStaticProps.cpp(186,10): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\TF2--REBORN\holdon\utils\vrad\VRadStaticProps.cpp(2370,24): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\TF2--REBORN\holdon\utils\vrad\VRadStaticProps.cpp(2378,32): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\TF2--REBORN\holdon\utils\vrad\VRadStaticProps.cpp(2379,26): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\TF2--REBORN\holdon\utils\vrad\VRadStaticProps.cpp(2392,20): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\TF2--REBORN\holdon\utils\vrad\VRadStaticProps.cpp(2393,20): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\TF2--REBORN\holdon\utils\vrad\VRadStaticProps.cpp(2394,20): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\TF2--REBORN\holdon\utils\vrad\VRadStaticProps.cpp(2395,20): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\TF2--REBORN\holdon\utils\vrad\VRadStaticProps.cpp(2396,20): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  bsplib.cpp
+  builddisp.cpp
+  ChunkFile.cpp
+D:\TF2--REBORN\holdon\public\ChunkFile.cpp(957,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\TF2--REBORN\holdon\public\ChunkFile.cpp(967,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\TF2--REBORN\holdon\public\ChunkFile.cpp(968,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  cmdlib.cpp
+  DispColl_Common.cpp
+  map_shared.cpp
+  polylib.cpp
+  scriplib.cpp
+  threads.cpp
+  tools_minidump.cpp
+  CollisionUtils.cpp
+  filesystem_helpers.cpp
+  ScratchPad3D.cpp
+  ScratchPadUtils.cpp
+D:\TF2--REBORN\holdon\public\ScratchPadUtils.cpp(224,9): warning C4101: 'topColor': unreferenced local variable
+     Creating library .\Release\x64\vrad_dll.lib and object .\Release\x64\vrad_dll.exp
+  vrad_dll_win64.vcxproj -> D:\TF2--REBORN\holdon\utils\vrad\Release\x64\vrad_dll.dll
+  Publishing to ..\..\..\game\bin\x64
+          1 file(s) copied.
+          1 file(s) copied.
