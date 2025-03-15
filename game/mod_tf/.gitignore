@@ -29,6 +29,6 @@ src/.vs/everything/v17/ipch/380b4664a780a066.ipch
 game/mod_tf/cfg/solo/save_1162123356.txt
 game/mod_tf/cfg/local_loadout_1162123356.txt
 game/mod_tf/cfg/solo/save_1162123356.txt
-game/mod_tf/cfg/solo/save_1162123356.txt
-game/mod_tf/cfg/local_loadout_1162123356.txt
-game/mod_tf/cfg/config.cfg
+cfg/solo/save_1162123356.txt
+cfg/local_loadout_1162123356.txt
+cfg/config.cfg
