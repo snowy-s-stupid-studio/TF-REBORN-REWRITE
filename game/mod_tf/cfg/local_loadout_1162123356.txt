@@ -11,7 +11,7 @@
 		"pyro"		"0"
 		"spy"		"0"
 		"engineer"		"0"
-		"Civilian"		"0"
+		"Civilian"		"1"
 	}
 	"0"
 	{
