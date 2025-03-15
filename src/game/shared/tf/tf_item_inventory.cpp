@@ -2387,12 +2387,12 @@ void CTFInventoryManager::ResetSaveData()
 	engine->ClientCmd_Unrestricted("clear_loadout\n");
 }
 
-CON_COMMAND(tfsolo_save, "Save mod progress.", FCVAR_GAME)
+CON_COMMAND_F(tfsolo_save, "Save mod progress.", FCVAR_GAMEDLL)
 {
 	TFInventoryManager()->WriteSaveData();
 }
 
-CON_COMMAND(tfsolo_reset, "Reset mod progress to default.", FCVAR_GAME)
+CON_COMMAND_F(tfsolo_reset, "Reset mod progress to default.", FCVAR_GAMEDLL)
 {
 	if (engine->IsInGame())
 	{
@@ -2401,7 +2401,7 @@ CON_COMMAND(tfsolo_reset, "Reset mod progress to default.", FCVAR_GAME)
 	TFInventoryManager()->ResetSaveData();
 }
 
-CON_COMMAND(tfsolo_load, "Load mod progress.", FCVAR_GAME | FCVAR_CHEAT | FCVAR_DEVELOPMENTONLY)
+CON_COMMAND_F(tfsolo_load, "Load mod progress.", FCVAR_GAMEDLL | FCVAR_CHEAT | FCVAR_DEVELOPMENTONLY)
 {
 	TFInventoryManager()->LoadSaveData();
 }
