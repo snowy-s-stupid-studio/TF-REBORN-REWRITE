@@ -16,3 +16,28 @@
   KeyValues.cpp
   keyvaluesjson.cpp
   kvpacker.cpp
+  lzmaDecoder.cpp
+  mempool.cpp
+  memstack.cpp
+  NetAdr.cpp
+  newbitbuf.cpp
+  rangecheckedvar.cpp
+  reliabletimer.cpp
+  snappy-sinksource.cpp
+  snappy-stubs-internal.cpp
+  snappy.cpp
+  sparsematrix.cpp
+  splitstring.cpp
+  stringpool.cpp
+  strtools.cpp
+  strtools_unicode.cpp
+  tier1.cpp
+  tokenreader.cpp
+  uniqueid.cpp
+  utlbinaryblock.cpp
+  utlbuffer.cpp
+  utlbufferutil.cpp
+  utlstring.cpp
+  utlsymbol.cpp
+  processor_detect.cpp
+  tier1_win64.vcxproj -> D:\TF-REBORN-REWRITE\src\lib\public\x64\tier1.lib
