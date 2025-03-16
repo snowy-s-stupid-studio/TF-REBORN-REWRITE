@@ -491,9 +491,9 @@ public:
 	void ReEvaluateCurrentClass( void );
 
 	void SpawnCustom( void );
-	CUtlString GetPreset() { return m_preset; }
-	void SetPreset(CUtlString preset) { m_preset = preset; }
-	CUtlString ScriptGetPreset() { return GetPreset(); }
+	const char* GetPreset() { return m_preset.Get(); }
+	void SetPreset(const char* preset) { m_preset.Set(preset); }
+	CUtlString ScriptGetPreset() { return m_preset; }
 	void ScriptSetPreset(const char* preset) { SetPreset(preset); }
 
 private:
