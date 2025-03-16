@@ -5,3 +5,4 @@
 - heapons, mostly helping me with advice and stuff
 - betam, for tf-solo base (very cool)
 - merely, helped me with the itemserver fix thing
+- curioustommy, compiling for linux
