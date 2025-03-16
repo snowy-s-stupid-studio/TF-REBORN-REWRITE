@@ -1,6 +1,0 @@
-﻿  StdAfx.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-  QC_Eyes.cpp
-  QC_EyesDlg.cpp
-  qc_eyes_win64.vcxproj -> D:\TF2--REBORN\holdon\utils\qc_eyes\Release\x64\qc_eyes.exe
-  Publishing to ..\..\..\game\bin\x64

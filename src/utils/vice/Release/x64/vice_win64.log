@@ -1,9 +1,0 @@
-﻿  cmdlib.cpp
-  filesystem_helpers.cpp
-  filesystem_init.cpp
-  filesystem_tools.cpp
-  memoverride.cpp
-  vice.cpp
-     Creating library .\Release\x64\vice.lib and object .\Release\x64\vice.exp
-  vice_win64.vcxproj -> D:\TF2--REBORN\holdon\utils\vice\Release\x64\vice.exe
-  Publishing to ..\..\..\game\bin\x64

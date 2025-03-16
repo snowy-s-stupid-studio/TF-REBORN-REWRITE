@@ -1,8 +1,0 @@
-﻿  memoverride.cpp
-  serverplugin_bot.cpp
-  serverplugin_empty.cpp
-     Creating library .\Release\x64\serverplugin_empty.lib and object .\Release\x64\serverplugin_empty.exp
-  serverplugin_empty_win64.vcxproj -> D:\TF2--REBORN\holdon\utils\serverplugin_sample\Release\x64\serverplugin_empty.dll
-  Publishing to ..\..\..\game\bin\x64
-          1 file(s) copied.
-          1 file(s) copied.
