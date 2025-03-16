@@ -11,8 +11,6 @@
 		"Taunt Thriller"		"1"
 		"Taunt HeroPose"		"1"
 		"Shocking Truth"		"1"
-		"Bottled Sorrow"		"1"
 		"The Giger Counter"		"1"
-		"The Sandman"		"0"
 	}
 }

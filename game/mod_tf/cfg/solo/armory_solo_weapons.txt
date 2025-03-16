@@ -1,8 +1,8 @@
 armory_config
 {
-	"Bottled Sorrow"
+	"BFG"
 	{
-		Cost 1000
+		Cost 18000
 	}
 	"Shocking Truth"
 	{
