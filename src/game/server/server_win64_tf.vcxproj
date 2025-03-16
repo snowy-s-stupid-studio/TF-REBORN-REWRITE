@@ -50,7 +50,7 @@
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</GenerateManifest>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</PostBuildEventUseInBuild>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\TF2--REBORN\game\mod_tf\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\TF-REBORN-REWRITE\game\TF2--Reborn--compiled-</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\Release_mod_tf\</IntDir>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
     <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ExecutablePath);$(Path)</ExecutablePath>
