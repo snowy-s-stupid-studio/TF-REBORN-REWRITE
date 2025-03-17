@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\TF2--REBORN\holdon\launcher_main\Release_mod_tf_win64\mod_tf_win64.exe</FullPath>
+      <FullPath>D:\TF-REBORN-REWRITE\src\launcher_main\Release_mod_tf_win64\mod_tf_win64.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

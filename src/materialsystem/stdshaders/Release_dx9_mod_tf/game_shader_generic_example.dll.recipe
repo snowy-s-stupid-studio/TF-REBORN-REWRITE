@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\TF2--REBORN\holdon\materialsystem\stdshaders\Release_dx9_mod_tf\game_shader_generic_example.dll</FullPath>
+      <FullPath>D:\TF-REBORN-REWRITE\src\materialsystem\stdshaders\Release_dx9_mod_tf\game_shader_generic_example.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

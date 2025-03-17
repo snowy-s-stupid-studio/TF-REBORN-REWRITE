@@ -1,1 +1,2 @@
 D:\TF2--REBORN\holdon\materialsystem\stdshaders\Release_dx9_mod_tf\game_shader_generic_example.dll
+D:\TF-REBORN-REWRITE\src\materialsystem\stdshaders\Release_dx9_mod_tf\game_shader_generic_example.dll

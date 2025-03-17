@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\TF2--REBORN\holdon\utils\vvis_launcher\Release\x64\vvis.exe</FullPath>
+      <FullPath>D:\TF-REBORN-REWRITE\src\utils\vvis_launcher\Release\x64\vvis.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

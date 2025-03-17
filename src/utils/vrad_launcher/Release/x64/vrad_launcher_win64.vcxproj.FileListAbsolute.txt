@@ -1,1 +1,2 @@
 D:\TF2--REBORN\holdon\utils\vrad_launcher\Release\x64\vrad.exe
+D:\TF-REBORN-REWRITE\src\utils\vrad_launcher\Release\x64\vrad.exe

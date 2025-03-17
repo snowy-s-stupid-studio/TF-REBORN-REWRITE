@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\TF2--REBORN\holdon\utils\qc_eyes\Release\x64\qc_eyes.exe</FullPath>
+      <FullPath>D:\TF-REBORN-REWRITE\src\utils\qc_eyes\Release\x64\qc_eyes.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
