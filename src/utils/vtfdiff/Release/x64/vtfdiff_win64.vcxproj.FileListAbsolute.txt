@@ -1,1 +1,2 @@
 D:\TF2--REBORN\holdon\utils\vtfdiff\Release\x64\vtfdiff.exe
+D:\TF-REBORN-REWRITE\src\utils\vtfdiff\Release\x64\vtfdiff.exe

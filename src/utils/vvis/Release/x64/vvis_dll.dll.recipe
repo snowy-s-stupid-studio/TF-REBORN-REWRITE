@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\TF2--REBORN\holdon\utils\vvis\Release\x64\vvis_dll.dll</FullPath>
+      <FullPath>D:\TF-REBORN-REWRITE\src\utils\vvis\Release\x64\vvis_dll.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

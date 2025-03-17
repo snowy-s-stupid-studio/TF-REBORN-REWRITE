@@ -1,1 +1,2 @@
 D:\TF2--REBORN\holdon\utils\vtf2tga\Release\x64\vtf2tga.exe
+D:\TF-REBORN-REWRITE\src\utils\vtf2tga\Release\x64\vtf2tga.exe
