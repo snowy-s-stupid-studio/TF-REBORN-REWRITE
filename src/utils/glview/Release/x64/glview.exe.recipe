@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\TF2--REBORN\holdon\utils\glview\Release\x64\glview.exe</FullPath>
+      <FullPath>D:\TF-REBORN-REWRITE\src\utils\glview\Release\x64\glview.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

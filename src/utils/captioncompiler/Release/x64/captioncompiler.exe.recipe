@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\TF2--REBORN\holdon\utils\captioncompiler\Release\x64\captioncompiler.exe</FullPath>
+      <FullPath>D:\TF-REBORN-REWRITE\src\utils\captioncompiler\Release\x64\captioncompiler.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
