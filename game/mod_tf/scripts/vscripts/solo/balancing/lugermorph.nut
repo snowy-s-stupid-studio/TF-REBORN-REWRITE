@@ -1,0 +1,57 @@
+TFSOLO.BalancingFuncs.push(function(kv)
+{
+	// Lugermorph
+	local key1 = kv.FindKey("items")
+	local prefab = key1.FindKey("160")
+	// Match pistol prefab, only usable by Enigneer
+	prefab.SetString("prefab","")
+	prefab.SetInt("baseitem",0)
+	prefab.SetInt("enabled",1)
+	prefab.SetString("base_item_name","TF_WEAPON_PISTOL")
+	prefab.SetInt("inspect_panel_dist",31)
+	prefab.SetString("particle_suffix","pistol")
+	local statattrib = prefab.GetKey("static_attrs", true)
+	statattrib.SetFloat("weapon_stattrak_module_scale",0.723)
+	statattrib.SetString("min_viewmodel_offset","10 0 -10")
+	local classuse = prefab.FindKey("used_by_classes")
+	classuse.RemoveSubKey("scout")
+	
+	// Add 10 metal per hit
+	local attrib = prefab.GetKey("attributes", true)
+	local a1 = attrib.GetKey("metal_on_hit", true)
+	a1.SetString("attribute_class","metal_on_hit")
+	a1.SetInt("value", 10)
+	// Add -75% firing speed
+	local a2 = attrib.GetKey("fire rate penalty", true)
+	a2.SetString("attribute_class","mult_postfiredelay")
+	a2.SetFloat("value", 1.75)
+	// Add -50% clip size
+	local a3 = attrib.GetKey("clip size penalty", true)
+	a3.SetString("attribute_class","mult_clipsize")
+	a3.SetFloat("value", 0.5)
+	
+	// Repeat for other item ID
+	prefab = key1.FindKey("294")
+	prefab.SetString("prefab","")
+	prefab.SetInt("baseitem",0)
+	prefab.SetInt("enabled",1)
+	prefab.SetString("base_item_name","TF_WEAPON_PISTOL")
+	prefab.SetInt("inspect_panel_dist",31)
+	prefab.SetString("particle_suffix","pistol")
+	statattrib = prefab.GetKey("static_attrs", true)
+	statattrib.SetFloat("weapon_stattrak_module_scale",0.723)
+	statattrib.SetString("min_viewmodel_offset","10 0 -10")
+	classuse = prefab.FindKey("used_by_classes")
+	classuse.RemoveSubKey("scout")
+	
+	attrib = prefab.GetKey("attributes", true)
+	a1 = attrib.GetKey("metal_on_hit", true)
+	a1.SetString("attribute_class","metal_on_hit")
+	a1.SetInt("value", 10)
+	a2 = attrib.GetKey("fire rate penalty", true)
+	a2.SetString("attribute_class","mult_postfiredelay")
+	a2.SetFloat("value", 1.75)
+	a3 = attrib.GetKey("clip size penalty", true)
+	a3.SetString("attribute_class","mult_clipsize")
+	a3.SetFloat("value", 0.5)
+})
