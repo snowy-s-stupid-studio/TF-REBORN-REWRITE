@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\TF2--REBORN\holdon\utils\vrad\Release\x64\vrad_dll.dll</FullPath>
+      <FullPath>D:\TF-REBORN-REWRITE\src\utils\vrad\Release\x64\vrad_dll.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
