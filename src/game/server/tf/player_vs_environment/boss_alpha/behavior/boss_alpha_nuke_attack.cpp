@@ -161,19 +161,28 @@ ActionResult< CBossAlpha >	CBossAlphaNukeAttack::Update( CBossAlpha *me, float i
 				CalculateMeleeDamageForce( &info, toVictim, me->WorldSpaceCenter(), 1.0f );
 				victim->TakeDamage( info );
 
-				if ( victim->IsPlayer() )
+				if (victim->IsPlayer())
 				{
-					CTFPlayer *playerVictim = ToTFPlayer( victim );
-
-					// catch them on fire (unless they are a Pyro)
-					if ( !playerVictim->IsPlayerClass( TF_CLASS_PYRO ) )
+					// Ensure that 'me' is cast to CTFPlayer* before passing to Burn method
+					CTFPlayer* pTFPlayer = dynamic_cast<CTFPlayer*>(me);
+					if (pTFPlayer)
 					{
-						playerVictim->m_Shared.Burn( me, tf_boss_alpha_nuke_afterburn_time.GetFloat() );
+						// Assuming you have a valid weapon to pass, replace 'pWeapon' with the actual weapon instance
+						CTFWeaponBase* pWeapon = pTFPlayer->GetActiveTFWeapon();
+						if (pWeapon)
+						{
+							CTFPlayer* playerVictim = dynamic_cast<CTFPlayer*>(victim); // Declare and cast victim to CTFPlayer*
+							if (playerVictim)
+							{
+								playerVictim->m_Shared.Burn(pTFPlayer, pWeapon, tf_boss_alpha_nuke_afterburn_time.GetFloat());
+							}
+						}
 					}
 
 					color32 colorHit = { 255, 255, 255, 255 };
-					UTIL_ScreenFade( victim, colorHit, 1.0f, 0.1f, FFADE_IN );
+					UTIL_ScreenFade(victim, colorHit, 1.0f, 0.1f, FFADE_IN);
 				}
+
 			}
 		}
 

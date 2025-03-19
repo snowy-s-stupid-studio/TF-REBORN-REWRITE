@@ -1,3 +1,6 @@
+// Forward declaration
+class CTFBot;
+
 //========= Copyright Valve Corporation, All rights reserved. ============//
 // tf_bot_generator.h
 // Entity to spawn a collection of TFBots

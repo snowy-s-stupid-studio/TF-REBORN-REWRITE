@@ -5,6 +5,7 @@
 
 #include "cbase.h"
 
+#define TF_RAID_MODE
 #ifdef TF_RAID_MODE
 
 #include "team.h"

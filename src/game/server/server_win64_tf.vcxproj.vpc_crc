@@ -1,7 +1,7 @@
 [vpc crc file version 3]
 _.HOST_WIN64.HOST_WINDOWS.SOURCESDK.VS2022.WINDOWS_/vpcgame:tf_
 PROJECT.server.GAME.tf.PLATFORM.win64
-106a480f server_tf.vpc
+c451352c server_tf.vpc
 043c7e29 ..\..\game\server\server_base.vpc
 2093e423 ..\..\vpc_scripts\source_dll_base.vpc
 8ef6e028 ..\..\vpc_scripts\platform_dirs.vpc

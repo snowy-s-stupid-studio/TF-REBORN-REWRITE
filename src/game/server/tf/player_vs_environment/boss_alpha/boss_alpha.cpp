@@ -219,7 +219,7 @@ void CBossAlpha::Spawn( void )
 
 	ChangeTeam( TF_TEAM_RED );
 
-	TFGameRules()->SetActiveBoss( this );
+	// TFGameRules()->SetActiveBoss( this );
 
 	// CollisionProp()->SetSurroundingBoundsType( USE_HITBOXES );
 
