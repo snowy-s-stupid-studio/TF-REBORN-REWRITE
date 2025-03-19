@@ -6354,7 +6354,7 @@ void CTFPlayer::HandleCommand_JoinTeam( const char *pTeamName )
 		}
 
 		DuelMiniGame_NotifyPlayerChangedTeam( this, iTeam, true );
-		ChangeTeam( iTeam, true );
+		ChangeTeam( iTeam, true, false, false );
 
 		return;
 	}
@@ -7806,7 +7806,7 @@ bool CTFPlayer::ClientCommand( const CCommand &args )
 			else if ( TFGameRules()->IsBossBattleMode() )
 			{
 				int iTeam = GetAutoTeam();
-				ChangeTeam( iTeam, true );
+				ChangeTeam( iTeam, true , false, false );
 				ShowViewPortPanel( ( iTeam == TF_TEAM_RED ) ? PANEL_CLASS_RED : PANEL_CLASS_BLUE );
 			}
 #endif
