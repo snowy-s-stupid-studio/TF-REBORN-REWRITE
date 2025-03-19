@@ -58,7 +58,7 @@
 
 ConVar	tf_debug_flamethrower("tf_debug_flamethrower", "0", FCVAR_CHEAT | FCVAR_REPLICATED, "Visualize the flamethrower damage." );
 ConVar  tf_flamethrower_boxsize("tf_flamethrower_boxsize", "12.0", FCVAR_CHEAT | FCVAR_REPLICATED, "Size of flame damage entities.", true, 1.f, true, 24.f );
-ConVar  tf_flamethrower_new_flame_offset( "tf_flamethrower_new_flame_offset", "40 5 0", FCVAR_CHEAT | FCVAR_DEVELOPMENTONLY | FCVAR_REPLICATED, "Starting position relative to the flamethrower." );
+ConVar  tf_flamethrower_new_flame_offset( "tf_flamethrower_new_flame_offset", "40 5 0", FCVAR_CHEAT | FCVAR_REPLICATED, "Starting position relative to the flamethrower." );
 const float	tf_flamethrower_initial_afterburn_duration = 3.f;
 const float	tf_flamethrower_airblast_cone_angle = 35.0f;
 
@@ -724,7 +724,7 @@ void CTFFlameThrower::PrimaryAttack()
 	// Make sure the weapon can't fire in this condition by tracing a line between the eye point and the end of the muzzle.
 	trace_t trace;	
 	Vector vecEye = pOwner->EyePosition();
-	Vector vecMuzzlePos = GetVisualMuzzlePos();
+	Vector vecMuzzlePos = GetFlameOriginPos();
 	CTraceFilterIgnoreObjects traceFilter( this, COLLISION_GROUP_NONE );
 	UTIL_TraceLine( vecEye, vecMuzzlePos, MASK_SOLID, &traceFilter, &trace );
 	if ( trace.fraction < 1.0 && ( !trace.m_pEnt || trace.m_pEnt->m_takedamage == DAMAGE_NO ) )
@@ -2126,6 +2126,13 @@ Vector CTFFlameThrower::GetMuzzlePosHelper( bool bVisualPos )
 			UTIL_StringToVector( vecOffset.Base(), tf_flamethrower_new_flame_offset.GetString() );
 
 			vecOffset *= pOwner->GetModelScale();
+
+			// Inverts the horizontal offset for flipped view models.
+			if ( IsViewModelFlipped() )
+			{
+				vecOffset.y *= -1;
+			}
+
 			vecMuzzlePos = pOwner->EyePosition() + vecOffset.x * vecForward + vecOffset.y * vecRight + vecOffset.z * vecUp;
 		}
 	}
