@@ -63,18 +63,14 @@
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <PreBuildEvent>
-      <Command>if EXIST ..\..\..\game\mod_tf\bin\x64\$(TargetFileName) for /f "delims=" %%A in ('attrib "..\..\..\game\mod_tf\bin\x64\$(TargetFileName)"') do set valveTmpIsReadOnly="%%A"
-set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%
-if "%valveTmpIsReadOnlyLetter%"=="R" del /q "$(TargetDir)"$(TargetFileName)
-..\..\devtools\bin\vpc.exe -crc2 "client_win64_tf.vcxproj"
-</Command>
+    <PreBuildEvent >
+      <Command>if EXIST ..\..\..\game\mod_tf\bin\x64\$(TargetFileName) for /f &quot;delims=&quot; %%A in (&apos;attrib &quot;..\..\..\game\mod_tf\bin\x64\$(TargetFileName)&quot;&apos;) do set valveTmpIsReadOnly=&quot;%%A&quot;&#x0D;&#x0A;set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%&#x0D;&#x0A;if &quot;%valveTmpIsReadOnlyLetter%&quot;==&quot;R&quot; del /q &quot;$(TargetDir)&quot;$(TargetFileName)&#x0D;&#x0A;..\..\devtools\bin\vpc.exe -crc2 &quot;client_win64_tf.vcxproj&quot;&#x0D;&#x0A;</Command>
     </PreBuildEvent>
-    <ClCompile>
+    <ClCompile >
       <AdditionalOptions>/Zm200 /Gw /Zc:inline /Zc:threadSafeInit- /Wv:18 /Zc:__cplusplus</AdditionalOptions>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>.\hl2;.\hl2\elements;.\tf;.\tf\vgui;..\statemachine;..\..\game\shared\multiplayer;..\..\game\shared\tf;..\..\gcsdk\steamextra;.\;..\..\common;..\..\public;..\..\public\tier0;..\..\public\tier1;..\..\game\client\generated_proto_mod_tf;..\..\thirdparty\protobuf-2.6.1\src;..\..\vgui2\include;..\..\vgui2\controls;..\..\game\shared;.\game_controls;..\..\thirdparty\sixensesdk\include;..\..\game\client\generated_proto_mod_tf;..\..\thirdparty\protobuf-2.6.1\src;..\..\game\shared\econ;..\..\gcsdk\steamextra;.\econ;.\econ</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>VPC;SOURCESDK;SOURCE_HAS_FREETYPE;WIN32;_WIN32;_DEBUG;DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);PLATFORM_64BITS;WIN64;_WIN64;COMPILER_MSVC64;PLATFORM_64BITS;WIN64;_WIN64;COMPILER_MSVC64;COMPILER_MSVC;_DLL_EXT=.dll;DLLNAME=client;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;REPLAY_ENABLED;NO_STRING_T;CLIENT_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;INCLUDED_STEAM2_USERID_STRUCTS;USES_ECON_ITEMS;TF_CLIENT_DLL;USES_ECON_ITEMS;ENABLE_GC_MATCHMAKING;GLOWS_ENABLE;USE_DYNAMIC_ASSET_LOADING;VOTING_ENABLED;NEXT_BOT;DISABLE_GC_CONNECTION;DISABLE_IN_SOURCESDK;INVENTORY_VIA_WEBAPI;_DLL_EXT=.dll;_DLL_PREFIX=;_EXTERNAL_DLL_EXT=.dll;PROJECTDIR=D:\TF-REBORN-REWRITE\src\game\client;VPCGAME=tf;VPCGAMECAPS=TF</PreprocessorDefinitions>
+      <PreprocessorDefinitions>VPC;SOURCESDK;SOURCE_HAS_FREETYPE;WIN32;_WIN32;_DEBUG;DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);PLATFORM_64BITS;WIN64;_WIN64;COMPILER_MSVC64;PLATFORM_64BITS;WIN64;_WIN64;COMPILER_MSVC64;COMPILER_MSVC;_DLL_EXT=.dll;DLLNAME=client;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;REPLAY_ENABLED;NO_STRING_T;CLIENT_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;INCLUDED_STEAM2_USERID_STRUCTS;USES_ECON_ITEMS;TF_CLIENT_DLL;USES_ECON_ITEMS;ENABLE_GC_MATCHMAKING;GLOWS_ENABLE;USE_DYNAMIC_ASSET_LOADING;VOTING_ENABLED;NEXT_BOT;DISABLE_GC_CONNECTION;DISABLE_IN_SOURCESDK;INVENTORY_VIA_WEBAPI;_DLL_EXT=.dll;_DLL_PREFIX=;_EXTERNAL_DLL_EXT=.dll;PROJECTDIR=D:\Programming\TF-REBORN-REWRITE\src\game\client;VPCGAME=tf;VPCGAMECAPS=TF</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -101,12 +97,12 @@ if "%valveTmpIsReadOnlyLetter%"=="R" del /q "$(TargetDir)"$(TargetFileName)
       <ErrorReporting>Prompt</ErrorReporting>
       <BuildStlModules>false</BuildStlModules>
     </ClCompile>
-    <ResourceCompile>
+    <ResourceCompile >
       <PreprocessorDefinitions>;_DEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Culture>1033</Culture>
     </ResourceCompile>
-    <PreLinkEvent />
-    <Link>
+    <PreLinkEvent  />
+    <Link >
       <AdditionalOptions> /ignore:4221</AdditionalOptions>
       <AdditionalDependencies>;shell32.lib;user32.lib;advapi32.lib;gdi32.lib;comdlg32.lib;ole32.lib;winmm.lib;wsock32.lib;Ws2_32.lib</AdditionalDependencies>
       <ShowProgress>NotSet</ShowProgress>
@@ -117,57 +113,40 @@ if "%valveTmpIsReadOnlyLetter%"=="R" del /q "$(TargetDir)"$(TargetFileName)
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
       <ProgramDatabaseFile>$(IntDir)/$(TargetName).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
-      <BaseAddress>
-      </BaseAddress>
+      <BaseAddress> </BaseAddress>
       <TargetMachine>MachineX64</TargetMachine>
       <LinkErrorReporting>PromptImmediately</LinkErrorReporting>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
-    <Manifest>
+    <Manifest >
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Manifest>
-    <Xdcmake>
+    <Xdcmake >
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Xdcmake>
-    <Bscmake>
+    <Bscmake >
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <OutputFile>$(OutDir)/client.bsc</OutputFile>
     </Bscmake>
-    <PostBuildEvent>
+    <PostBuildEvent >
       <Message>Publishing to ..\..\..\game\mod_tf\bin\x64</Message>
-      <Command>if not exist "..\..\..\game\mod_tf\bin\x64" mkdir "..\..\..\game\mod_tf\bin\x64"
-copy "$(TargetDir)$(TargetFileName)" "..\..\..\game\mod_tf\bin\x64\$(TargetFileName)"
-if ERRORLEVEL 1 goto BuildEventFailed
-if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" ..\..\..\game\mod_tf\bin\x64\$(TargetName).map
-copy "$(TargetDir)$(TargetName).pdb" ..\..\..\game\mod_tf\bin\x64\$(TargetName).pdb
-if ERRORLEVEL 1 goto BuildEventFailed
-goto BuildEventOK
-:BuildEventFailed
-echo *** ERROR! PostBuildStep FAILED for $(ProjectName)! EXE or DLL is probably running. ***
-del /q "$(TargetDir)$(TargetFileName)"
-exit 1
-:BuildEventOK
-</Command>
+      <Command>if not exist &quot;..\..\..\game\mod_tf\bin\x64&quot; mkdir &quot;..\..\..\game\mod_tf\bin\x64&quot;&#x0D;&#x0A;copy &quot;$(TargetDir)$(TargetFileName)&quot; &quot;..\..\..\game\mod_tf\bin\x64\$(TargetFileName)&quot;&#x0D;&#x0A;if ERRORLEVEL 1 goto BuildEventFailed&#x0D;&#x0A;if exist &quot;$(TargetDir)$(TargetName).map&quot; copy &quot;$(TargetDir)$(TargetName).map&quot; ..\..\..\game\mod_tf\bin\x64\$(TargetName).map&#x0D;&#x0A;copy &quot;$(TargetDir)$(TargetName).pdb&quot; ..\..\..\game\mod_tf\bin\x64\$(TargetName).pdb&#x0D;&#x0A;if ERRORLEVEL 1 goto BuildEventFailed&#x0D;&#x0A;goto BuildEventOK&#x0D;&#x0A;:BuildEventFailed&#x0D;&#x0A;echo *** ERROR! PostBuildStep FAILED for $(ProjectName)! EXE or DLL is probably running. ***&#x0D;&#x0A;del /q &quot;$(TargetDir)$(TargetFileName)&quot;&#x0D;&#x0A;exit 1&#x0D;&#x0A;:BuildEventOK&#x0D;&#x0A;</Command>
     </PostBuildEvent>
-    <CustomBuildStep />
+    <CustomBuildStep  />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <PreBuildEvent>
-      <Command>if EXIST ..\..\..\game\mod_tf\bin\x64\$(TargetFileName) for /f "delims=" %%A in ('attrib "..\..\..\game\mod_tf\bin\x64\$(TargetFileName)"') do set valveTmpIsReadOnly="%%A"
-set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%
-if "%valveTmpIsReadOnlyLetter%"=="R" del /q "$(TargetDir)"$(TargetFileName)
-..\..\devtools\bin\vpc.exe -crc2 "client_win64_tf.vcxproj"
-</Command>
+    <PreBuildEvent >
+      <Command>if EXIST ..\..\..\game\mod_tf\bin\x64\$(TargetFileName) for /f &quot;delims=&quot; %%A in (&apos;attrib &quot;..\..\..\game\mod_tf\bin\x64\$(TargetFileName)&quot;&apos;) do set valveTmpIsReadOnly=&quot;%%A&quot;&#x0D;&#x0A;set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%&#x0D;&#x0A;if &quot;%valveTmpIsReadOnlyLetter%&quot;==&quot;R&quot; del /q &quot;$(TargetDir)&quot;$(TargetFileName)&#x0D;&#x0A;..\..\devtools\bin\vpc.exe -crc2 &quot;client_win64_tf.vcxproj&quot;&#x0D;&#x0A;</Command>
     </PreBuildEvent>
-    <ClCompile>
+    <ClCompile >
       <AdditionalOptions>/Zm200 /Zo /Gw /Zc:inline /Zc:threadSafeInit- /Wv:18 /Zc:__cplusplus</AdditionalOptions>
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <AdditionalIncludeDirectories>.\hl2;.\hl2\elements;.\tf;.\tf\vgui;..\statemachine;..\..\game\shared\multiplayer;..\..\game\shared\tf;..\..\gcsdk\steamextra;.\;..\..\common;..\..\public;..\..\public\tier0;..\..\public\tier1;..\..\game\client\generated_proto_mod_tf;..\..\thirdparty\protobuf-2.6.1\src;..\..\vgui2\include;..\..\vgui2\controls;..\..\game\shared;.\game_controls;..\..\thirdparty\sixensesdk\include;..\..\game\client\generated_proto_mod_tf;..\..\thirdparty\protobuf-2.6.1\src;..\..\game\shared\econ;..\..\gcsdk\steamextra;.\econ;.\econ</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>VPC;SOURCESDK;SOURCE_HAS_FREETYPE;WIN32;_WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;%(PreprocessorDefinitions);PLATFORM_64BITS;WIN64;_WIN64;COMPILER_MSVC64;COMPILER_MSVC;_DLL_EXT=.dll;DLLNAME=client;DEV_BUILD;FRAME_POINTER_O MISSION_DISABLED;REPLAY_ENABLED;NO_STRING_T;CLIENT_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;INCLUDED_STEAM2_USERID_STRUCTS;USES_ECON_ITEMS;TF_CLIENT_DLL;ENABLE_GC_MATCHMAKING;GLOWS_ENABLE;USE_DYNAMIC_ASSET_LOADING;VOTING_ENABLED;NEXT_BOT;DISABLE_GC_CONNECTION;DISABLE_IN_SOURCESDK;INVENTORY_VIA_WEBAPI;_DLL_PREFIX=;_EXTERNAL_DLL_EXT=.dll;PROJECTDIR=D:\TF-REBORN-REWRITE\src\game\client;VPCGAME=tf;VPCGAMECAPS=TF;TF_RAID_MODE</PreprocessorDefinitions>
+      <PreprocessorDefinitions>VPC;SOURCESDK;SOURCE_HAS_FREETYPE;WIN32;_WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;%(PreprocessorDefinitions);PLATFORM_64BITS;WIN64;_WIN64;COMPILER_MSVC64;PLATFORM_64BITS;WIN64;_WIN64;COMPILER_MSVC64;COMPILER_MSVC;_DLL_EXT=.dll;DLLNAME=client;DEV_BUILD;FRAME_POINTER_OMISSION_DISABLED;REPLAY_ENABLED;NO_STRING_T;CLIENT_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;INCLUDED_STEAM2_USERID_STRUCTS;USES_ECON_ITEMS;TF_CLIENT_DLL;USES_ECON_ITEMS;ENABLE_GC_MATCHMAKING;GLOWS_ENABLE;USE_DYNAMIC_ASSET_LOADING;VOTING_ENABLED;NEXT_BOT;DISABLE_GC_CONNECTION;DISABLE_IN_SOURCESDK;INVENTORY_VIA_WEBAPI;_DLL_EXT=.dll;_DLL_PREFIX=;_EXTERNAL_DLL_EXT=.dll;PROJECTDIR=D:\Programming\TF-REBORN-REWRITE\src\game\client;VPCGAME=tf;VPCGAMECAPS=TF</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -194,12 +173,12 @@ if "%valveTmpIsReadOnlyLetter%"=="R" del /q "$(TargetDir)"$(TargetFileName)
       <ErrorReporting>Prompt</ErrorReporting>
       <BuildStlModules>false</BuildStlModules>
     </ClCompile>
-    <ResourceCompile>
+    <ResourceCompile >
       <PreprocessorDefinitions>;NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Culture>1033</Culture>
     </ResourceCompile>
-    <PreLinkEvent />
-    <Link>
+    <PreLinkEvent  />
+    <Link >
       <AdditionalOptions> /ignore:4221</AdditionalOptions>
       <AdditionalDependencies>;shell32.lib;user32.lib;advapi32.lib;gdi32.lib;comdlg32.lib;ole32.lib;winmm.lib;wsock32.lib;Ws2_32.lib</AdditionalDependencies>
       <ShowProgress>NotSet</ShowProgress>
@@ -212,40 +191,27 @@ if "%valveTmpIsReadOnlyLetter%"=="R" del /q "$(TargetDir)"$(TargetFileName)
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
-      <BaseAddress>
-      </BaseAddress>
+      <BaseAddress> </BaseAddress>
       <TargetMachine>MachineX64</TargetMachine>
       <LinkErrorReporting>PromptImmediately</LinkErrorReporting>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
-    <Manifest>
+    <Manifest >
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Manifest>
-    <Xdcmake>
+    <Xdcmake >
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Xdcmake>
-    <Bscmake>
+    <Bscmake >
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <OutputFile>$(OutDir)/client.bsc</OutputFile>
     </Bscmake>
-    <PostBuildEvent>
+    <PostBuildEvent >
       <Message>Publishing to ..\..\..\game\mod_tf\bin\x64</Message>
-      <Command>if not exist "..\..\..\game\mod_tf\bin\x64" mkdir "..\..\..\game\mod_tf\bin\x64"
-copy "$(TargetDir)$(TargetFileName)" "..\..\..\game\mod_tf\bin\x64\$(TargetFileName)"
-if ERRORLEVEL 1 goto BuildEventFailed
-if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" ..\..\..\game\mod_tf\bin\x64\$(TargetName).map
-copy "$(TargetDir)$(TargetName).pdb" ..\..\..\game\mod_tf\bin\x64\$(TargetName).pdb
-if ERRORLEVEL 1 goto BuildEventFailed
-goto BuildEventOK
-:BuildEventFailed
-echo *** ERROR! PostBuildStep FAILED for $(ProjectName)! EXE or DLL is probably running. ***
-del /q "$(TargetDir)$(TargetFileName)"
-exit 1
-:BuildEventOK
-</Command>
+      <Command>if not exist &quot;..\..\..\game\mod_tf\bin\x64&quot; mkdir &quot;..\..\..\game\mod_tf\bin\x64&quot;&#x0D;&#x0A;copy &quot;$(TargetDir)$(TargetFileName)&quot; &quot;..\..\..\game\mod_tf\bin\x64\$(TargetFileName)&quot;&#x0D;&#x0A;if ERRORLEVEL 1 goto BuildEventFailed&#x0D;&#x0A;if exist &quot;$(TargetDir)$(TargetName).map&quot; copy &quot;$(TargetDir)$(TargetName).map&quot; ..\..\..\game\mod_tf\bin\x64\$(TargetName).map&#x0D;&#x0A;copy &quot;$(TargetDir)$(TargetName).pdb&quot; ..\..\..\game\mod_tf\bin\x64\$(TargetName).pdb&#x0D;&#x0A;if ERRORLEVEL 1 goto BuildEventFailed&#x0D;&#x0A;goto BuildEventOK&#x0D;&#x0A;:BuildEventFailed&#x0D;&#x0A;echo *** ERROR! PostBuildStep FAILED for $(ProjectName)! EXE or DLL is probably running. ***&#x0D;&#x0A;del /q &quot;$(TargetDir)$(TargetFileName)&quot;&#x0D;&#x0A;exit 1&#x0D;&#x0A;:BuildEventOK&#x0D;&#x0A;</Command>
     </PostBuildEvent>
-    <CustomBuildStep />
+    <CustomBuildStep  />
   </ItemDefinitionGroup>
   <ItemGroup>
     <Library Include="..\..\lib\public\x64\bitmap.lib" />
@@ -2421,61 +2387,51 @@ exit 1
   <ItemGroup>
     <CustomBuild Include="..\..\game\shared\base_gcmessages.proto">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Running Protocol Buffer Compiler on %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf
-..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf&#x0D;&#x0A;..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\vpc_scripts\vpc_trivial_dependency.txt</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\game\client\generated_proto_mod_tf\%(Filename).pb.cc;..\..\game\client\generated_proto_mod_tf\%(Filename).pb.h</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Running Protocol Buffer Compiler on %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf
-..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf&#x0D;&#x0A;..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\vpc_scripts\vpc_trivial_dependency.txt</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\game\client\generated_proto_mod_tf\%(Filename).pb.cc;..\..\game\client\generated_proto_mod_tf\%(Filename).pb.h</Outputs>
     </CustomBuild>
     <CustomBuild Include="..\..\game\shared\econ\econ_gcmessages.proto">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Running Protocol Buffer Compiler on %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf
-..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf&#x0D;&#x0A;..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\vpc_scripts\vpc_trivial_dependency.txt</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\game\client\generated_proto_mod_tf\%(Filename).pb.cc;..\..\game\client\generated_proto_mod_tf\%(Filename).pb.h</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Running Protocol Buffer Compiler on %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf
-..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf&#x0D;&#x0A;..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\vpc_scripts\vpc_trivial_dependency.txt</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\game\client\generated_proto_mod_tf\%(Filename).pb.cc;..\..\game\client\generated_proto_mod_tf\%(Filename).pb.h</Outputs>
     </CustomBuild>
     <CustomBuild Include="..\..\gcsdk\steammessages.proto">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Running Protocol Buffer Compiler on %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf
-..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf&#x0D;&#x0A;..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\vpc_scripts\vpc_trivial_dependency.txt</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\game\client\generated_proto_mod_tf\%(Filename).pb.cc;..\..\game\client\generated_proto_mod_tf\%(Filename).pb.h</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Running Protocol Buffer Compiler on %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf
-..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf&#x0D;&#x0A;..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\vpc_scripts\vpc_trivial_dependency.txt</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\game\client\generated_proto_mod_tf\%(Filename).pb.cc;..\..\game\client\generated_proto_mod_tf\%(Filename).pb.h</Outputs>
     </CustomBuild>
     <CustomBuild Include="..\..\game\shared\tf\tf_gcmessages.proto">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Running Protocol Buffer Compiler on %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf
-..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf&#x0D;&#x0A;..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\vpc_scripts\vpc_trivial_dependency.txt</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\game\client\generated_proto_mod_tf\%(Filename).pb.cc;..\..\game\client\generated_proto_mod_tf\%(Filename).pb.h</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Running Protocol Buffer Compiler on %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf
-..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf&#x0D;&#x0A;..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\vpc_scripts\vpc_trivial_dependency.txt</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\game\client\generated_proto_mod_tf\%(Filename).pb.cc;..\..\game\client\generated_proto_mod_tf\%(Filename).pb.h</Outputs>
     </CustomBuild>
     <CustomBuild Include="..\..\game\shared\tf\tf_proto_def_messages.proto">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Running Protocol Buffer Compiler on %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf
-..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf&#x0D;&#x0A;..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\vpc_scripts\vpc_trivial_dependency.txt</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\game\client\generated_proto_mod_tf\%(Filename).pb.cc;..\..\game\client\generated_proto_mod_tf\%(Filename).pb.h</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Running Protocol Buffer Compiler on %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf
-..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">if not exist ..\..\game\client\generated_proto_mod_tf mkdir ..\..\game\client\generated_proto_mod_tf&#x0D;&#x0A;..\..\thirdparty\protobuf-2.6.1\bin\win64\2015\staticcrt\release\protoc.exe --proto_path=..\..\thirdparty\protobuf-2.6.1\src --proto_path=%(RootDir)%(Directory) --proto_path=..\..\gcsdk --proto_path=..\..\game\shared  --cpp_out=..\..\game\client\generated_proto_mod_tf %(FullPath)</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\vpc_scripts\vpc_trivial_dependency.txt</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\game\client\generated_proto_mod_tf\%(Filename).pb.cc;..\..\game\client\generated_proto_mod_tf\%(Filename).pb.h</Outputs>
     </CustomBuild>

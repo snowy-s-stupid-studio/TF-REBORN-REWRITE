@@ -15,6 +15,7 @@
 #ifndef TF_GAMERULES_H
 #define TF_GAMERULES_H
 
+#define TF_RAID_MODE
 #ifdef _WIN32
 #pragma once
 #endif
