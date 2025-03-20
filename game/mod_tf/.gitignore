@@ -1175,3 +1175,6 @@ addons/sourcemod/translations/zho/sounds.phrases.txt
 addons/sourcemod/translations/zho/sqladmins.phrases.txt
 tf2_playerstats.dmx
 demoheader.tmp
+*.exp
+*.lib
+*.pdb

@@ -32,7 +32,7 @@
 
 
 // Half-Life User Info Configuration Layout Script (stores last settings chosen, too)
-// File generated:  Sat Mar 15 17:27:45 AM
+// File generated:  Wed Mar 19 22:22:40 AM
 //
 //
 // Cvar	-	Setting
@@ -90,7 +90,7 @@ DESCRIPTION INFO_OPTIONS
 		"#GameUI_FastSwitchCheck"
 		"#Tooltip_hud_fastswitch"
 		{ BOOL }
-		{ "0" }
+		{ "1" }
 	}
 
 	"tf_dingalingaling"
@@ -534,7 +534,7 @@ DESCRIPTION INFO_OPTIONS
 	{
 		"#TF_UseMatchHUD"
 		{ BOOL }
-		{ "0" }
+		{ "1" }
 	}
 
 	"category5"
@@ -869,7 +869,7 @@ DESCRIPTION INFO_OPTIONS
 		"Display Steam Friends List"
 		"Show your Steam Friends List on the main menu. (requires restart)"
 		{ BOOL }
-		{ "1" }
+		{ "0" }
 	}
 
 }
