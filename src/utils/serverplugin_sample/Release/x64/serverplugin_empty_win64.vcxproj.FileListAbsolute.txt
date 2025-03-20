@@ -1,2 +1,0 @@
-D:\TF2--REBORN\holdon\utils\serverplugin_sample\Release\x64\serverplugin_empty.dll
-D:\TF-REBORN-REWRITE\src\utils\serverplugin_sample\Release\x64\serverplugin_empty.dll
