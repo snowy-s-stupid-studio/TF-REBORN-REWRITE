@@ -503,4 +503,8 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
+# Prevents accidentally deleting files that are annoying to add again.
 !src/devtools/*
+
+**/mod_tf_win64.exe
+**/local_loadout*
