@@ -502,4 +502,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-src/tier1/Release/x64/tier1.tlog/CL.write.1.tlog
+
+!src/devtools/*
