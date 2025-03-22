@@ -18,7 +18,10 @@
 
 using namespace vgui;
 
-extern ConVar hud_drawhistory_time;
+
+#define HISTORY_DRAW_TIME	"5"
+
+ConVar hud_drawhistory_time("hud_drawhistory_time", HISTORY_DRAW_TIME, 0);
 
 DECLARE_HUDELEMENT( CHudHistoryResource );
 DECLARE_HUD_MESSAGE( CHudHistoryResource, ItemPickup );
