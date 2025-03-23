@@ -19,5 +19,8 @@ startupmenu
 sv_unlockedchapters 99
 
 //Fix bug
-wait 5; showconsole; wait; toggle mat_aaquality 0 1; hideconsole; wait 5
+wait 5; wait; toggle mat_aaquality 0 1; wait 5
 exec playlistbuttons.cfg
+// TF2 REBORN STUFF AUTOEXEC!!
+
+hostname Team Fortress 2 Reborn
