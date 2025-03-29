@@ -120,6 +120,9 @@
 #include "tf_shared_content_manager.h"
 #include "tf_gamerules.h"
 #endif
+#ifdef DISCORD_RPC
+#include "discord_rpc.h"
+#endif
 #include "clientsteamcontext.h"
 #include "renamed_recvtable_compat.h"
 #include "mouthinfo.h"
@@ -338,6 +341,11 @@ void DispatchHudText( const char *pszName );
 static ConVar s_CV_ShowParticleCounts("showparticlecounts", "0", 0, "Display number of particles drawn per frame");
 static ConVar s_cl_team("cl_team", "default", FCVAR_USERINFO|FCVAR_ARCHIVE, "Default team when joining a game");
 static ConVar s_cl_class("cl_class", "default", FCVAR_USERINFO|FCVAR_ARCHIVE, "Default class when joining a game");
+
+#ifdef DISCORD_RPC
+	static ConVar cl_discord_appid("cl_discord_appid", "1353062142508662965", FCVAR_DEVELOPMENTONLY | FCVAR_CHEAT);
+	static int64_t startTimestamp = time(0);
+#endif
 
 #ifdef HL1MP_CLIENT_DLL
 static ConVar s_cl_load_hl1_content("cl_load_hl1_content", "0", FCVAR_ARCHIVE, "Mount the content from Half-Life: Source if possible");
@@ -853,6 +861,44 @@ bool IsEngineThreaded()
 	return false;
 }
 
+#ifdef DISCORD_RPC
+//-----------------------------------------------------------------------------
+// Discord RPC
+//-----------------------------------------------------------------------------
+static void HandleDiscordReady(const DiscordUser* connectedUser)
+{
+	DevMsg("Discord: Connected to user %s#%s - %s\n",
+		connectedUser->username,
+		connectedUser->discriminator,
+		connectedUser->userId);
+}
+
+static void HandleDiscordDisconnected(int errcode, const char* message)
+{
+	DevMsg("Discord: Disconnected (%d: %s)\n", errcode, message);
+}
+
+static void HandleDiscordError(int errcode, const char* message)
+{
+	DevMsg("Discord: Error (%d: %s)\n", errcode, message);
+}
+
+static void HandleDiscordJoin(const char* secret)
+{
+	// Not implemented
+}
+
+static void HandleDiscordSpectate(const char* secret)
+{
+	// Not implemented
+}
+
+static void HandleDiscordJoinRequest(const DiscordUser* request)
+{
+	// Not implemented
+}
+#endif
+
 //-----------------------------------------------------------------------------
 // Constructor
 //-----------------------------------------------------------------------------
@@ -1124,6 +1170,34 @@ int CHLClient::Init( CreateInterfaceFn appSystemFactory, CreateInterfaceFn physi
 		RegisterSecureLaunchProcessFunc( pfnUnsafeCmdLineProcessor );
 	}
 
+#ifdef DISCORD_RPC
+	DiscordEventHandlers handlers;
+	memset(&handlers, 0, sizeof(handlers));
+
+	handlers.ready = HandleDiscordReady;
+	handlers.disconnected = HandleDiscordDisconnected;
+	handlers.errored = HandleDiscordError;
+	handlers.joinGame = HandleDiscordJoin;
+	handlers.spectateGame = HandleDiscordSpectate;
+	handlers.joinRequest = HandleDiscordJoinRequest;
+
+	char appid[255];
+	sprintf(appid, "%d", engine->GetAppID());
+	Discord_Initialize(cl_discord_appid.GetString(), &handlers, 1, appid);
+
+	if (!g_bTextMode)
+	{
+		DiscordRichPresence discordPresence;
+		memset(&discordPresence, 0, sizeof(discordPresence));
+
+		discordPresence.state = "Main Menu";
+		discordPresence.details = "";
+		discordPresence.startTimestamp = startTimestamp;
+		discordPresence.largeImageKey = "test";
+		Discord_UpdatePresence(&discordPresence);
+	}
+#endif
+
 	return true;
 }
 
@@ -1221,7 +1295,6 @@ void CHLClient::Shutdown( void )
 
 	C_BaseAnimating::ShutdownBoneSetupThreadPool();
 	ClientWorldFactoryShutdown();
-
 	g_pGameSaveRestoreBlockSet->RemoveBlockHandler( GetViewEffectsRestoreBlockHandler() );
 	g_pGameSaveRestoreBlockSet->RemoveBlockHandler( GetPhysSaveRestoreBlockHandler() );
 	g_pGameSaveRestoreBlockSet->RemoveBlockHandler( GetEntitySaveRestoreBlockHandler() );
@@ -1253,6 +1326,9 @@ void CHLClient::Shutdown( void )
 	ClientSteamContext().Shutdown();
 #endif
 
+#ifdef DISCORD_RPC
+	Discord_Shutdown();
+#endif
 	
 	// This call disconnects the VGui libraries which we rely on later in the shutdown path, so don't do it
 //	DisconnectTier3Libraries( );
@@ -1647,7 +1723,20 @@ void CHLClient::LevelInitPreEntity( char const* pMapName )
 		pItemSchema->BInitFromDelayedBuffer();
 	}
 #endif // USES_ECON_ITEMS
+#ifdef DISCORD_RPC
+	if (!g_bTextMode)
+	{
+		DiscordRichPresence discordPresence;
+		memset(&discordPresence, 0, sizeof(discordPresence));
 
+		char buffer[256];
+		discordPresence.state = "In-Game";
+		sprintf(buffer, "Current map: %s", pMapName);
+		discordPresence.details = buffer;
+		discordPresence.largeImageKey = pMapName;
+		Discord_UpdatePresence(&discordPresence);
+	}
+#endif
 	ResetWindspeed();
 
 #if !defined( NO_ENTITY_PREDICTION )

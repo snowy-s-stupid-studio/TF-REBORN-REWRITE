@@ -30,6 +30,7 @@ $Configuration
 		$PreprocessorDefinitions		"$BASE;WORKSHOP_IMPORT_ENABLED" [$WORKSHOP_IMPORT_ENABLE]
 		$PreprocessorDefinitions		"$BASE;SIXENSE" [!$SOURCESDK]
 		$PreprocessorDefinitions		"$BASE;DISABLE_GC_CONNECTION;DISABLE_IN_SOURCESDK;INVENTORY_VIA_WEBAPI" [$SOURCESDK]
+		$PreprocessorDefinitions		"$BASE;DISCORD_RPC" [$DISCORD_RPC]
 	}
 }
 
@@ -997,6 +998,10 @@ $Project "Client (TF)"
 		$File "$SRCDIR\..\game\tf\resource\tf_english.txt"
 		$File "$SRCDIR\..\game\tf\resource\ModEvents.res"
 		$File "$SRCDIR\..\game\tf\resource\ClientScheme.res"
+	}
+	$Folder	"Link Libraries" [$DISCORD_RPC]
+	{
+		$Lib	"$LIBPUBLIC\discord_rpc"
 	}
 }
 
