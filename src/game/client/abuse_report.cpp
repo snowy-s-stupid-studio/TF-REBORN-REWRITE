@@ -1,6 +1,6 @@
 //========= Copyright Valve Corporation, All rights reserved. ============//
 //
-// Purpose: Generic in-game abuse reporting
+// Purpose: Generic in-game abuse reporting	TODO: make it to use webhoooks instead of going to steam api cause that's stupid
 //
 // $NoKeywords: $
 //=============================================================================//
