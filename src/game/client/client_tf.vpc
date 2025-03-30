@@ -5,10 +5,8 @@
 //-----------------------------------------------------------------------------
 
 $Macro SRCDIR		"..\.."
-// ENABLE TF_RAID_MODE
-$Macro TF_RAID_MODE	"1"
 $Macro GAMENAME 	"tf" [!$SOURCESDK]
-$Macro GAMENAME 	"mod_tf" [$SOURCESDK]
+$Macro GAMENAME 	"tfreborn" [$SOURCESDK]
 
 // This code currently only builds on Windows (itemtest_lib and dependencies)
 $Conditional WORKSHOP_IMPORT_ENABLE	1 [$WINDOWS && !$SOURCESDK]
