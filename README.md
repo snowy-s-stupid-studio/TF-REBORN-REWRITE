@@ -7,4 +7,5 @@
 - merely, helped me with the itemserver fix thing
 - curioustommy, compiling for linux, programmer
 - birchly, programmer
+- gordon freakman, programmer, helping me with stuff
 - vianraa, mostly helping
