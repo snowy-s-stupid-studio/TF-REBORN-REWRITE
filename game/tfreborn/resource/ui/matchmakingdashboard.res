@@ -1,19 +1,20 @@
 "Resource/UI/MatchMakingDashboard.res"
 {
-    "MMDashboard"
-    {
-        "fieldName"             "MMDashboard"
-        "visible"               "1"
-        "enabled"               "1"
-        "xpos"                  "cs-0.5"
-        "ypos"                  "-5"
-        "zpos"                  "-5"
-        "wide"                  "f0"
-        "tall"                  "336"
-    
-        "collapsed_height"  "0"
-        "expanded_height"   "336"
-        "resize_time"       "0"	
+	"MMDashboard"
+	{
+		"fieldName"		"MMDashboard"
+		"visible"		"1"
+		"enabled"		"1"
+		"xpos"			"cs-0.5"
+		"ypos"			"-5"
+		"zpos"			"-5"
+		"wide"			"f0"
+		"tall"			"270"
+		"keyboardinputenabled"	"0"
+
+		"collapsed_height"	"0"
+		"expanded_height"	"270"
+		"resize_time"	"0"	
 	}
 	
 	"TopBar"
@@ -22,7 +23,6 @@
 		"fieldName"		"TopBar"
 		"xpos"			"cs-0.5"
 		"ypos"			"0"
-		"zpos"			"1"
 		"wide"			"f0"
 		"tall"			"35"
 		"visible"		"1"

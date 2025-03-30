@@ -1,0 +1,16 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\props_spytech/light_glow_worn"
+	"$selfillum" "0"
+
+	"Proxies"
+	{
+		"TextureScroll"
+		{
+			"texturescrollvar" "$basetexturetransform"
+			"texturescrollrate" 0.016
+			"texturescrollangle" 0
+		}
+	}	
+}
+

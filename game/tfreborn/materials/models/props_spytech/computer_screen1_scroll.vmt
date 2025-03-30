@@ -1,0 +1,30 @@
+ "UnlitGeneric"
+{
+	"$baseTexture" "models\props_spytech/computer_screen1_scroll"
+	"$detail" "models\props_spytech/computer_screen1_mask"
+	"$detailscale" "1"
+//	"$detailblendmode" "8"
+	"$detail_alpha_mask_base_texture" "1"
+	"$model" "1"
+	"$translucent" "1"
+
+
+
+	"Proxies"
+	{
+		"TextureScroll"
+		{
+			"texturescrollvar" "$basetexturetransform"
+			"texturescrollrate" 0.125
+			"texturescrollangle" 180
+		}
+
+}	
+}
+
+// "UnlitGeneric"
+//{
+//	"$baseTexture" "models\props_spytech/computer_screen1_scroll"
+	
+//	"$model" "1"
+//$translucent" "1"

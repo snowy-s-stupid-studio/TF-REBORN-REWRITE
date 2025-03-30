@@ -1,0 +1,9 @@
+ "UnlitGeneric"
+{
+	"$baseTexture" "dev\null"
+	"$detail" "models\props_spytech/computer_screen1_mask"
+	"$detailscale" "1"
+//	"$detailblendmode" "8"
+	"$detail_alpha_mask_base_texture" "1"
+	"$model" "1"
+	"$translucent" "1"

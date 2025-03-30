@@ -6,7 +6,7 @@ r_decal_cullsize 1
 exec joystick.cfg
 
 // run a user script file if present
-exec autoexec.cfg
+exec playlist.cfg
 
 //
 // stuff command line statements
@@ -18,9 +18,6 @@ startupmenu
 
 sv_unlockedchapters 99
 
-//Fix bug
-wait 5; wait; toggle mat_aaquality 0 1; wait 5
-exec playlistbuttons.cfg
-// TF2 REBORN STUFF AUTOEXEC!!
-
-hostname Team Fortress 2 Reborn
+//Play list loader
+//wait 5; incrementvar mat_antialias -100 100 1; wait 5; incrementvar mat_antialias -100 100 -1
+incrementvar mat_antialias -100 100 1
