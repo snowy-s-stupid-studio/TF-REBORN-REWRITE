@@ -29,7 +29,7 @@ ActionResult< CTFBot >	CTFBotEngineerBuildTeleportEntrance::OnStart( CTFBot *me,
 ActionResult< CTFBot >	CTFBotEngineerBuildTeleportEntrance::Update( CTFBot *me, float interval )
 {
 	CTeamControlPoint *point = me->GetMyControlPoint();
-	CCaptureZone* zone = me->GetFlagCaptureZone();				// auto zone = me->GetFlagCaptureZone();
+	CCaptureZone *zone = me->GetFlagCaptureZone();				// auto zone = me->GetFlagCaptureZone();
 	CFuncPasstimeGoal *passzone = me->GetBallCaptureZone();		// auto passzone = me->GetBallCaptureZone();
 	if ( !point && !zone && !passzone )
 	{
