@@ -1023,16 +1023,16 @@ void CTFWeaponBaseGun::DoFireEffects()
 void CTFWeaponBaseGun::ToggleZoom( void )
 {
 	// Toggle the zoom.
-	CBasePlayer *pPlayer = GetPlayerOwner();
+	CTFPlayer* pPlayer = ToTFPlayer(GetOwner());
 	if ( pPlayer )
 	{
-		if( pPlayer->GetFOV() >= 75 )
+		if (pPlayer->m_Shared.InCond(TF_COND_ZOOMED))
 		{
-			ZoomIn();
+			ZoomOut();
 		}
 		else
 		{
-			ZoomOut();
+			ZoomIn();
 		}
 	}
 

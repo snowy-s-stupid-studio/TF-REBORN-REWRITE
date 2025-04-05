@@ -1041,7 +1041,7 @@ bool CTFSniperRifle::CanFireCriticalShot( bool bIsHeadshot, CBaseEntity *pTarget
 		if ( pPlayer )
 		{
 			// no crits if they're not zoomed
-			if ( pPlayer->GetFOV() >= pPlayer->GetDefaultFOV() )
+			if (!pPlayer->m_Shared.InCond(TF_COND_ZOOMED))
 			{
 				return false;
 			}
