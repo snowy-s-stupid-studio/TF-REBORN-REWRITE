@@ -40,6 +40,7 @@ class C_TFDroppedWeapon;
 class C_PasstimePlayerReticle;
 class C_PasstimeAskForBallReticle;
 
+extern ConVar tf_classic_toggle_charge;
 extern ConVar tf_medigun_autoheal;
 extern ConVar cl_autorezoom;
 extern ConVar cl_autoreload;
@@ -291,6 +292,7 @@ public:
 	void			ForceUpdateObjectHudState( void );
 
 	bool			GetMedigunAutoHeal( void ){ return tf_medigun_autoheal.GetBool(); }
+	bool			GetClassicToggleCharge( void ) { return tf_classic_toggle_charge.GetBool(); }
 	bool			ShouldAutoRezoom( void ){ return cl_autorezoom.GetBool(); }
 	bool			ShouldAutoReload( void ){ return cl_autoreload.GetBool(); }
 

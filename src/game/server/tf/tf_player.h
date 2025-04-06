@@ -447,6 +447,9 @@ public:
 
 	bool GetMedigunAutoHeal( void ){ return m_bMedigunAutoHeal; }
 	void SetMedigunAutoHeal( bool bMedigunAutoHeal ){ m_bMedigunAutoHeal = bMedigunAutoHeal; }
+	bool GetClassicToggleCharge( void ) { return m_bClassicToggleCharge; }
+	void SetClassicToggleCharge( bool bClassicToggleCharge ) { m_bClassicToggleCharge = bClassicToggleCharge; }
+
 	CBaseEntity		*MedicGetHealTarget( void );
 	HSCRIPT ScriptGetHealTarget() { return ToHScript( MedicGetHealTarget() ); }
 	float			MedicGetChargeLevel( CTFWeaponBase **pRetMedigun = NULL );
@@ -1240,6 +1243,7 @@ private:
 	bool				m_bSpeakingConceptAsDisguisedSpy;
 
 	bool 				m_bMedigunAutoHeal;
+	bool				m_bClassicToggleCharge;
 	bool				m_bAutoRezoom;	// does the player want to re-zoom after each shot for sniper rifles
 	bool				m_bAutoReload;
 

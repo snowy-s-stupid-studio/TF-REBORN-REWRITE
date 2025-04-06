@@ -46,8 +46,11 @@ void ToolFramework_RecordMaterialParams( IMaterial *pMaterial );
 #define SNIPER_CHARGE_BEAM_BLUE		"tfc_sniper_charge_blue"
 
 #ifdef CLIENT_DLL
-ConVar tf_sniper_fullcharge_bell( "tf_sniper_fullcharge_bell", "0", FCVAR_ARCHIVE );
+ConVar tf_classic_toggle_charge( "tf_classic_toggle_charge", "0", FCVAR_CLIENTDLL | FCVAR_ARCHIVE | FCVAR_USERINFO, "Setting this to 1 will cause the Classic's primary attack to be a toggle instead of needing to be held down." );
+ConVar tf_sniper_fullcharge_bell( "tf_sniper_fullcharge_bell", "0", FCVAR_CLIENTDLL | FCVAR_ARCHIVE );
 #endif
+
+ConVar tf_classic_jump_shoot( "tf_classic_jump_shoot", "0", FCVAR_CHEAT | FCVAR_REPLICATED | FCVAR_NOTIFY, "Setting this to 1 allows Classic snipers to shoot while jumping." );
 
 //=============================================================================
 //
@@ -1766,6 +1769,7 @@ CTFSniperRifleClassic::CTFSniperRifleClassic()
 	m_bCharging = false;
 #ifdef CLIENT_DLL
 	m_pChargedEffect = NULL;
+	m_bCanFire = true;
 #endif
 }
 
@@ -1904,64 +1908,125 @@ void CTFSniperRifleClassic::ItemPostFrame( void )
 		return;
 	}
 
-	if ( ( pPlayer->m_nButtons & IN_ATTACK ) && ( m_flNextPrimaryAttack <= gpGlobals->curtime ) )
+	// Toggle firing mode.
+	if ( pPlayer->GetClassicToggleCharge() )
 	{
-		if ( !m_bCharging )
+		if ( (pPlayer->m_nButtons & IN_ATTACK) && (m_flNextPrimaryAttack <= gpGlobals->curtime) )
 		{
-			pPlayer->m_Shared.AddCond( TF_COND_AIMING );
-			pPlayer->TeamFortress_SetSpeed();
-
-			m_bCharging = true;
-#ifdef GAME_DLL
-			// Create the sniper dot.
-			CreateSniperDot();
-			pPlayer->ClearExpression();	
-#endif
-		}
-
-		float fSniperRifleChargePerSec = m_flChargePerSec;
-		ApplyChargeSpeedModifications( fSniperRifleChargePerSec );
-		fSniperRifleChargePerSec += SniperRifleChargeRateMod();
-
-		// we don't want sniper charge rate to go too high.
-		fSniperRifleChargePerSec = clamp( fSniperRifleChargePerSec, 0, 2.f * TF_WEAPON_SNIPERRIFLE_CHARGE_PER_SEC );
-
-		m_flChargedDamage = MIN( m_flChargedDamage + gpGlobals->frametime * fSniperRifleChargePerSec, TF_WEAPON_SNIPERRIFLE_DAMAGE_MAX );
-
-#ifdef CLIENT_DLL
-		// play the recharged bell if we're fully charged
-		if ( IsFullyCharged() && !m_bPlayedBell )
-		{
-			m_bPlayedBell = true;
-			if ( tf_sniper_fullcharge_bell.GetBool() )
+			if (m_bCanFire && m_bCharging)
 			{
-				C_TFPlayer::GetLocalTFPlayer()->EmitSound( "TFPlayer.ReCharged" );
+				FireOperation();
+			}
+			else
+			{
+				ChargeOperation();
+				m_bCanFire = false;
 			}
 		}
-#endif
-	}
-	else if ( m_bCharging )
-	{
-		if ( pPlayer->GetGroundEntity() )
+		else if ( m_bCharging )
 		{
-			Fire( pPlayer );
+			ChargeOperation();
+			m_bCanFire = true;
 		}
 		else
 		{
-			pPlayer->EmitSound( "Player.DenyWeaponSelection" );
+			// Idle.
+			// No fire buttons down or reloading
+			if (!ReloadOrSwitchWeapons() && (m_bInReload == false))
+			{
+				WeaponIdle();
+			}
 		}
+	}
 
-		WeaponReset();
+	// Normal firing mode.
+	else
+	{
+		if ((pPlayer->m_nButtons & IN_ATTACK) && (m_flNextPrimaryAttack <= gpGlobals->curtime))
+		{
+			ChargeOperation();
+		}
+		else if (m_bCharging)
+		{
+			FireOperation();
+		}
+		else
+		{
+			// Idle.
+			// No fire buttons down or reloading
+			if (!ReloadOrSwitchWeapons() && (m_bInReload == false))
+			{
+				WeaponIdle();
+			}
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------
+// Purpose: 
+//-----------------------------------------------------------------------------
+void CTFSniperRifleClassic::FireOperation( void )
+{
+	// Get the owning player.
+	CTFPlayer* pPlayer = ToTFPlayer( GetOwner() );
+	if (!pPlayer)
+		return;
+
+	if ( pPlayer->GetGroundEntity() || tf_classic_jump_shoot.GetBool() )
+	{
+		Fire( pPlayer );
 	}
 	else
 	{
-		// Idle.
-		// No fire buttons down or reloading
-		if ( !ReloadOrSwitchWeapons() && ( m_bInReload == false ) )
+		pPlayer->EmitSound( "Player.DenyWeaponSelection" );
+	}
+
+	WeaponReset();
+}
+
+//-----------------------------------------------------------------------------
+// Purpose: 
+//-----------------------------------------------------------------------------
+void CTFSniperRifleClassic::ChargeOperation( void )
+{
+	// Get the owning player.
+	CTFPlayer* pPlayer = ToTFPlayer( GetOwner() );
+	if (!pPlayer)
+		return;
+
+	if (!m_bCharging)
+	{
+		pPlayer->m_Shared.AddCond( TF_COND_AIMING );
+		pPlayer->TeamFortress_SetSpeed();
+
+		m_bCharging = true;
+#ifdef GAME_DLL
+		// Create the sniper dot.
+		CreateSniperDot();
+		pPlayer->ClearExpression();
+#endif
+	}
+
+	float fSniperRifleChargePerSec = m_flChargePerSec;
+	ApplyChargeSpeedModifications( fSniperRifleChargePerSec );
+	fSniperRifleChargePerSec += SniperRifleChargeRateMod();
+
+	// we don't want sniper charge rate to go too high.
+	fSniperRifleChargePerSec = clamp( fSniperRifleChargePerSec, 0, 2.f * TF_WEAPON_SNIPERRIFLE_CHARGE_PER_SEC );
+
+	m_flChargedDamage = MIN( m_flChargedDamage + gpGlobals->frametime * fSniperRifleChargePerSec, TF_WEAPON_SNIPERRIFLE_DAMAGE_MAX );
+
+#ifdef CLIENT_DLL
+	// play the recharged bell if we're fully charged
+	if (IsFullyCharged() && !m_bPlayedBell)
+	{
+		m_bPlayedBell = true;
+		if (tf_sniper_fullcharge_bell.GetBool())
 		{
-			WeaponIdle();
+			C_TFPlayer::GetLocalTFPlayer()->EmitSound( "TFPlayer.ReCharged" );
 		}
 	}
+#endif
 }
 
 //-----------------------------------------------------------------------------
@@ -1999,6 +2064,8 @@ void CTFSniperRifleClassic::WeaponReset( void )
 {
 	m_flChargedDamage = 0.0f;
 	m_bCharging = false;
+	m_bCanFire = false;
+
 #ifdef CLIENT_DLL
 	ManageChargeBeam();
 #endif
@@ -2062,8 +2129,7 @@ void CTFSniperRifleClassic::ManageChargeBeam( void )
 		}
 	}
 }
-
-#endif
+#endif //CLIENT_DLL
 
 //-----------------------------------------------------------------------------
 // Purpose: 

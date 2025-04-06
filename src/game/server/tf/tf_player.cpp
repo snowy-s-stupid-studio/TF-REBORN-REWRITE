@@ -971,6 +971,7 @@ CTFPlayer::CTFPlayer()
 
 	m_bHudClassAutoKill = false;
 	m_bMedigunAutoHeal = false;
+	m_bClassicToggleCharge = false;
 
 	m_vecLastDeathPosition = Vector( FLT_MAX, FLT_MAX, FLT_MAX );
 

@@ -264,13 +264,18 @@ public:
 
 	void		Detach( void ) OVERRIDE;
 
+protected:
+	bool m_bCanFire;
+
 private:
 	CNetworkVar( bool, m_bCharging );
+	void FireOperation( void );
+	void ChargeOperation( void );
 #ifdef CLIENT_DLL
 	void ManageChargeBeam( void );
-	HPARTICLEFFECT	m_pChargedEffect;
-#endif
-};
 
+	HPARTICLEFFECT	m_pChargedEffect;
+#endif // CLIENT_DLL
+};
 
 #endif // TF_WEAPON_SNIPERRIFLE_H
