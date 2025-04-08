@@ -13,24 +13,24 @@
 #endif
 
 // the command line param that tells the engine to use steam
-#define STEAM_PARM					"-steam"
+#define STEAM_PARM		"-steam"
 // the command line param to tell dedicated server to restart 
 // if they are out of date
-#define AUTO_RESTART "-autoupdate"
+#define AUTO_RESTART	"-autoupdate"
 
 // the message a server sends when a clients steam login is expired
-#define INVALID_STEAM_TICKET "Invalid STEAM UserID Ticket\n"
-#define INVALID_STEAM_VACBANSTATE "VAC banned from secure server\n"
-#define INVALID_STEAM_LOGGED_IN_ELSEWHERE "This Steam account is being used in another location\n"
-#define INVALID_STEAM_LOGON_NOT_CONNECTED "Client not connected to Steam\n"
-#define INVALID_STEAM_LOGON_TICKET_CANCELED "Client left game (Steam auth ticket has been canceled)\n"
+#define INVALID_STEAM_TICKET					"Invalid STEAM UserID Ticket\n"
+#define INVALID_STEAM_VACBANSTATE				"VAC banned from secure server\n"
+#define INVALID_STEAM_LOGGED_IN_ELSEWHERE		"This Steam account is being used in another location\n"
+#define INVALID_STEAM_LOGON_NOT_CONNECTED		"Client not connected to Steam\n"
+#define INVALID_STEAM_LOGON_TICKET_CANCELED		"Client left game (Steam auth ticket has been canceled)\n"
 
-#define CLIENTNAME_TIMED_OUT "%s timed out"
+#define CLIENTNAME_TIMED_OUT					"%s timed out"
 
 // This is the default, see shareddefs.h for mod-specific value, which can override this
 #define DEFAULT_TICK_INTERVAL	(0.015)				// 15 msec is the default
 #define MINIMUM_TICK_INTERVAL   (0.001)
-#define MAXIMUM_TICK_INTERVAL	(0.1)
+#define MAXIMUM_TICK_INTERVAL	(0.03)
 
 // This is the max # of players the engine can handle
 #define ABSOLUTE_PLAYER_LIMIT 255  // not 256, so we can send the limit as a byte 
