@@ -5582,18 +5582,10 @@ bool CTFWeaponBase::IsViewModelFlipped( void )
 	if ( !pPlayer )
 		return false;
 
-#ifdef GAME_DLL
-	if ( m_bFlipViewModel != pPlayer->m_bFlipViewModels )
+	if ( m_bFlipViewModel != pPlayer->GetFlipViewModels() )
 	{
 		return true;
 	}
-#else
-	if ( m_bFlipViewModel != cl_flipviewmodels.GetBool() )
-	{
-		return true;
-	}
-#endif
-
 	return false;
 }
 

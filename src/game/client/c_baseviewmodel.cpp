@@ -40,7 +40,7 @@
 #endif
 
 #ifdef TF_CLIENT_DLL
-	ConVar cl_flipviewmodels( "cl_flipviewmodels", "0", FCVAR_USERINFO | FCVAR_ARCHIVE | FCVAR_NOT_CONNECTED, "Flip view models." );
+	ConVar cl_flipviewmodels( "cl_flipviewmodels", "0", FCVAR_USERINFO | FCVAR_ARCHIVE, "Flip view models." );
 #endif
 
 void PostToolMessage( HTOOLHANDLE hEntity, KeyValues *msg );

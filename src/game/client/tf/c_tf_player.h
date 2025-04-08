@@ -42,8 +42,11 @@ class C_PasstimeAskForBallReticle;
 
 extern ConVar tf_classic_toggle_charge;
 extern ConVar tf_medigun_autoheal;
+
 extern ConVar cl_autorezoom;
 extern ConVar cl_autoreload;
+
+extern ConVar cl_flipviewmodels;
 
 enum EBonusEffectFilter_t
 {
@@ -292,9 +295,13 @@ public:
 	void			ForceUpdateObjectHudState( void );
 
 	bool			GetMedigunAutoHeal( void ){ return tf_medigun_autoheal.GetBool(); }
-	bool			GetClassicToggleCharge( void ) { return tf_classic_toggle_charge.GetBool(); }
+	
 	bool			ShouldAutoRezoom( void ){ return cl_autorezoom.GetBool(); }
 	bool			ShouldAutoReload( void ){ return cl_autoreload.GetBool(); }
+
+	bool			GetClassicToggleCharge( void ) { return tf_classic_toggle_charge.GetBool(); }
+
+	bool			GetFlipViewModels( void ) { return cl_flipviewmodels.GetBool(); }
 
 	void			GetTargetIDDataString( bool bIsDisguised, OUT_Z_BYTECAP(iMaxLenInBytes) wchar_t *sDataString, int iMaxLenInBytes, bool &bIsAmmoData, bool &bIsKillStreakData );
 

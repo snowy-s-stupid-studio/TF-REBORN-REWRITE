@@ -447,8 +447,12 @@ public:
 
 	bool GetMedigunAutoHeal( void ){ return m_bMedigunAutoHeal; }
 	void SetMedigunAutoHeal( bool bMedigunAutoHeal ){ m_bMedigunAutoHeal = bMedigunAutoHeal; }
+
 	bool GetClassicToggleCharge( void ) { return m_bClassicToggleCharge; }
 	void SetClassicToggleCharge( bool bClassicToggleCharge ) { m_bClassicToggleCharge = bClassicToggleCharge; }
+
+	bool GetFlipViewModels( void ) { return m_bFlipViewModels; }
+	void SetFlipViewModels( bool bFlipViewModels ) { m_bFlipViewModels = bFlipViewModels; }
 
 	CBaseEntity		*MedicGetHealTarget( void );
 	HSCRIPT ScriptGetHealTarget() { return ToHScript( MedicGetHealTarget() ); }
