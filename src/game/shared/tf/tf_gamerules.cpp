@@ -642,8 +642,11 @@ extern ConVar tf_damage_range;
 extern ConVar tf_damage_disablespread;
 extern ConVar tf_populator_damage_multiplier;
 extern ConVar tf_mm_trusted;
+
 extern ConVar tf_weapon_criticals;
 extern ConVar tf_weapon_criticals_melee;
+extern ConVar tf_weapon_forced_critical_distance_falloff;
+
 extern ConVar mp_idledealmethod;
 extern ConVar mp_idlemaxtime;
 
@@ -6546,7 +6549,7 @@ bool CTFGameRules::ApplyOnDamageModifyRules( CTakeDamageInfo &info, CBaseEntity 
 		bool bForceCritFalloff = ( bitsDamage & DMG_USEDISTANCEMOD ) && 
 								 ( ( bCrit && tf_weapon_criticals_distance_falloff.GetBool() ) || 
 								 ( info.GetCritType() == CTakeDamageInfo::CRIT_MINI && tf_weapon_minicrits_distance_falloff.GetBool() ) || 
-								 ( iForceCritDmgFalloff ) );
+								 ( iForceCritDmgFalloff && tf_weapon_forced_critical_distance_falloff.GetBool() ) );
 		bool bDoShortRangeDistanceIncrease = !bCrit || info.GetCritType() == CTakeDamageInfo::CRIT_MINI ;
 		bool bDoLongRangeDistanceDecrease = !bIgnoreLongRangeDmgEffects && ( bForceCritFalloff || ( !bCrit && info.GetCritType() != CTakeDamageInfo::CRIT_MINI  ) );
 
