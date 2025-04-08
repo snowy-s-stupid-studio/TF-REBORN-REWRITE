@@ -903,8 +903,8 @@
 		"tabPosition"		"11"
 		"leftText"		"0.00"
 		"rightText"		"1.00"
-		"minvalue"		"75"
-		"maxvalue"		"90"
+		"minvalue"		"60"
+		"maxvalue"		"120"
 		"cvar_name"		"fov_desired"
 		"allowoutofrange"		"1"
 	}
