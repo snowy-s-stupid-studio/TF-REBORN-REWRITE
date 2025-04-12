@@ -50,7 +50,7 @@ ConVar tf_classic_toggle_charge( "tf_classic_toggle_charge", "0", FCVAR_CLIENTDL
 ConVar tf_sniper_fullcharge_bell( "tf_sniper_fullcharge_bell", "0", FCVAR_CLIENTDLL | FCVAR_ARCHIVE );
 #endif
 
-ConVar tf_classic_jump_shoot( "tf_classic_jump_shoot", "0", FCVAR_CHEAT | FCVAR_REPLICATED | FCVAR_NOTIFY, "Setting this to 1 allows Classic snipers to shoot while jumping." );
+ConVar tf_classic_jump_shoot( "tf_classic_jump_shoot", "0", FCVAR_REPLICATED | FCVAR_NOTIFY, "Setting this to 1 allows Classic snipers to shoot while jumping." );
 
 //=============================================================================
 //
@@ -1911,9 +1911,9 @@ void CTFSniperRifleClassic::ItemPostFrame( void )
 	// Toggle firing mode.
 	if ( pPlayer->GetClassicToggleCharge() )
 	{
-		if ( (pPlayer->m_nButtons & IN_ATTACK) && (m_flNextPrimaryAttack <= gpGlobals->curtime) )
+		if ( ( pPlayer->m_nButtons & IN_ATTACK ) && ( m_flNextPrimaryAttack <= gpGlobals->curtime ) )
 		{
-			if (m_bCanFire && m_bCharging)
+			if ( m_bCanFire && m_bCharging )
 			{
 				FireOperation();
 			}
@@ -1932,7 +1932,7 @@ void CTFSniperRifleClassic::ItemPostFrame( void )
 		{
 			// Idle.
 			// No fire buttons down or reloading
-			if (!ReloadOrSwitchWeapons() && (m_bInReload == false))
+			if ( !ReloadOrSwitchWeapons() && ( m_bInReload == false ) )
 			{
 				WeaponIdle();
 			}
@@ -1942,11 +1942,11 @@ void CTFSniperRifleClassic::ItemPostFrame( void )
 	// Normal firing mode.
 	else
 	{
-		if ((pPlayer->m_nButtons & IN_ATTACK) && (m_flNextPrimaryAttack <= gpGlobals->curtime))
+		if ( ( pPlayer->m_nButtons & IN_ATTACK ) && ( m_flNextPrimaryAttack <= gpGlobals->curtime ) )
 		{
 			ChargeOperation();
 		}
-		else if (m_bCharging)
+		else if ( m_bCharging )
 		{
 			FireOperation();
 		}
@@ -1954,7 +1954,7 @@ void CTFSniperRifleClassic::ItemPostFrame( void )
 		{
 			// Idle.
 			// No fire buttons down or reloading
-			if (!ReloadOrSwitchWeapons() && (m_bInReload == false))
+			if ( !ReloadOrSwitchWeapons() && ( m_bInReload == false ) )
 			{
 				WeaponIdle();
 			}
@@ -1991,10 +1991,10 @@ void CTFSniperRifleClassic::ChargeOperation( void )
 {
 	// Get the owning player.
 	CTFPlayer* pPlayer = ToTFPlayer( GetOwner() );
-	if (!pPlayer)
+	if ( !pPlayer )
 		return;
 
-	if (!m_bCharging)
+	if ( !m_bCharging )
 	{
 		pPlayer->m_Shared.AddCond( TF_COND_AIMING );
 		pPlayer->TeamFortress_SetSpeed();
@@ -2018,10 +2018,10 @@ void CTFSniperRifleClassic::ChargeOperation( void )
 
 #ifdef CLIENT_DLL
 	// play the recharged bell if we're fully charged
-	if (IsFullyCharged() && !m_bPlayedBell)
+	if ( IsFullyCharged() && !m_bPlayedBell )
 	{
 		m_bPlayedBell = true;
-		if (tf_sniper_fullcharge_bell.GetBool())
+		if ( tf_sniper_fullcharge_bell.GetBool() )
 		{
 			C_TFPlayer::GetLocalTFPlayer()->EmitSound( "TFPlayer.ReCharged" );
 		}
