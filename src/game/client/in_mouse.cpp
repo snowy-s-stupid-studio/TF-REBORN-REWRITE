@@ -451,19 +451,16 @@ void CInput::GetAccumulatedMouseDeltasAndResetAccumulators( float *mx, float *my
 		int rawMouseX, rawMouseY;
 		if ( m_rawinput.GetInt() == 0 )
 		{
-			Msg( "BUB\n" );
 			rawMouseX = ( float )m_flAccumulatedMouseXMovement;
 			rawMouseY = ( float )m_flAccumulatedMouseYMovement;
 		}
 		else if ( m_rawinput.GetInt() == 1 )
 		{
-			Msg( "NUN\n" );
 			inputsystem->GetRawMouseAccumulators( rawMouseX, rawMouseY, 0.0 );
 			m_flMouseSampleTime = 0.0f;
 		}
 		else if ( m_rawinput.GetInt() >= 2 && frametime > 0.0f )
 		{
-			Msg( "GUG\n" );
 			m_flMouseSampleTime -= MIN( m_flMouseSampleTime, frametime );
 			inputsystem->GetRawMouseAccumulators( rawMouseX, rawMouseY, Plat_FloatTime() - m_flMouseSampleTime );
 		}
