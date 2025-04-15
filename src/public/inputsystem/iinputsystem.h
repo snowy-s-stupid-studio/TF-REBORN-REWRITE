@@ -118,7 +118,14 @@ public:
 	virtual void SetNovintPure( bool bPure ) = 0;
 
 	// read and clear accumulated raw input values
-	virtual bool GetRawMouseAccumulators( int& accumX, int& accumY ) = 0;
+	virtual bool GetRawMouseAccumulators( int& accumX, int& accumY, double frame_split ) = 0;
+
+	// raw mouse input
+	bool		m_bRawInputSupported;
+	int			m_iMouseRawAccumX;
+	int			m_iMouseRawAccumY;
+	double		m_dMouseSampleTime;
+	double		m_dMouseSplitTime;
 
 	// tell the input system that we're not a game, we're console text mode.
 	// this is used for dedicated servers to not initialize joystick system.
@@ -156,6 +163,10 @@ public:
 	void ActivateSteamControllerActionSet( GameActionSet_t eActionSet ) {
 		ActivateSteamControllerActionSetForSlot( 0xffffffffffffffff, eActionSet );
 	}
+
+	//TODO: Add this to finish m_rawinput 2.
+	//// Windows proc
+	//virtual LRESULT WindowProc( HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam );
 };
 
 

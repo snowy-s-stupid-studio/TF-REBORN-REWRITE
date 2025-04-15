@@ -102,7 +102,7 @@ static ConVar m_mousespeed( "m_mousespeed", "1", FCVAR_ARCHIVE, "Windows mouse a
 static ConVar m_mouseaccel1( "m_mouseaccel1", "0", FCVAR_ARCHIVE, "Windows mouse acceleration initial threshold (2x movement).", true, 0, false, 0.0f );
 static ConVar m_mouseaccel2( "m_mouseaccel2", "0", FCVAR_ARCHIVE, "Windows mouse acceleration secondary threshold (4x movement).", true, 0, false, 0.0f );
 
-static ConVar m_rawinput( "m_rawinput", "1", FCVAR_ARCHIVE, "Use Raw Input for mouse input.");
+static ConVar m_rawinput( "m_rawinput", "1", FCVAR_ARCHIVE, "Use Raw Input for mouse input. 0 = Disabled, 1 = Frame-aligned samples, 2 = Tick-aligned samples (experimental)");
 static ConVar m_rawinput_onetime_reset( "m_rawinput_onetime_reset", "0", FCVAR_ARCHIVE | FCVAR_HIDDEN );
 
 class CRawInputConvarOnetimeReset : public CAutoGameSystem
@@ -169,7 +169,7 @@ void CInput::ActivateMouse (void)
 
 		// clear raw mouse accumulated data
 		int rawX, rawY;
-		inputsystem->GetRawMouseAccumulators(rawX, rawY);
+		inputsystem->GetRawMouseAccumulators(rawX, rawY, 0.0);
 	}
 }
 
@@ -376,31 +376,132 @@ void CInput::ResetMouse( void )
 
 
 //-----------------------------------------------------------------------------
-// Purpose: GetAccumulatedMouse -- the mouse can be sampled multiple times per frame and
-//  these results are accumulated each time. This function gets the accumulated mouse changes and resets the accumulators
-// Input  : *mx - 
-//			*my - 
+// Purpose: Modifed so that m_rawinput 2 can work.
+// Input  : *mx			- 
+//			*my			- 
+//			frame_split	-
 //-----------------------------------------------------------------------------
-void CInput::GetAccumulatedMouseDeltasAndResetAccumulators( float *mx, float *my )
+bool IInputSystem::GetRawMouseAccumulators( int& accumX, int& accumY, double frame_split )
 {
 	Assert( mx );
 	Assert( my );
+	Assert( frame_split );
+
+	double mouseSplitTime = m_dMouseSplitTime;
+	if ( mouseSplitTime == 0.0 )
+	{
+		mouseSplitTime = m_dMouseSampleTime - 0.01;
+		m_dMouseSplitTime = mouseSplitTime;
+	}
+
+	double mouseSampleTime = m_dMouseSampleTime;
+
+	if ( abs( mouseSplitTime - mouseSampleTime ) >= 0.000001 )
+	{
+		if ( frame_split == 0.0 || frame_split >= mouseSampleTime )
+		{
+			accumX = m_iMouseRawAccumX;
+			accumY = m_iMouseRawAccumY;
+
+			m_iMouseRawAccumX = m_iMouseRawAccumY = 0;
+			m_dMouseSplitTime = m_dMouseSampleTime;
+
+			return m_bRawInputSupported;
+		}
+		else if ( frame_split >= mouseSplitTime )
+		{
+			float splitSegment = ( frame_split - mouseSplitTime ) / ( mouseSampleTime - mouseSplitTime );
+
+			accumX = splitSegment * m_iMouseRawAccumX;
+			accumY = splitSegment * m_iMouseRawAccumY;
+
+			m_iMouseRawAccumX -= accumX;
+			m_iMouseRawAccumY -= accumY;
+
+			m_dMouseSplitTime = frame_split;
+
+			return m_bRawInputSupported;
+		}
+	}
+	accumX = accumY = 0;
+
+	return m_bRawInputSupported;
+}
+
+
+//-----------------------------------------------------------------------------
+// Purpose: GetAccumulatedMouse -- the mouse can be sampled multiple times per frame and
+//  these results are accumulated each time. This function gets the accumulated mouse changes and resets the accumulators
+// Input  : *mx			- 
+//			*my			- 
+//			frametime	-
+//-----------------------------------------------------------------------------
+void CInput::GetAccumulatedMouseDeltasAndResetAccumulators( float *mx, float *my, float frametime )
+{
+	Assert( mx );
+	Assert( my );
+	Assert( frametime );
 
 	*mx = m_flAccumulatedMouseXMovement;
 	*my = m_flAccumulatedMouseYMovement;
 
-	if ( m_rawinput.GetBool() )
+
+	if ( m_flMouseSampleTime > 0.0f )
 	{
 		int rawMouseX, rawMouseY;
-		if ( inputsystem->GetRawMouseAccumulators(rawMouseX, rawMouseY) )
+		if ( m_rawinput.GetInt() == 0 )
 		{
-			*mx = (float)rawMouseX;
-			*my = (float)rawMouseY;
+			Msg( "BUB\n" );
+			rawMouseX = ( float )m_flAccumulatedMouseXMovement;
+			rawMouseY = ( float )m_flAccumulatedMouseYMovement;
 		}
+		else if ( m_rawinput.GetInt() == 1 )
+		{
+			Msg( "NUN\n" );
+			inputsystem->GetRawMouseAccumulators( rawMouseX, rawMouseY, 0.0 );
+			m_flMouseSampleTime = 0.0f;
+		}
+		else if ( m_rawinput.GetInt() >= 2 && frametime > 0.0f )
+		{
+			Msg( "GUG\n" );
+			m_flMouseSampleTime -= MIN( m_flMouseSampleTime, frametime );
+			inputsystem->GetRawMouseAccumulators( rawMouseX, rawMouseY, Plat_FloatTime() - m_flMouseSampleTime );
+		}
+
+		// Keeping this here just incase there is a functional difference between the two.
+		//if ( m_rawinput.GetInt() != 0 )
+		//{
+		//	if ( m_rawinput.GetInt() == 2 && frametime > 0.0f )
+		//	{
+		//		Msg( "GUG\n" );
+		//		m_flMouseSampleTime -= MIN( m_flMouseSampleTime, frametime );
+		//		inputsystem->GetRawMouseAccumulators( rawMouseX, rawMouseY, Plat_FloatTime() - m_flMouseSampleTime );
+		//	}
+		//	else
+		//	{
+		//		Msg( "NUN\n" );
+		//		inputsystem->GetRawMouseAccumulators( rawMouseX, rawMouseY, 0.0 );
+		//		m_flMouseSampleTime = 0.0f;
+		//	}
+		//}
+		//else
+		//{
+		//	Msg( "BUB\n" );
+		//	rawMouseX = ( float )m_flAccumulatedMouseXMovement;
+		//	rawMouseY = ( float )m_flAccumulatedMouseYMovement;
+		//}
+
+		m_flAccumulatedMouseXMovement = 0.0f;
+		m_flAccumulatedMouseYMovement = 0.0f;
+
+		*mx = ( float )rawMouseX;
+		*my = ( float )rawMouseY;
 	}
-	
-	m_flAccumulatedMouseXMovement = 0;
-	m_flAccumulatedMouseYMovement = 0;
+	else
+	{
+		*mx = 0.0;
+		*my = 0.0;
+	}
 }
 
 //-----------------------------------------------------------------------------
@@ -722,7 +823,8 @@ void CInput::MouseMove( CUserCmd *cmd )
 		AccumulateMouse();
 
 		// Latch accumulated mouse movements and reset accumulators
-		GetAccumulatedMouseDeltasAndResetAccumulators( &mx, &my );
+		GetAccumulatedMouseDeltasAndResetAccumulators( &mx, &my, m_flmouseMoveFrameTime );
+		m_flmouseMoveFrameTime = 0.0;
 
 		// Filter, etc. the delta values and place into mouse_x and mouse_y
 		GetMouseDelta( mx, my, &mouse_x, &mouse_y );
@@ -823,5 +925,5 @@ void CInput::ClearStates (void)
 
 	// clear raw mouse accumulated data
 	int rawX, rawY;
-	inputsystem->GetRawMouseAccumulators(rawX, rawY);
+	inputsystem->GetRawMouseAccumulators(rawX, rawY, 0.0);
 }
