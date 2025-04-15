@@ -44,7 +44,6 @@ public:
 	virtual int		GetWeaponID( void ) const			{ return TF_WEAPON_PARTICLE_CANNON; }
 	virtual float	GetProjectileSpeed( void );
 	virtual float	GetProjectileGravity( void );
-	virtual bool	IsViewModelFlipped( void );
 
 	const char*		GetEffectLabelText( void )			{ return "#TF_MANGLER"; }
 	float			GetProgress( void );

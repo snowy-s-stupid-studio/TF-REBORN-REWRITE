@@ -191,7 +191,6 @@ public:
 	virtual int		GetWeaponID( void ) const			{ return TF_WEAPON_SHOTGUN_BUILDING_RESCUE; }
 	virtual float	GetProjectileSpeed( void );
 	virtual float   GetProjectileGravity( void );
-	virtual bool	IsViewModelFlipped( void );
 };
 
 #endif // TF_WEAPON_SHOTGUN_H

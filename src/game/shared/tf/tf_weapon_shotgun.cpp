@@ -569,9 +569,3 @@ float CTFShotgunBuildingRescue::GetProjectileGravity( void )
 {
 	return RemapValClamped( 0.75f, 0.0f, 1.f, 0.5f, 0.1f ); // Temp, if we want to ramp.
 }
-
-//-----------------------------------------------------------------------------
-bool CTFShotgunBuildingRescue::IsViewModelFlipped( void )
-{
-	return !BaseClass::IsViewModelFlipped(); // Invert because arrows are backwards by default.
-}

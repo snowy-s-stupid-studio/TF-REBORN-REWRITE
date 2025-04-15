@@ -658,3 +658,8 @@ bool CTFCompoundBow::OwnerCanJump( void )
 {
 	return GetInternalChargeBeginTime() == 0.f;
 }
+
+bool CTFCompoundBow::IsViewModelFlipped( void )
+{
+	return !BaseClass::IsViewModelFlipped(); // Invert because arrows are backwards by default.
+}

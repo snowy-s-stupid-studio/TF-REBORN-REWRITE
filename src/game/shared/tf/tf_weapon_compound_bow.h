@@ -91,6 +91,8 @@ public:
 
 	bool			OwnerCanJump( void );
 
+	virtual bool	IsViewModelFlipped( void );
+
 private:
 #ifdef CLIENT_DLL
 	virtual void	StartBurningEffect( void );
