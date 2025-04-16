@@ -218,7 +218,7 @@ void CInput::CheckMouseAcclerationVars()
 		return;
 	}
 
-	int values[ NUM_MOUSE_PARAMS ];
+	int values[ NUM_MOUSE_PARAMS ]{};
 
 	values[ MOUSE_SPEED_FACTOR ]		= m_mousespeed.GetInt();
 	values[ MOUSE_ACCEL_THRESHHOLD1 ]	= m_mouseaccel1.GetInt();
@@ -448,7 +448,7 @@ void CInput::GetAccumulatedMouseDeltasAndResetAccumulators( float *mx, float *my
 
 	if ( m_flMouseSampleTime > 0.0f )
 	{
-		int rawMouseX, rawMouseY;
+		int rawMouseX{ 0 }, rawMouseY{ 0 };
 		if ( m_rawinput.GetInt() == 0 )
 		{
 			rawMouseX = ( float )m_flAccumulatedMouseXMovement;
@@ -464,29 +464,6 @@ void CInput::GetAccumulatedMouseDeltasAndResetAccumulators( float *mx, float *my
 			m_flMouseSampleTime -= MIN( m_flMouseSampleTime, frametime );
 			inputsystem->GetRawMouseAccumulators( rawMouseX, rawMouseY, Plat_FloatTime() - m_flMouseSampleTime );
 		}
-
-		// Keeping this here just incase there is a functional difference between the two.
-		//if ( m_rawinput.GetInt() != 0 )
-		//{
-		//	if ( m_rawinput.GetInt() == 2 && frametime > 0.0f )
-		//	{
-		//		Msg( "GUG\n" );
-		//		m_flMouseSampleTime -= MIN( m_flMouseSampleTime, frametime );
-		//		inputsystem->GetRawMouseAccumulators( rawMouseX, rawMouseY, Plat_FloatTime() - m_flMouseSampleTime );
-		//	}
-		//	else
-		//	{
-		//		Msg( "NUN\n" );
-		//		inputsystem->GetRawMouseAccumulators( rawMouseX, rawMouseY, 0.0 );
-		//		m_flMouseSampleTime = 0.0f;
-		//	}
-		//}
-		//else
-		//{
-		//	Msg( "BUB\n" );
-		//	rawMouseX = ( float )m_flAccumulatedMouseXMovement;
-		//	rawMouseY = ( float )m_flAccumulatedMouseYMovement;
-		//}
 
 		m_flAccumulatedMouseXMovement = 0.0f;
 		m_flAccumulatedMouseYMovement = 0.0f;
