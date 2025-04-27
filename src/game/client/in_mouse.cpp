@@ -377,14 +377,11 @@ void CInput::ResetMouse( void )
 
 //-----------------------------------------------------------------------------
 // Purpose: Modifed so that m_rawinput 2 can work.
-// Input  : *mx			- 
-//			*my			- 
-//			frame_split	-
 //-----------------------------------------------------------------------------
 bool IInputSystem::GetRawMouseAccumulators( int& accumX, int& accumY, double frame_split )
 {
-	Assert( mx );
-	Assert( my );
+	Assert( accumX );
+	Assert( accumY );
 	Assert( frame_split );
 
 	double mouseSplitTime = m_dMouseSplitTime;
@@ -430,11 +427,9 @@ bool IInputSystem::GetRawMouseAccumulators( int& accumX, int& accumY, double fra
 
 
 //-----------------------------------------------------------------------------
-// Purpose: GetAccumulatedMouse -- the mouse can be sampled multiple times per frame and
-//  these results are accumulated each time. This function gets the accumulated mouse changes and resets the accumulators
-// Input  : *mx			- 
-//			*my			- 
-//			frametime	-
+// Purpose: GetAccumulatedMouse -- the mouse can be sampled multiple times per 
+// frame and these results are accumulated each time. This function gets the 
+// accumulated mouse changes and resets the accumulators
 //-----------------------------------------------------------------------------
 void CInput::GetAccumulatedMouseDeltasAndResetAccumulators( float *mx, float *my, float frametime )
 {
