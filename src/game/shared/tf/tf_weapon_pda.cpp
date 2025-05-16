@@ -18,6 +18,7 @@
 // Server specific.
 #if !defined( CLIENT_DLL )
 	#include "tf_player.h"
+	#include "tf_obj_dispenser.h"
 	#include "vguiscreen.h"
 // Client specific.
 #else
@@ -353,6 +354,73 @@ bool CTFWeaponPDA_Spy::VisibleInWeaponSelection( void )
 	return BaseClass::VisibleInWeaponSelection();
 }
 
+//-----------------------------------------------------------------------------
+// Purpose: Kill all buildings when pda is changed.
+//-----------------------------------------------------------------------------
+void CTFWeaponPDA::Equip(CBaseCombatCharacter* pOwner)
+{
+#ifdef GAME_DLL
+	// STAGING_ENGY
+	CTFPlayer* pPlayer = ToTFPlayer(pOwner);
+	if (pPlayer)
+	{
+		// if switching too gunslinger, blow up other sentry
+		int iMiniDispenser = 0;
+		CALL_ATTRIB_HOOK_INT(iMiniDispenser, pda_builds_minidispenser);
+		if (iMiniDispenser)
+		{
+			// Just detonate Sentries
+			CObjectDispenser* pDispenser = dynamic_cast<CObjectDispenser*>(pPlayer->GetObjectOfType(OBJ_DISPENSER));
+			if (pDispenser)
+			{
+				pDispenser->DetonateObject();
+			}
+		}
+	}
+#endif
+	BaseClass::Equip( pOwner );
+}
+//-----------------------------------------------------------------------------
+// Purpose: Kill all buildings when pda is changed.
+//-----------------------------------------------------------------------------
+void CTFWeaponPDA::Detach(void)
+{
+	// STAGING_ENGY
+#ifdef GAME_DLL
+	CTFPlayer* pPlayer = GetTFPlayerOwner();
+	if (pPlayer)
+	{
+		bool bDetonateObjects = true;
+
+		// In MvM mode, leave engineer's buildings after he dies
+		if (TFGameRules() && TFGameRules()->IsMannVsMachineMode())
+		{
+			if (pPlayer->GetTeamNumber() != TF_TEAM_PVE_DEFENDERS)
+			{
+				bDetonateObjects = false;
+			}
+		}
+
+		// Only detonate if we are unequipping gunslinger
+		if (bDetonateObjects)
+		{
+			// if switching off of gunslinger detonate
+			int iMiniDispenser = 0;
+			CALL_ATTRIB_HOOK_INT(iMiniDispenser, pda_builds_minidispenser);
+			if (iMiniDispenser)
+			{
+				// Just detonate Sentries
+				CObjectDispenser* pDispenser = dynamic_cast<CObjectDispenser*>(pPlayer->GetObjectOfType(OBJ_DISPENSER));
+				if (pDispenser)
+				{
+					pDispenser->DetonateObject();
+				}
+			}
+		}
+	}
+#endif
+	BaseClass::Detach();
+}
 
 //-----------------------------------------------------------------------------
 // PDA Expansion Slots

@@ -33,6 +33,7 @@
 			//
 			// Note that this folder is scanned only when the game is booted.
 			game+mod+custom_mod    |gameinfo_path|custom/*
+			game+mod+custom_mod    |gameinfo_path|rebornassets/*
 			// Enable this if you want to load your TF custom content.
 			//game+mod	|appid_440|tf/custom/*
 
@@ -58,7 +59,6 @@
 			game				|appid_243750|hl2/hl2_sound_vo_english.vpk
 			game				|appid_243750|hl2/hl2_sound_misc.vpk
 			game+vgui			|appid_243750|hl2/hl2_misc.vpk
-			game+mod+custom_mod             |gameinfo_path|tfr_content_dir.vpk
 			platform+vgui		|appid_243750|platform/platform_misc.vpk
 
 			// Last, mount in shared HL2 and TF2 loose files
