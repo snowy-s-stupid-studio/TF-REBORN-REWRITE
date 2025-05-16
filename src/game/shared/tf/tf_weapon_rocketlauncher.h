@@ -180,7 +180,6 @@ public:
 	virtual void	SecondaryAttack( void );
 	virtual float	GetProjectileSpeed( void );
 	virtual float	GetProjectileGravity( void );
-	virtual bool	IsViewModelFlipped( void );
 
 	virtual void	ItemPostFrame( void );
 	virtual void	ModifyProjectile( CBaseEntity* pProj );

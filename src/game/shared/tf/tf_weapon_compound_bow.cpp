@@ -658,3 +658,12 @@ bool CTFCompoundBow::OwnerCanJump( void )
 {
 	return GetInternalChargeBeginTime() == 0.f;
 }
+
+//-----------------------------------------------------------------------------
+// Purpose: Compound Bow's arrow's horizontal position is inverted so the 
+// output needs to be inverted to compensate.
+//-----------------------------------------------------------------------------
+bool CTFCompoundBow::IsViewModelFlipped( void )
+{
+	return !BaseClass::IsViewModelFlipped();
+}

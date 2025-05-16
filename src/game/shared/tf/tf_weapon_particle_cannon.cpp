@@ -83,14 +83,6 @@ float CTFParticleCannon::GetProjectileGravity( void )
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: 
-//-----------------------------------------------------------------------------
-bool CTFParticleCannon::IsViewModelFlipped( void )
-{
-	return !BaseClass::IsViewModelFlipped(); // Invert because arrows are backwards by default.
-}
-
-//-----------------------------------------------------------------------------
 // Purpose: Reset the charge when we holster
 //-----------------------------------------------------------------------------
 bool CTFParticleCannon::Holster( CBaseCombatWeapon *pSwitchingTo )

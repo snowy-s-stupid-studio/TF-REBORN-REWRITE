@@ -224,14 +224,6 @@ float CTFRaygun::GetProjectileGravity( void )
 	return 0.f;
 }
 
-//-----------------------------------------------------------------------------
-// Purpose: 
-//-----------------------------------------------------------------------------
-bool CTFRaygun::IsViewModelFlipped( void )
-{
-	return !BaseClass::IsViewModelFlipped(); 
-}
-
 void CTFDRGPomson::Precache()
 {
 	BaseClass::Precache();

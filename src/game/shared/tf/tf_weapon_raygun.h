@@ -32,7 +32,6 @@ public:
 	virtual int			GetWeaponID( void ) const			{ return TF_WEAPON_RAYGUN; }
 	virtual float		GetProjectileSpeed( void );
 	virtual float		GetProjectileGravity( void );
-	virtual bool		IsViewModelFlipped( void );
 
 	const char*			GetEffectLabelText( void )			{ return "#TF_BISON"; }
 	float				GetProgress( void );

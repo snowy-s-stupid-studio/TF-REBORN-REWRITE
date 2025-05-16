@@ -29,8 +29,8 @@ ActionResult< CTFBot >	CTFBotEngineerBuildTeleportEntrance::OnStart( CTFBot *me,
 ActionResult< CTFBot >	CTFBotEngineerBuildTeleportEntrance::Update( CTFBot *me, float interval )
 {
 	CTeamControlPoint *point = me->GetMyControlPoint();
-	auto zone = me->GetFlagCaptureZone();
-	auto passzone = me->GetBallCaptureZone();
+	CCaptureZone *zone = me->GetFlagCaptureZone();				// auto zone = me->GetFlagCaptureZone();
+	CFuncPasstimeGoal *passzone = me->GetBallCaptureZone();		// auto passzone = me->GetBallCaptureZone();
 	if ( !point && !zone && !passzone )
 	{
 		// wait until a control point becomes available

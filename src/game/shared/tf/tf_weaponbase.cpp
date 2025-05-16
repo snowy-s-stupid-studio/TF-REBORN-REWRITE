@@ -1,6 +1,6 @@
 //========= Copyright Valve Corporation, All rights reserved. ============//
 //
-//	Weapons.
+// Purpose: TF Weapons
 //
 //=============================================================================
 #include "cbase.h"
@@ -80,6 +80,7 @@ ConVar tf_scout_hype_pep_max( "tf_scout_hype_pep_max", "99.0", FCVAR_REPLICATED 
 ConVar tf_scout_hype_pep_min_damage( "tf_scout_hype_pep_min_damage", "5.0", FCVAR_REPLICATED | FCVAR_CHEAT | FCVAR_DEVELOPMENTONLY );
 
 ConVar tf_weapon_criticals_nopred( "tf_weapon_criticals_nopred", "1.0", FCVAR_REPLICATED | FCVAR_CHEAT );
+ConVar tf_weapon_forced_critical_distance_falloff( "tf_weapon_forced_critical_distance_falloff", "1", FCVAR_REPLICATED | FCVAR_CHEAT | FCVAR_NOTIFY, "Setting this to 1 makes weapons with the crit_dmg_falloff tag have critical damage falloff" );
 
 #ifdef _DEBUG
 ConVar tf_weapon_criticals_anticheat( "tf_weapon_criticals_anticheat", "1.0", FCVAR_REPLICATED );
@@ -5582,18 +5583,10 @@ bool CTFWeaponBase::IsViewModelFlipped( void )
 	if ( !pPlayer )
 		return false;
 
-#ifdef GAME_DLL
-	if ( m_bFlipViewModel != pPlayer->m_bFlipViewModels )
+	if ( m_bFlipViewModel != pPlayer->GetFlipViewModels() )
 	{
 		return true;
 	}
-#else
-	if ( m_bFlipViewModel != cl_flipviewmodels.GetBool() )
-	{
-		return true;
-	}
-#endif
-
 	return false;
 }
 

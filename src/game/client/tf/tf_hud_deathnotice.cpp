@@ -54,10 +54,15 @@ ConVar cl_hud_killstreak_display_time( "cl_hud_killstreak_display_time", "3", FC
 ConVar cl_hud_killstreak_display_fontsize( "cl_hud_killstreak_display_fontsize", "0", FCVAR_ARCHIVE, "Adjusts font size of killstreak notices.  Range is from 0 to 2 (default is 1)." );
 ConVar cl_hud_killstreak_display_alpha( "cl_hud_killstreak_display_alpha", "120", FCVAR_ARCHIVE, "Adjusts font alpha value of killstreak notices.  Range is from 0 to 255 (default is 200)." );
 
+ConVar cl_enable_domination_sounds( "cl_enable_domination_sounds", "1", FCVAR_ARCHIVE | FCVAR_UNREGISTERED, "Enables domination sound effects.");
+
 const int STREAK_MIN = 5;
 const int STREAK_MIN_MVM = 20;
 const int STREAK_MIN_DUCKS = 10;
 
+//-----------------------------------------------------------------------------
+// Purpose: 
+//-----------------------------------------------------------------------------
 static int MinStreakForType( CTFPlayerShared::ETFStreak eStreakType )
 {
 	bool bIsMvM = TFGameRules() && TFGameRules()->IsMannVsMachineMode();
@@ -111,6 +116,8 @@ private:
 };
 
 //-----------------------------------------------------------------------------
+// Purpose: 
+//-----------------------------------------------------------------------------
 CTFStreakNotice::CTFStreakNotice( const char *pName ) : CHudElement( pName ), vgui::EditablePanel( NULL, pName )
 {
 	SetParent( g_pClientMode->GetViewport() );
@@ -145,6 +152,8 @@ bool CTFStreakNotice::ShouldDraw( void )
 }
 
 //-----------------------------------------------------------------------------
+// Purpose: 
+//-----------------------------------------------------------------------------
 void CTFStreakNotice::ApplySchemeSettings( IScheme *pScheme )
 {
 	BaseClass::ApplySchemeSettings( pScheme );
@@ -155,6 +164,8 @@ void CTFStreakNotice::ApplySchemeSettings( IScheme *pScheme )
 	SetSize( XRES(640), YRES(480) );
 }
 
+//-----------------------------------------------------------------------------
+// Purpose: 
 //-----------------------------------------------------------------------------
 void CTFStreakNotice::Paint( void )
 {
@@ -723,6 +734,11 @@ bool CTFHudDeathNotice::ShouldShowDeathNotice( IGameEvent *event )
 
 void CTFHudDeathNotice::PlayRivalrySounds( int iKillerIndex, int iVictimIndex, int iType )
 {
+	if ( !cl_enable_domination_sounds.GetBool() ) 
+	{ 
+		return; 
+	}
+
 	int iLocalPlayerIndex = GetLocalPlayerIndex();
 
 	//We're not involved in this kill

@@ -1,5 +1,6 @@
 //========= Copyright Valve Corporation, All rights reserved. ============//
 //
+// Purpose: TF Revolver
 //
 //=============================================================================
 #include "cbase.h"
@@ -15,6 +16,8 @@
 #else
 #include "tf_player.h"
 #endif
+
+extern ConVar tf_weapon_forced_critical_distance_falloff;
 
 //=============================================================================
 //
@@ -82,6 +85,7 @@ bool CTFRevolver::DefaultReload( int iClipSize1, int iClipSize2, int iActivity )
 //-----------------------------------------------------------------------------
 int	CTFRevolver::GetDamageType( void ) const
 {
+	// Checks if the Ambassador can crit.
 	if ( CanHeadshot() && (gpGlobals->curtime - m_flLastAccuracyCheck > 1.f) )
 	{
 		int iDamageType = BaseClass::GetDamageType() | DMG_USE_HITLOCATIONS;
@@ -104,8 +108,10 @@ bool CTFRevolver::CanFireCriticalShot( bool bIsHeadshot, CBaseEntity *pTarget /*
 		return true;
 
 	// Magic.
-	if ( pTarget && ( pPlayer->GetAbsOrigin() - pTarget->GetAbsOrigin() ).Length2DSqr() > Square( 1200.f ) )
-		return false;
+	// 1200 units before the Ambassador stops criting.
+	if ( tf_weapon_forced_critical_distance_falloff.GetBool() )
+		if ( pTarget && ( pPlayer->GetAbsOrigin() - pTarget->GetAbsOrigin() ).Length2DSqr() > Square( 1200.f ) )
+			return false;
 
 	// can only fire a crit shot if this is a headshot, unless we're critboosted
 	if ( !bIsHeadshot )
@@ -202,7 +208,8 @@ float CTFRevolver::GetWeaponSpread( void )
 
 #ifdef CLIENT_DLL
 //-----------------------------------------------------------------------------
-// Purpose: 
+// Purpose: Scales the crosshair to indicate when the player can headshot while
+// using the Ambassador.
 //-----------------------------------------------------------------------------
 void CTFRevolver::GetWeaponCrosshairScale( float &flScale )
 {
@@ -224,7 +231,7 @@ void CTFRevolver::GetWeaponCrosshairScale( float &flScale )
 #endif
 
 //-----------------------------------------------------------------------------
-// Purpose:
+// Purpose: Gets the Diamond Back criticals.
 //-----------------------------------------------------------------------------
 int CTFRevolver::GetCount( void )
 {
@@ -248,6 +255,8 @@ int CTFRevolver::GetCount( void )
 }
 
 //-----------------------------------------------------------------------------
+// Purpose: 
+//-----------------------------------------------------------------------------
 const char* CTFRevolver::GetEffectLabelText( void )
 {
 	int iExtraDamageOnHit = 0;
@@ -258,6 +267,7 @@ const char* CTFRevolver::GetEffectLabelText( void )
 	}
 	return "#TF_CRITS";
 }
+
 //-----------------------------------------------------------------------------
 // Purpose:
 //-----------------------------------------------------------------------------
@@ -331,6 +341,8 @@ void CTFRevolver::Detach( void )
 	BaseClass::Detach();
 }
 
+//-----------------------------------------------------------------------------
+// Purpose:
 //-----------------------------------------------------------------------------
 float CTFRevolver::GetProjectileDamage( void )
 {

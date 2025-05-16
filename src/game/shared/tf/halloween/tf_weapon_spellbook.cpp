@@ -939,11 +939,11 @@ void CTFSpellBook::TossJarThink( void )
 	Vector vecForward, vecRight, vecUp;
 	AngleVectors( pPlayer->EyeAngles(), &vecForward, &vecRight, &vecUp );
 
-	float fRight = 8.f;
 	if ( IsViewModelFlipped() )
 	{
-		fRight *= -1;
+		vecRight *= -1;
 	}
+
 	Vector vecSrc = pPlayer->Weapon_ShootPosition();
 	// Make spell toss position at the hand
 	vecSrc = vecSrc + (vecUp * -9.0f) + (vecRight * 7.0f) + (vecForward * 3.0f);

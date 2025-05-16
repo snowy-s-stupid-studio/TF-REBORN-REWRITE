@@ -14,7 +14,8 @@
 #include "tf_weapon_flaregun.h"
 #include "tf_projectile_energy_ring.h"
 
-#if !defined( CLIENT_DLL )	// Server specific.
+#ifdef GAME_DLL	// Server specific.
+//#if !defined( CLIENT_DLL )	// Server specific.
 
 	#include "tf_gamestats.h"
 	#include "tf_player.h"
@@ -554,7 +555,7 @@ CBaseEntity *CTFWeaponBaseGun::FireEnergyBall( CTFPlayer *pPlayer, bool bRing )
 
 	Vector vecSrc;
 	QAngle angForward;
-	Vector vecOffset( 23.5f, -8.0f, -3.0f );
+	Vector vecOffset( 23.5f, 8.0f, -3.0f );
 	if ( pPlayer->GetFlags() & FL_DUCKING )
 	{
 		vecOffset.z = 8.0f;
@@ -781,8 +782,7 @@ CBaseEntity *CTFWeaponBaseGun::FireArrow( CTFPlayer *pPlayer, ProjectileType_t p
 
 	Vector vecSrc;
 	QAngle angForward;
-	Vector vecOffset( 23.5f, -8.0f, -3.0f );
-
+	Vector vecOffset( 23.5f, 8.0f, -3.0f );
 	GetProjectileFireSetup( pPlayer, vecOffset, &vecSrc, &angForward, false );
 
 	CTFProjectile_Arrow *pProjectile = CTFProjectile_Arrow::Create( vecSrc, angForward, GetProjectileSpeed(), GetProjectileGravity(), projectileType, pPlayer, pPlayer );
@@ -1023,16 +1023,16 @@ void CTFWeaponBaseGun::DoFireEffects()
 void CTFWeaponBaseGun::ToggleZoom( void )
 {
 	// Toggle the zoom.
-	CBasePlayer *pPlayer = GetPlayerOwner();
+	CTFPlayer* pPlayer = ToTFPlayer(GetOwner());
 	if ( pPlayer )
 	{
-		if( pPlayer->GetFOV() >= 75 )
+		if (pPlayer->m_Shared.InCond(TF_COND_ZOOMED))
 		{
-			ZoomIn();
+			ZoomOut();
 		}
 		else
 		{
-			ZoomOut();
+			ZoomIn();
 		}
 	}
 

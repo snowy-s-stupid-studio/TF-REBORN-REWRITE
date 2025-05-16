@@ -642,8 +642,11 @@ extern ConVar tf_damage_range;
 extern ConVar tf_damage_disablespread;
 extern ConVar tf_populator_damage_multiplier;
 extern ConVar tf_mm_trusted;
+
 extern ConVar tf_weapon_criticals;
 extern ConVar tf_weapon_criticals_melee;
+extern ConVar tf_weapon_forced_critical_distance_falloff;
+
 extern ConVar mp_idledealmethod;
 extern ConVar mp_idlemaxtime;
 
@@ -6546,7 +6549,7 @@ bool CTFGameRules::ApplyOnDamageModifyRules( CTakeDamageInfo &info, CBaseEntity 
 		bool bForceCritFalloff = ( bitsDamage & DMG_USEDISTANCEMOD ) && 
 								 ( ( bCrit && tf_weapon_criticals_distance_falloff.GetBool() ) || 
 								 ( info.GetCritType() == CTakeDamageInfo::CRIT_MINI && tf_weapon_minicrits_distance_falloff.GetBool() ) || 
-								 ( iForceCritDmgFalloff ) );
+								 ( iForceCritDmgFalloff && tf_weapon_forced_critical_distance_falloff.GetBool() ) );
 		bool bDoShortRangeDistanceIncrease = !bCrit || info.GetCritType() == CTakeDamageInfo::CRIT_MINI ;
 		bool bDoLongRangeDistanceDecrease = !bIgnoreLongRangeDmgEffects && ( bForceCritFalloff || ( !bCrit && info.GetCritType() != CTakeDamageInfo::CRIT_MINI  ) );
 
@@ -10314,9 +10317,15 @@ void CTFGameRules::ClientSettingsChanged( CBasePlayer *pPlayer )
 	// keep track of their tf_medigun_autoheal value
 	pTFPlayer->SetMedigunAutoHeal( Q_atoi( engine->GetClientConVarValue( pPlayer->entindex(), "tf_medigun_autoheal" ) ) > 0 );
 
+	// keep track of their tf_classic_toggle_charge value
+	pTFPlayer->SetClassicToggleCharge( Q_atoi( engine->GetClientConVarValue( pPlayer->entindex(), "tf_classic_toggle_charge" ) ) > 0 );
+
 	// keep track of their cl_autorezoom value
 	pTFPlayer->SetAutoRezoom( Q_atoi( engine->GetClientConVarValue( pPlayer->entindex(), "cl_autorezoom" ) ) > 0 );
 	pTFPlayer->SetAutoReload( Q_atoi( engine->GetClientConVarValue( pPlayer->entindex(), "cl_autoreload" ) ) > 0 );
+
+	// keep track of their cl_flipviewmodels value
+	pTFPlayer->SetFlipViewModels( Q_atoi( engine->GetClientConVarValue( pPlayer->entindex(), "cl_flipviewmodels" ) ) > 0 );
 
 	// keep track of their tf_remember_lastswitched value
 	pTFPlayer->SetRememberActiveWeapon( Q_atoi( engine->GetClientConVarValue( pPlayer->entindex(), "tf_remember_activeweapon" ) ) > 0 );
@@ -10324,11 +10333,9 @@ void CTFGameRules::ClientSettingsChanged( CBasePlayer *pPlayer )
 
 	const char *pszFov = engine->GetClientConVarValue( pPlayer->entindex(), "fov_desired" );
 	int iFov = atoi(pszFov);
-	iFov = clamp( iFov, 75, MAX_FOV );
+	iFov = clamp( iFov, MIN_FOV, MAX_FOV );
 
 	pTFPlayer->SetDefaultFOV( iFov );
-
-	pTFPlayer->m_bFlipViewModels = Q_strcmp( engine->GetClientConVarValue( pPlayer->entindex(), "cl_flipviewmodels" ), "1" ) == 0;
 }
 
 //-----------------------------------------------------------------------------
@@ -17064,7 +17071,7 @@ int CTFGameRules::CalcPlayerScore( RoundStats_t *pRoundStats, CTFPlayer *pPlayer
 					( pRoundStats->m_iStat[TFSTAT_TELEPORTS] / TF_SCORE_TELEPORTS_PER_POINT ) +
 					( pRoundStats->m_iStat[TFSTAT_INVULNS] / TF_SCORE_INVULN ) +
 					( pRoundStats->m_iStat[TFSTAT_REVENGE] / TF_SCORE_REVENGE ) +
-					( pRoundStats->m_iStat[TFSTAT_BONUS_POINTS] / TF_SCORE_BONUS_POINT_DIVISOR );
+					( pRoundStats->m_iStat[TFSTAT_BONUS_POINTS] / TF_SCORE_BONUS_POINT_DIVISOR ) +
 					( pRoundStats->m_iStat[TFSTAT_CURRENCY_COLLECTED] / TF_SCORE_CURRENCY_COLLECTED );
 
 	if ( pPlayer )

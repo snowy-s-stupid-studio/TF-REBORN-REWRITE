@@ -102,6 +102,10 @@ public:
 
 	virtual		float		CAM_CapYaw( float fVal ) const { return fVal; }
 	virtual		float		CAM_CapPitch( float fVal ) const { return fVal; }
+
+	// Modifed so that m_rawinput 2 can work.
+	float					m_flmouseMoveFrameTime{ 0 };
+	float					m_flMouseSampleTime{ 0 };
 	
 #if defined( HL2_CLIENT_DLL )
 	// IK back channel info
@@ -147,7 +151,10 @@ protected:
 	void		AdjustPitch( float speed, QAngle& viewangles );
 	virtual void AdjustYaw( float speed, QAngle& viewangles );
 	float		DetermineKeySpeed( float frametime );
-	void		GetAccumulatedMouseDeltasAndResetAccumulators( float *mx, float *my );
+	
+	// Modifed so that m_rawinput 2 can work.
+	void		GetAccumulatedMouseDeltasAndResetAccumulators( float *mx, float *my, float frametime );
+	
 	void		GetMouseDelta( float inmousex, float inmousey, float *pOutMouseX, float *pOutMouseY );
 	void		ScaleMouse( float *x, float *y );
 	virtual void ApplyMouse( QAngle& viewangles, CUserCmd *cmd, float mouse_x, float mouse_y );

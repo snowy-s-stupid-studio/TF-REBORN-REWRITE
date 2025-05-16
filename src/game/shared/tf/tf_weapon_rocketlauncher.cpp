@@ -764,11 +764,6 @@ float CTFCrossbow::GetProjectileGravity( void )
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-bool CTFCrossbow::IsViewModelFlipped( void )
-{
-	return !BaseClass::IsViewModelFlipped(); // Invert because arrows are backwards by default.
-}
-//-----------------------------------------------------------------------------
 void CTFCrossbow::WeaponRegenerate( void )
 {
 	BaseClass::WeaponRegenerate();

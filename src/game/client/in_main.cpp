@@ -633,6 +633,7 @@ float CInput::KeyState ( kbutton_t *key )
 void CInput::IN_SetSampleTime( float frametime )
 {
 	m_flKeyboardSampleTime = frametime;
+	m_flMouseSampleTime = frametime;
 }
 
 /*
@@ -942,6 +943,7 @@ ControllerMove
 */
 void CInput::ControllerMove( float frametime, CUserCmd *cmd )
 {
+	m_flmouseMoveFrameTime = frametime;
 	if ( IsPC() )
 	{
 		if ( !m_fCameraInterceptingMouse && m_fMouseActive )
@@ -1157,7 +1159,8 @@ void CInput::CreateMove ( int sequence_number, float input_sample_frametime, boo
 		if ( !m_fCameraInterceptingMouse && m_fMouseActive )
 		{
 			float mx, my;
-			GetAccumulatedMouseDeltasAndResetAccumulators( &mx, &my );
+			GetAccumulatedMouseDeltasAndResetAccumulators( &mx, &my, m_flmouseMoveFrameTime );
+			m_flmouseMoveFrameTime = 0.0;
 			ResetMouse();
 		}
 	}
@@ -1709,4 +1712,3 @@ void CInput::LevelInit( void )
 	m_EntityGroundContact.RemoveAll();
 #endif
 }
-

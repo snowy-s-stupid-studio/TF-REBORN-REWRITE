@@ -1,6 +1,6 @@
 //========= Copyright Valve Corporation, All rights reserved. ============//
 //
-// TF Energy Ring
+// TF Energy Ring: For the Bison and Pomson
 //
 //=============================================================================
 #include "cbase.h"
@@ -334,7 +334,6 @@ void CTFProjectile_EnergyRing::PlayImpactEffects( const Vector& vecPos, bool bHi
 }
 
 #else
-
 void CTFProjectile_EnergyRing::OnDataChanged( DataUpdateType_t updateType )
 {
 	BaseClass::OnDataChanged( updateType );
@@ -350,7 +349,6 @@ void CTFProjectile_EnergyRing::OnDataChanged( DataUpdateType_t updateType )
 		}
 	}
 }
-
 #endif
 
 //-----------------------------------------------------------------------------

@@ -352,7 +352,8 @@ void CTFGrapplingHook::PrimaryAttack( void )
 
 	Vector vecSrc;
 	QAngle angForward;
-	Vector vecOffset( 23.5f, -8.0f, -3.0f ); // copied from CTFWeaponBaseGun::FireArrow
+	Vector vecOffset( 23.5f, 8.0f, -3.0f ); // copied from CTFWeaponBaseGun::FireArrow
+
 	GetProjectileFireSetup( pOwner, vecOffset, &vecSrc, &angForward, false );
 	Vector vecForward;
 	AngleVectors( angForward, &vecForward );
