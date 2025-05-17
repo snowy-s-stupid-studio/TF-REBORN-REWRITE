@@ -17,6 +17,7 @@
 #include "tf_gamestats.h"
 #include "tf_halloween_souls_pickup.h"
 #include "tf_fx.h"
+#include "tf_weapon_pda.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
@@ -213,7 +214,7 @@ const char* CObjectDispenser::GetBuildingModel( int iLevel )
 		switch ( iLevel )
 		{
 		case 1:
-			return DISPENSER_MODEL_BUILDING;
+			return IsMiniBuilding() ? MINI_DISPENSER_MODEL_BUILDING : DISPENSER_MODEL_BUILDING;
 			break;
 		case 2:
 			return DISPENSER_MODEL_BUILDING_LVL2;
@@ -240,7 +241,7 @@ const char* CObjectDispenser::GetFinishedModel( int iLevel )
 		switch ( iLevel )
 		{
 		case 1:
-			return DISPENSER_MODEL;
+			return IsMiniBuilding() ? MINI_DISPENSER_MODEL : DISPENSER_MODEL;
 			break;
 		case 2:
 			return DISPENSER_MODEL_LVL2;
@@ -260,12 +261,13 @@ const char* CObjectDispenser::GetFinishedModel( int iLevel )
 
 const char* CObjectDispenser::GetPlacementModel()
 {
-	return /*IsMiniBuilding() ? MINI_DISPENSER_MODEL_PLACEMENT :*/ DISPENSER_MODEL_PLACEMENT;
+	return IsMiniBuilding() ? MINI_DISPENSER_MODEL_PLACEMENT : DISPENSER_MODEL_PLACEMENT;
 }
 
 void CObjectDispenser::StartPlacement( CTFPlayer *pPlayer )
 {
 	BaseClass::StartPlacement( pPlayer );
+	MakeMiniBuilding(pPlayer);
 }
 
 //-----------------------------------------------------------------------------
@@ -356,10 +358,12 @@ void CObjectDispenser::SetModel( const char *pModel )
 {
 	BaseClass::SetModel( pModel );
 
+		bool bShouldBeMini = ShouldBeMiniBuilding(GetOwner());
+
 		// Reset this after model change
-		UTIL_SetSize( this,
-			DISPENSER_MINS,
-			DISPENSER_MAXS );
+		UTIL_SetSize(this,
+			bShouldBeMini ? MINI_DISPENSER_MINS : DISPENSER_MINS,
+			bShouldBeMini ? MINI_DISPENSER_MAXS : DISPENSER_MAXS);
 	ResetSequenceInfo();
 }
 
@@ -376,7 +380,19 @@ void CObjectDispenser::InitializeMapPlacedObject( void )
 
 bool CObjectDispenser::ShouldBeMiniBuilding( CTFPlayer* pPlayer )
 {
-	return false;
+
+	if (!pPlayer)
+		return false;
+
+	CTFWeaponPDA* pPDA = dynamic_cast<CTFWeaponPDA*>( pPlayer->Weapon_OwnsThisID ( TF_WEAPON_PDA_ENGINEER_BUILD ) );
+
+	if (!pPDA)
+		return false;
+
+	if (!pPDA->IsMiniPDA())
+		return false;
+
+	return true;
 }
 
 //-----------------------------------------------------------------------------
@@ -481,11 +497,18 @@ void CObjectDispenser::Precache()
 	int iModelIndex;
 
 	PrecacheModel( DISPENSER_MODEL_PLACEMENT );
+	PrecacheModel( MINI_DISPENSER_MODEL_PLACEMENT );
 
 	iModelIndex = PrecacheModel( DISPENSER_MODEL_BUILDING );
 	PrecacheGibsForModel( iModelIndex );
 
 	iModelIndex = PrecacheModel( DISPENSER_MODEL );
+	PrecacheGibsForModel( iModelIndex );
+
+	iModelIndex = PrecacheModel( MINI_DISPENSER_MODEL_BUILDING );
+	PrecacheGibsForModel( iModelIndex );
+
+	iModelIndex = PrecacheModel( MINI_DISPENSER_MODEL );
 	PrecacheGibsForModel( iModelIndex );
 
 	iModelIndex = PrecacheModel( DISPENSER_MODEL_BUILDING_LVL2 );
@@ -874,7 +897,7 @@ void CObjectDispenser::StopHealing( CBaseEntity *pOther )
 			float flHealingDone = pPlayer->m_Shared.StopHealing( this );
 			if ( GetBuilder() && pOther != GetBuilder() && flHealingDone > 0 )
 			{
-				//GetBuilder()->AwardAchievement( ACHIEVEMENT_TF_ENGINEER_DISPENSER_HEAL_GRIND, floor( flHealingDone ) );
+				GetBuilder()->AwardAchievement( ACHIEVEMENT_TF_ENGINEER_DISPENSER_HEAL_GRIND, floor( flHealingDone ) );
 
 				if ( GetBuilder()->GetTeam() == pOther->GetTeam() )
 				{
