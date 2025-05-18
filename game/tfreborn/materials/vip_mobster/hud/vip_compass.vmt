@@ -1,0 +1,179 @@
+screenspace_general
+{
+	$pixshader "vip_compass_ps20"	
+	$basetexture "_rt_FullFrameFB"
+	$texture1    "vip_mobster/hud/vip_compass"
+
+	// Mandatory parameters, do not change these
+	$x360appchooser 1
+	$ignorez        1
+	"<dx90"
+	{
+		$no_draw 1 //todo
+	}
+	
+	// Various color/alpha mixing parameters
+	// usually you don't need to change these
+	$copyalpha                 0
+	$alpha_blend_color_overlay 0
+	$alpha_blend               0
+	$linearwrite               1
+	$linearread_basetexture    0
+	$linearread_texture1       1
+	$linearread_texture2       0
+	$linearread_texture3       0
+	$softwareskin 1
+	$translucent 1
+
+	$entityorigin "[0 0 0]"
+	$playerorigin "[0 0 0]"
+	$zero 0
+	  
+  "$cheapWaterStartDistance" "0.0"
+  "$cheapWaterEndDistance"   "0.0"
+    $world_mins "[0.0 0.0 0.0]"
+    $world_maxs "[0.0 0.0 0.0]"
+		
+	$alpha 5
+	$data 0
+	$oneThousandth 0.001
+		
+	$MyX 0
+	$MyY 0
+	
+	$temp1 -0.0
+	$temp2 0.0
+				 				 
+	Proxies
+	{
+		"WaterLOD"
+		{
+		}
+		"EntityOrigin"
+		{
+		}
+        "WorldDims"
+        {
+        }
+		"Alpha"
+		{
+		}
+		"PlayerPosition"
+		{
+			scale 1
+			resultVar $playerorigin
+		}
+		MaterialModify 
+		{
+		}		
+		CurrentTime
+		{
+			resultVar		"$c0_z"
+		}	
+		
+		Clamp
+		{
+			srcVar1			 $zero
+			min				"$entityorigin[0]"
+			max				"$entityorigin[0]"
+			resultVar		 $c1_z
+		}
+		Clamp
+		{
+			srcVar1			 $zero
+			min				"$entityorigin[1]"
+			max				"$entityorigin[1]"
+			resultVar		 $c1_w
+		}
+		
+		Clamp
+		{
+			srcVar1			 $zero
+			min				"$playerorigin[0]"
+			max				"$playerorigin[0]"
+			resultVar		 $MyX
+		}
+		Clamp
+		{
+			srcVar1			 $zero
+			min				"$playerorigin[1]"
+			max				"$playerorigin[1]"
+			resultVar		 $MyY
+		}
+		
+		Subtract
+		{
+			srcVar1			 "$cheapWaterStartDistance"
+			srcVar2			"$MyX"
+			resultVar		 $c1_x
+		}
+		Subtract
+		{
+			srcVar1			 "$cheapWaterEndDistance"
+			srcVar2			"$MyY"
+			resultVar		 $c1_y
+		}
+		
+		Subtract
+		{
+			srcVar1			 "$c1_z"
+			srcVar2			"$MyX"
+			resultVar		 $c1_z
+		}
+		Subtract
+		{
+			srcVar1			 "$c1_w"
+			srcVar2			"$MyY"
+			resultVar		 $c1_w
+		}
+		
+		
+		Equals
+		{
+			srcVar1			 $alpha
+			resultVar		 $c0_x
+		}
+		Equals
+		{
+			srcVar1			 $data
+			resultVar		 $c0_y
+		}
+		Clamp
+		{
+			srcVar1			 $zero
+			min				"$world_mins[0]"
+			max				"$world_mins[0]"
+			resultVar		 $c2_x
+		}	
+		Clamp
+		{
+			srcVar1			 $zero
+			min				"$world_mins[1]"
+			max				"$world_mins[1]"
+			resultVar		 $c2_y
+		}	
+		Add
+		{
+			srcVar1			 "$c0_z"
+			srcVar2			"$c2_x"
+			resultVar		 $c0_z
+		}
+		Multiply
+		{
+			srcVar1			 $c2_x
+			srcVar2			 $oneThousandth
+			resultVar		 $c2_x
+		}
+		
+		Equals
+		{
+			srcVar1			 $temp1
+			resultVar		 $c3_x
+		}
+		Equals
+		{
+			srcVar1			 $temp2
+			resultVar		 $c3_y
+		}
+	}
+}

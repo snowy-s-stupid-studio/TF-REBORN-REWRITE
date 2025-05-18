@@ -1,0 +1,8 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/props_2fort/window007_paintable"
+	"$nodecal" "1"
+	"$blendtintbybasealpha"		"1"
+	"$blendtintcoloroverbase"	"1"
+	"$color2"		"{ 133 129 131 }"	// Light Grey
+}

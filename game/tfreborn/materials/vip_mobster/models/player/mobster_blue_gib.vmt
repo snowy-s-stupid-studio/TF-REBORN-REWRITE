@@ -1,0 +1,16 @@
+"VertexLitGeneric"
+{
+  "$basetexture"         "vip_mobster/models/player/mobster_blue_gib"
+  "$bumpmap"             "vip_mobster/models/player/mobster_normal"
+
+  "$phong"               "1"
+  "$phongexponent"       "10"
+  "$phongboost"          "5"  
+  "$lightwarptexture"    "models/player/pyro/pyro_lightwarp"
+  "$phongfresnelranges"  "[0.007 0.4 5]"
+  "$halflambert"         "1"
+
+  "$rimlight"            "1"
+  "$rimlightexponent"    "4"
+  "$rimlightboost"       "2"
+}

@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/PROPS/METALDUCT001A.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/vip_brooklynn2_b1c/c-5584_-2400_288"
+	}
+}

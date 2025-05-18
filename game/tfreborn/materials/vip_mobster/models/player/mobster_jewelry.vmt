@@ -1,0 +1,60 @@
+"VertexLitGeneric"
+{
+  "$basetexture"            "vip_mobster/models/player/mobster_jewelry"
+  "$bumpmap"                "vip_mobster/models/player/mobster_jewelry_normal"
+  "$phongexponenttexture"   "vip_mobster/models/player/mobster_jewelry_exponent"
+  
+  "$detail"                 "effects/tiledfire/fireLayeredSlowTiled512.vtf"  
+  "$detailscale"            "5"
+  "$detailblendfactor"      "0.01"
+  "$detailblendmode"        "6"
+
+  "$yellow"                 "0"
+  "$one"                    "1"
+  
+  "$phong"                  "1"
+  "$phongexponent"          "0"
+  "$phongboost"             "1"  
+  "$lightwarptexture"       "models/lightwarps/weapon_lightwarp"
+
+  "$envmap"                 "cubemaps/cubemap_sheen001"
+  "$envmaptint"             "[2.5 2.5 1.15]"
+  "$phongfresnelranges"     "[0.3 1 8]"
+  "$halflambert"            "0"
+
+  "$rimlight"               "1"
+  "$rimlightexponent"       "4"
+  "$rimlightboost"          "2"
+
+  "$cloakPassEnabled"       "1"
+  "$nocull"                 "1" //flipped viewmodels support
+  
+  "Proxies"
+  {
+    "spy_invis"
+    {
+    }
+    "invis"
+    {
+    }
+    "AnimatedTexture"
+    {
+      "animatedtexturevar"         "$detail"
+      "animatedtextureframenumvar" "$detailframe"
+      "animatedtextureframerate"   "30"
+    }
+    "BurnLevel"
+    {
+      "resultVar" "$detailblendfactor"
+    }
+    "YellowLevel"
+    {
+      "resultVar" "$yellow"
+    }
+    "Equals"
+    {
+      "srcVar1"   "$yellow"
+      "resultVar" "$color2"
+    }
+  }
+}
