@@ -21,6 +21,7 @@ extern bool UseHWMorphModels();
 #define TF_CLASS_PYRO_FILE				"scripts/playerclasses/pyro"
 #define TF_CLASS_SPY_FILE				"scripts/playerclasses/spy"
 #define TF_CLASS_ENGINEER_FILE			"scripts/playerclasses/engineer"
+#define TF_CLASS_LOBSTER_FILE			"scripts/playerclasses/lobster"
 #define TF_CLASS_CIVILIAN_FILE			"scripts/playerclasses/civilian"
 
 const char *s_aPlayerClassFiles[] =
@@ -35,10 +36,11 @@ const char *s_aPlayerClassFiles[] =
 	TF_CLASS_PYRO_FILE,
 	TF_CLASS_SPY_FILE,
 	TF_CLASS_ENGINEER_FILE,
+	TF_CLASS_LOBSTER_FILE,
 	TF_CLASS_CIVILIAN_FILE
 };
 
-
+static_assert(ARRAYSIZE(s_aPlayerClassFiles) == TF_CLASS_COUNT_ALL, "Compile time assert constraint is not true: ARRAYSIZE( s_aPlayerClassFiles ) == TF_CLASS_COUNT_ALL");
 CTFPlayerClassDataMgr s_TFPlayerClassDataMgr;
 CTFPlayerClassDataMgr *g_pTFPlayerClassDataMgr = &s_TFPlayerClassDataMgr; 
 

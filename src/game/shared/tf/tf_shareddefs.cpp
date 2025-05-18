@@ -64,6 +64,7 @@ const char* g_aPlayerClassNames_NonLocalized[TF_CLASS_MENU_BUTTONS] =
 	"Pyro",
 	"Spy",
 	"Engineer",
+	"Lobster",
 	"Civilian",
 	"",
 	"Random"
