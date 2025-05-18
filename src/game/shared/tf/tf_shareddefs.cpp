@@ -47,7 +47,7 @@ const char* g_aPlayerClassNames[TF_CLASS_MENU_BUTTONS] =
 	"#TF_Class_Name_Pyro",
 	"#TF_Class_Name_Spy",
 	"#TF_Class_Name_Engineer",
-	"#TF_Class_Name_Lobster",
+	"#TF_Class_Name_Mobster",
 	"#TF_Class_Name_Civilian",
 	"",
 	"#TF_Random"
@@ -65,7 +65,7 @@ const char* g_aPlayerClassNames_NonLocalized[TF_CLASS_MENU_BUTTONS] =
 	"Pyro",
 	"Spy",
 	"Engineer",
-	"Lobster",
+	"Mobster",
 	"Civilian",
 	"",
 	"Random"
@@ -84,7 +84,7 @@ const char* g_aRawPlayerClassNamesShort[TF_CLASS_MENU_BUTTONS] =
 	"spy",
 	"engineer",
 	"civilian",
-	"lobster",
+	"mobster",
 	"",
 	"random"
 };
@@ -101,7 +101,7 @@ const char* g_aRawPlayerClassNames[TF_CLASS_MENU_BUTTONS] =
 	"pyro",
 	"spy",
 	"engineer",
-	"lobster",
+	"mobster",
 	"civilian",
 	"",
 	"random"

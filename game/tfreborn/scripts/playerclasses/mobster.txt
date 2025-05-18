@@ -1,6 +1,6 @@
 // This file is directly copied from the pyro's class file
 //
-// Team Fortress Reborn - Lobster Player Class
+// Team Fortress Reborn - Mobster Player Class
 //
 PlayerClass
 {
