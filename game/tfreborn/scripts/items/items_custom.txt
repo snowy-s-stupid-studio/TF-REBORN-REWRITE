@@ -427,6 +427,16 @@
 			"effect_type"	"negative"
 			"stored_as_integer"	"0"
 		}
+		"4004"
+		{
+			"name"	"mod pda builds minidispenser"
+			"attribute_class"	"pda_builds_minidispenser"
+			"description_string"	"#Attrib_WrenchBuildsMiniDispenser"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"negative"
+			"stored_as_integer"	"0"
+		}
 		"3542"
 		{
 			"name"	"mod sentry cost"
@@ -440,6 +450,7 @@
 		
 		
 	}
+
 	"armory_data"
 	{
 		"armory_items"

@@ -73,6 +73,71 @@
 	}
 	"items"
 	{
+		"32003"
+		{
+			"name"	"TF_WEAPON_PDA_BUILD_MINIDISPENSER"
+			"capabilities"
+			{
+				"nameable"		"1"
+			}
+			"first_sale_date"	"2010/09/29"
+			"item_class"	"tf_weapon_pda_engineer_build"
+			"craft_class"	"weapon"
+			"craft_material_type"	"weapon"
+			"item_name"	"#TFCW_HandyPartner"
+			"item_type_name"	"#TF_Weapon_PDA_Engineer"
+			"item_slot"	"pda"
+			"item_quality"	"unique"
+			"soloitem" "1"
+			"min_ilevel"	"1"
+			"max_ilevel"	"1"
+			"attach_to_hands" "1"
+			"image_inventory"	"backpack/weapons/custommade/c_pda_minidisp"
+			"image_inventory_size_w"		"128"
+			"image_inventory_size_h"		"82"
+			"model_player"	"models/weapons/c_models/c_minibuilder/c_minibuilder.mdl"
+			"used_by_classes"
+			{
+				"engineer"	"1"
+			}
+			"static_attrs"
+			{
+				"min_viewmodel_offset"					"10 0 -10"				
+			}
+			"attributes"
+			{
+				"mod pda builds minidispenser"
+				{
+					"attribute_class"	"pda_builds_minidispenser"
+					"value"	"1"
+				}
+				"kill eater score type"
+				{
+					"attribute_class"	"kill_eater_score_type"
+					"value" 	"3" 
+				}
+				"kill eater score type 2"
+				{
+					"attribute_class"	"kill_eater_score_type_2"
+					"value" 	"59" 
+				}
+				"kill eater score type 3"
+				{
+					"attribute_class"	"kill_eater_score_type_3"
+					"value" 	"60" 
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_metal_weapon_pickup.wav"
+			"drop_sound"		"ui/item_metal_weapon_drop.wav"
+			"visuals"
+			{
+				"animation_replacement"
+				{
+					"ACT_VM_IDLE"	"ACT_ENGINEER_PDA2_VM_IDLE"
+					"ACT_VM_DRAW"	"ACT_ENGINEER_PDA2_VM_DRAW"
+				}
+			}
+		}
 		"34444"
 		{
 			"name"	"TF_WEAPON_BFG50"
