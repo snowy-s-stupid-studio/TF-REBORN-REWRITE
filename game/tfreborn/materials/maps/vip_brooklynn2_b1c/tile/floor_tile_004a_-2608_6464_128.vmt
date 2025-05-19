@@ -1,8 +1,0 @@
-"patch"
-{
-	"include"		"materials/TILE/FLOOR_TILE_004A.vmt"
-	"replace"
-	{
-		"$envmap"		"maps/vip_brooklynn2_b1c/c-2608_6464_128"
-	}
-}

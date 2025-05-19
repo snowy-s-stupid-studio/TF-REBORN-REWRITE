@@ -1,7 +1,0 @@
-"LightmappedGeneric"
-{
-	"$basetexture"		"Nature/gravelgrayred001"
-	"%tooltexture"		"editor-abs/blendttx/nature/blendgroundtogravel007"
-	"%keywords"		"tf"
-	"$surfaceprop"		"dirt"
-}

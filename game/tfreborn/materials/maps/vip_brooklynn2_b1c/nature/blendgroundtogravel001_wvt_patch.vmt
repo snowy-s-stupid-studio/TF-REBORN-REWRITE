@@ -1,9 +1,0 @@
-"LightmappedGeneric"
-{
-	"$basetexture"		"Nature/dirtground001"
-	"%tooltexture"		"editor-abs/blendttx/nature/blendgroundtogravel001"
-	"$bumpmap"		"Nature/dirtground001_height-ssbump"
-	"%keywords"		"tf"
-	"$ssbump"		"1"
-	"$surfaceprop"		"dirt"
-}

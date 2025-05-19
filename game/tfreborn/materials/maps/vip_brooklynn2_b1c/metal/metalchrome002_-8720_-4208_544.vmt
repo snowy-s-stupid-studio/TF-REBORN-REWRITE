@@ -1,8 +1,0 @@
-"patch"
-{
-	"include"		"materials/METAL/METALCHROME002.vmt"
-	"replace"
-	{
-		"$envmap"		"maps/vip_brooklynn2_b1c/c-8720_-4208_544"
-	}
-}

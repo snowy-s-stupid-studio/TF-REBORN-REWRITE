@@ -1,8 +1,0 @@
-"UnlitGeneric"
-{
-  "$baseTexture" "sprites/obj_icons/icon_obj_red_locked"
-  "$translucent"   "1"
-  "$vertexcolor"   "1"
-  "$no_fullbright" "1"
-  "$ignorez"       "1"
-}

@@ -1,8 +1,0 @@
-"patch"
-{
-	"include"		"materials/GLASS/GLASSWINDOW001A.vmt"
-	"replace"
-	{
-		"$envmap"		"maps/vip_brooklynn2_b1c/c-5328_6624_192"
-	}
-}
