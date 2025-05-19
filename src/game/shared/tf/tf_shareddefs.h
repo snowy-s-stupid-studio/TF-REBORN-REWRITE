@@ -215,7 +215,7 @@ enum ETFClass
 	TF_CLASS_ENGINEER,		
 
 	// Add any new classes after Engineer
-	TF_CLASS_LOBSTER,
+	TF_CLASS_MOBSTER,
 	TF_CLASS_CIVILIAN,		// TF_LAST_NORMAL_CLASS
 	TF_CLASS_COUNT_ALL,
 
