@@ -41,7 +41,7 @@ CObjectCatapult::CObjectCatapult()
 	SetHealth(iHealth);
 	UseClientSideAnimation();
 
-	SetType(OBJ_CATAPULT);
+	SetType(obj_catapult);
 }
 
 
@@ -200,5 +200,3 @@ void CObjectCatapult::Launch(CBaseEntity* pEnt)
 	//pPlayer->ApplyAirBlastImpulse( tf_engineer_catapult_force.GetFloat() * vForward );
 	pPlayer->m_Shared.AddCond(TF_COND_SPEED_BOOST, 5.0f);
 }
-
-#endif // STAGING_ONLY

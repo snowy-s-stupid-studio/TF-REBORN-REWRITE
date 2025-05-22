@@ -1376,6 +1376,7 @@ enum ObjectType_t
 
 	//
 	// ADD NEW ITEMS HERE TO AVOID BREAKING DEMOS
+	OBJ_CATAPULT,
 	//
 
 	OBJ_LAST,

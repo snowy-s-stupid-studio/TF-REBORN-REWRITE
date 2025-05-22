@@ -4,8 +4,6 @@
 //
 //=============================================================================
 
-#ifndef TF_OBJ_CATAPULT_H
-#define TF_OBJ_CATAPULT_H
 #ifdef _WIN32
 #pragma once
 #endif
@@ -58,5 +56,3 @@ private:
 	};
 	CUtlVector< Jumper_t > m_jumpers;
 };
-
-#endif // STAGING_ONLY
