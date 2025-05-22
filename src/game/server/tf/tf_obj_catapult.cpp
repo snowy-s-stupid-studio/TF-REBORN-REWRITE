@@ -54,39 +54,38 @@ CObjectCatapult::CObjectCatapult()
 
 void CObjectCatapult::Spawn()
 {
-	SetSolid(SOLID_BBOX);
-	SetCollisionGroup(COLLISION_GROUP_BLOCK_WEAPONS); // or PLAYER
+    SetSolid(SOLID_VPHYSICS);
+    SetMoveType(MOVETYPE_NONE);
+    m_takedamage = DAMAGE_NO;
+    SetModel(CATAPULT_MODEL);
 
-	m_takedamage = DAMAGE_NO;
+    int nBodyDir = FindBodygroupByName("teleporter_direction");
+    if (nBodyDir != -1)
+    {
+        SetBodygroup(nBodyDir, 0);
+    }
 
-	// If you want a state variable like TELEPORTER_STATE_BUILDING, you can define your own
-	// For now, just keep as is or define a similar enum/state for catapult if needed.
-	// SetState(CATAPULT_STATE_BUILDING); // optional
+    UTIL_SetSize(this, CATAPULT_MINS, CATAPULT_MAXS);
 
-	// Initialize any timers or yaw variables if needed (like m_flNextEnemyTouchHint, m_flYawToExit)
-	// If not applicable, you can skip these.
+    BaseClass::Spawn();
 
-	SetModel(CATAPULT_MODEL);
+    // Spin building 180 degrees if your model needs this fix
+    RotateBuildAngles();
+    RotateBuildAngles();
 
-	int nBodyDir = FindBodygroupByName("teleporter_direction");
-	if (nBodyDir != -1)
-	{
-		SetBodygroup(nBodyDir, 0);
-	}
+    UpdateDesiredBuildRotation(5.f);
 
-	UTIL_SetSize(this, CATAPULT_MINS, CATAPULT_MAXS);
-
-	BaseClass::Spawn();
-
-	// Spin building 180 degrees if your model needs this fix
-	RotateBuildAngles();
-	RotateBuildAngles();
-
-	UpdateDesiredBuildRotation(5.f);
-
-	// Set collision group so it collides with players properly
-	SetCollisionGroup(COLLISION_GROUP_PLAYER);
+    // Set collision group for solid objects that players collide with
+    SetCollisionGroup(COLLISION_GROUP_PLAYER);
+    
+    // Create physics object to enable collisions
+    if (VPhysicsInitNormal(SOLID_VPHYSICS, 0, false) == false)
+    {
+        DevMsg("Failed to initialize physics for catapult!\n");
+    }
 }
+
+
 
 
 void CObjectCatapult::Precache()
@@ -121,8 +120,8 @@ void CObjectCatapult::CatapultThink()
 			continue;
 		}
 
-		// Hardcoded 0.5 second delay or player ducking to launch
-		if (jumper.flTouchTime + 0.5f < gpGlobals->curtime || (pPlayer->m_nButtons & IN_DUCK))
+		// Launch ONLY when the player jumps (presses jump button)
+		if (pPlayer->m_nButtons & IN_JUMP)
 		{
 			Launch(jumper.m_hJumper);
 			m_jumpers.Remove(i);
@@ -133,6 +132,7 @@ void CObjectCatapult::CatapultThink()
 		}
 	}
 }
+
 
 void CObjectCatapult::OnGoActive()
 {
