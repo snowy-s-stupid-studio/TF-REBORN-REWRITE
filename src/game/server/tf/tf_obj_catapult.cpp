@@ -8,6 +8,7 @@
 #include "tf_player.h"
 #include "mathlib/mathlib.h"
 #include "in_buttons.h"
+#include "tf_shareddefs.h"
 
 
 #define CATAPULT_THINK_CONTEXT				"CatapultContext"
@@ -41,7 +42,7 @@ CObjectCatapult::CObjectCatapult()
 	SetHealth(iHealth);
 	UseClientSideAnimation();
 
-	SetType(obj_catapult);
+	SetType(OBJ_CATAPULT);
 }
 
 
