@@ -13,7 +13,7 @@
 
 #define CATAPULT_THINK_CONTEXT				"CatapultContext"
 
-#define CATAPULT_MODEL	"models/buildables/teleporter_light.mdl"
+#define CATAPULT_MODEL	"models/buildables/bouncepad_light.mdl"
 
 const Vector CATAPULT_MINS = Vector(-24, -24, 0);
 const Vector CATAPULT_MAXS = Vector(24, 24, 12);
@@ -192,12 +192,17 @@ void CObjectCatapult::Launch(CBaseEntity* pEnt)
 
 	Vector vForward;
 	QAngle qEyeAngle = pEnt->EyeAngles();
-	AngleVectors( pEnt->EyeAngles(), &vForward );
+	AngleVectors(pEnt->EyeAngles(), &vForward);
 	vForward.NormalizeInPlace();
 	vForward.z += 2.0f;
 	vForward.NormalizeInPlace();
 
-
+	// Apply impulse
 	pPlayer->ApplyGenericPushbackImpulse(tf_engineer_catapult_force.GetFloat() * vForward, nullptr);
-	//pPlayer->m_Shared.AddCond(TF_COND_SPEED_BOOST, 5.0f);
+
+	// Play sound from the catapult itself
+	EmitSound("weapons/jumppad_fire.wav");
+
+	// Also play the sound from the player
+	pPlayer->EmitSound("weapons/jumppad_fire.wav");
 }
