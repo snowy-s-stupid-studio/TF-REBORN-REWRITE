@@ -605,10 +605,11 @@ public:
 	CTFWearable *GetEquippedWearableForLoadoutSlot( int iLoadoutSlot );
 
 	//Base entity overrides
-	// Functions that intercept Base Calls for Attribute Checking
+	//Functions that intercept Base Calls for Attribute Checking, this is really retarded, and no idea where else to put this but it will work for now
 	void ApplyAbsVelocityImpulse ( const Vector &vecImpulse );
 	bool ApplyPunchImpulseX ( float flImpulse );
 	void ApplyGenericPushbackImpulse( const Vector &vecImpulse, CTFPlayer *pAttacker );
+	void ApplyAirBlastImpulse(const Vector& vecImpulse);
 
 	void SetUseBossHealthBar( bool bUseBossHealthBar ) { m_bUseBossHealthBar = bUseBossHealthBar; }
 

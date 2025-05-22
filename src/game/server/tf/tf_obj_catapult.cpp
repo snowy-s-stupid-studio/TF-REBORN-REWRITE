@@ -190,14 +190,14 @@ void CObjectCatapult::Launch(CBaseEntity* pEnt)
 	if (!pPlayer)
 		return;
 
-	//Vector vForward;
-	//QAngle qEyeAngle = pEnt->EyeAngles();
-	//AngleVectors( pEnt->EyeAngles(), &vForward );
-	//vForward.NormalizeInPlace();
-	//vForward.z += 2.0f;
-	//vForward.NormalizeInPlace();
+	Vector vForward;
+	QAngle qEyeAngle = pEnt->EyeAngles();
+	AngleVectors( pEnt->EyeAngles(), &vForward );
+	vForward.NormalizeInPlace();
+	vForward.z += 2.0f;
+	vForward.NormalizeInPlace();
 
 
-	//pPlayer->ApplyAirBlastImpulse( tf_engineer_catapult_force.GetFloat() * vForward );
-	pPlayer->m_Shared.AddCond(TF_COND_SPEED_BOOST, 5.0f);
+	pPlayer->ApplyGenericPushbackImpulse(tf_engineer_catapult_force.GetFloat() * vForward, nullptr);
+	//pPlayer->m_Shared.AddCond(TF_COND_SPEED_BOOST, 5.0f);
 }
