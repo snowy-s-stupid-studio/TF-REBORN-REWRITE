@@ -1,15 +1,17 @@
-//========= Copyright Valve Corporation, All rights reserved. ============//
+﻿//========= Copyright Valve Corporation, All rights reserved. ============//
+//========= Copyright Snowy's stupid studio, All rights reserved. ============//
 //
-//
-//
+//			Self explanatory, it's the jumppad basically lol
 //=============================================================================
 #include "cbase.h"
 #include "tf_obj_catapult.h"
 #include "tf_player.h"
+#include "engine/IEngineSound.h"
 #include "mathlib/mathlib.h"
+#include "tf_gamestats.h"
+#include "tf_team.h"
 #include "in_buttons.h"
 #include "tf_shareddefs.h"
-
 
 #define CATAPULT_THINK_CONTEXT				"CatapultContext"
 
@@ -19,8 +21,14 @@ const Vector CATAPULT_MINS = Vector(-24, -24, 0);
 const Vector CATAPULT_MAXS = Vector(24, 24, 12);
 
 ConVar tf_engineer_catapult_force("tf_engineer_catapult_force", "1000");
-ConVar tf_engineer_catapult_delay("tf_engineer_catapult_delay", "0");
 
+// Separate cooldown delays for catapult levels (in seconds)
+int g_iCatapultLaunchDelays[4] = {
+	0,   // Level 0 (no cooldown)
+	8,   // Level 1 delay
+	5,   // Level 2 delay
+	3    // Level 3 delay
+};
 
 //IMPLEMENT_SERVERCLASS_ST( CObjectCatapult, DT_ObjectCatapult )
 //END_SEND_TABLE()
@@ -33,7 +41,6 @@ PRECACHE_REGISTER(obj_catapult);
 
 LINK_ENTITY_TO_CLASS(obj_catapult, CObjectCatapult);
 
-
 CObjectCatapult::CObjectCatapult()
 {
 	int iHealth = GetMaxHealthForCurrentLevel();
@@ -45,12 +52,22 @@ CObjectCatapult::CObjectCatapult()
 	SetType(OBJ_CATAPULT);
 }
 
-
 void CObjectCatapult::Spawn()
 {
 	SetSolid(SOLID_BBOX);
+	SetCollisionGroup(COLLISION_GROUP_BLOCK_WEAPONS); // or PLAYER
+
+	m_takedamage = DAMAGE_NO;
+
+	// If you want a state variable like TELEPORTER_STATE_BUILDING, you can define your own
+	// For now, just keep as is or define a similar enum/state for catapult if needed.
+	// SetState(CATAPULT_STATE_BUILDING); // optional
+
+	// Initialize any timers or yaw variables if needed (like m_flNextEnemyTouchHint, m_flYawToExit)
+	// If not applicable, you can skip these.
 
 	SetModel(CATAPULT_MODEL);
+
 	int nBodyDir = FindBodygroupByName("teleporter_direction");
 	if (nBodyDir != -1)
 	{
@@ -61,11 +78,14 @@ void CObjectCatapult::Spawn()
 
 	BaseClass::Spawn();
 
-	// HACK: Spin this building 180.  The temp model is backwards
+	// Spin building 180 degrees if your model needs this fix
 	RotateBuildAngles();
 	RotateBuildAngles();
 
 	UpdateDesiredBuildRotation(5.f);
+
+	// Set collision group so it collides with players properly
+	SetCollisionGroup(COLLISION_GROUP_PLAYER);
 }
 
 
@@ -74,8 +94,8 @@ void CObjectCatapult::Precache()
 	BaseClass::Precache();
 
 	PrecacheModel(CATAPULT_MODEL);
+	PrecacheScriptSound("weapons/jumppad_fire.wav");
 }
-
 
 void CObjectCatapult::CatapultThink()
 {
@@ -84,12 +104,10 @@ void CObjectCatapult::CatapultThink()
 
 	SetContextThink(&CObjectCatapult::CatapultThink, gpGlobals->curtime + 0.1f, CATAPULT_THINK_CONTEXT);
 
-	const float flJumpDelay = tf_engineer_catapult_delay.GetFloat();
 	for (int i = 0; i < m_jumpers.Count(); )
 	{
 		const Jumper_t& jumper = m_jumpers[i];
 
-		// Cleanup
 		if (!jumper.m_hJumper)
 		{
 			m_jumpers.Remove(i);
@@ -103,8 +121,8 @@ void CObjectCatapult::CatapultThink()
 			continue;
 		}
 
-		//pPlayer->m_nButtons |= IN_DUCK;
-		if (jumper.flTouchTime + flJumpDelay < gpGlobals->curtime || (pPlayer->m_nButtons & IN_DUCK))
+		// Hardcoded 0.5 second delay or player ducking to launch
+		if (jumper.flTouchTime + 0.5f < gpGlobals->curtime || (pPlayer->m_nButtons & IN_DUCK))
 		{
 			Launch(jumper.m_hJumper);
 			m_jumpers.Remove(i);
@@ -115,7 +133,6 @@ void CObjectCatapult::CatapultThink()
 		}
 	}
 }
-
 
 void CObjectCatapult::OnGoActive()
 {
@@ -128,9 +145,7 @@ void CObjectCatapult::OnGoActive()
 	{
 		SetBodygroup(nBodyDir, 1);
 	}
-
 }
-
 
 bool CObjectCatapult::IsPlacementPosValid(void)
 {
@@ -154,20 +169,33 @@ bool CObjectCatapult::IsPlacementPosValid(void)
 	return (tr.fraction >= 1.0);
 }
 
-
 void CObjectCatapult::StartTouch(CBaseEntity* pOther)
 {
 	BaseClass::StartTouch(pOther);
 
 	if (pOther->IsPlayer())
 	{
+		CTFPlayer* pPlayer = ToTFPlayer(pOther);
+		if (!pPlayer)
+			return;
+
+		// Only allow players on the same team as the catapult's builder to use it
+		CTFPlayer* pBuilder = ToTFPlayer(GetBuilder());
+		if (pBuilder && pPlayer->GetTeamNumber() != pBuilder->GetTeamNumber())
+		{
+			// Different team, do NOT add as jumper
+			return;
+		}
+
+		// Uncomment below for debugging touches
+		// DevMsg("Player touched catapult: %s\n", pPlayer->GetPlayerName());
+
 		int index = m_jumpers.AddToTail();
 		Jumper_t& jumper = m_jumpers[index];
 		jumper.m_hJumper = pOther;
 		jumper.flTouchTime = gpGlobals->curtime;
 	}
 }
-
 
 void CObjectCatapult::EndTouch(CBaseEntity* pOther)
 {
@@ -183,12 +211,23 @@ void CObjectCatapult::EndTouch(CBaseEntity* pOther)
 	}
 }
 
-
 void CObjectCatapult::Launch(CBaseEntity* pEnt)
 {
+	// Convert to player
 	CTFPlayer* pPlayer = ToTFPlayer(pEnt);
 	if (!pPlayer)
 		return;
+
+	int iTeam = pPlayer->GetTeamNumber();
+
+	if (pPlayer->IsPlayerClass(TF_CLASS_SPY) && pPlayer->m_Shared.InCond(TF_COND_DISGUISED))
+	{
+		CTFPlayer* pBuilder = ToTFPlayer(GetBuilder());
+		if (pBuilder && iTeam != pBuilder->GetTeamNumber())
+		{
+			iTeam = pBuilder->GetTeamNumber();  // just assign, no int here
+		}
+	}
 
 	Vector vForward;
 	QAngle qEyeAngle = pEnt->EyeAngles();
