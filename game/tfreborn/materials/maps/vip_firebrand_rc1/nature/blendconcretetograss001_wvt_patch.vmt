@@ -1,0 +1,8 @@
+"LightmappedGeneric"
+{
+	"$basetexture"		"Concrete/concretefloor007"
+	"%tooltexture"		"editor-abs/blendttx/nature/blendconcretetograss001"
+	"%detailtype"		"tf_forest_grass"
+	"%keywords"		"tf"
+	"$surfaceprop"		"concrete"
+}

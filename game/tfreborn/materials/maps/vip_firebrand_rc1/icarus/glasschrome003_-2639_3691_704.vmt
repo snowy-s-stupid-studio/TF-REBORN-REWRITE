@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/ICARUS/GLASSCHROME003.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/vip_firebrand_rc1/c-2639_3691_704"
+	}
+}

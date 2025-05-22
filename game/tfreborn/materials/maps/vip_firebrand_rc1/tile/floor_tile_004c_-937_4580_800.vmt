@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/TILE/FLOOR_TILE_004C.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/vip_firebrand_rc1/c-937_4580_800"
+	}
+}

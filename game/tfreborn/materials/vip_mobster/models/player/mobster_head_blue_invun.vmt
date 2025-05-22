@@ -1,0 +1,9 @@
+"Patch"
+{
+  "include"  "materials/models/player/hvyweapon/hvyweapon_blue_invun.vmt"
+  
+  "insert"
+  {
+    "$basetexture"  "vip_mobster/models/player/mobster_head_blue_invun"
+  }
+}

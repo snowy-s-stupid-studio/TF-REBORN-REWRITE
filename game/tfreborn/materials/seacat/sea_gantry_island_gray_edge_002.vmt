@@ -1,0 +1,9 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "seacat/sea_gantry_island_gray_edge_002"
+	"$bumpmap" "Metal/island_gantry_metal001_normal"
+	"$envmap" "env_cubemap"
+	"$envmaptint" "[ .2 .2 .2 ]"
+	"$surfaceprop" "metal"
+	"%keywords" "tf"
+}

@@ -1,0 +1,9 @@
+"Patch"
+{
+  "include"   "materials/vip_mobster/models/player/mobster_blue.vmt"
+
+  "insert"
+  {
+    "$nocull" "1"
+  }
+}

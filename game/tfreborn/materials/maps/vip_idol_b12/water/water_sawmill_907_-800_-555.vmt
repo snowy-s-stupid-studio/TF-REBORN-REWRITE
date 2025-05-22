@@ -1,0 +1,11 @@
+"patch"
+{
+	"include"		"materials/WATER/WATER_SAWMILL.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/vip_idol_b12/c907_-800_-555"
+		"Proxies"
+		{
+		}
+	}
+}

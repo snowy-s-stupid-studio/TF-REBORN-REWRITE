@@ -1,0 +1,8 @@
+"UnlitGeneric"
+{
+  "$baseTexture"   "vip_mobster\hud\vip_point_2"
+  "$translucent"   "1"
+  "$vertexcolor"   "1"
+  "$no_fullbright" "1"
+  "$ignorez"       "1"
+}

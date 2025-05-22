@@ -903,7 +903,9 @@ medigun_resist_types_t CWeaponMedigun::GetResistType() const
 //-----------------------------------------------------------------------------
 bool CWeaponMedigun::IsAllowedToTargetBuildings( void )
 {
-	return false;
+	int iHealBuildings = 0;
+	CALL_ATTRIB_HOOK_INT(iHealBuildings, medic_machinery_beam);
+	return iHealBuildings ? true : false;
 }
 
 //-----------------------------------------------------------------------------

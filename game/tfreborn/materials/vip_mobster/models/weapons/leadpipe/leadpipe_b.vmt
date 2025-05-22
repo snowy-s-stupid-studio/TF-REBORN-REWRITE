@@ -1,0 +1,10 @@
+"Patch"
+{
+  include "materials/vip_mobster/models/weapons/leadpipe/leadpipe_a.vmt"
+  
+  insert
+  {
+    "$basetexture"  "vip_mobster/models/weapons/leadpipe/leadpipe_b"
+    "$bumpmap"      "vip_mobster/models/weapons/leadpipe/leadpipe_b_normal"
+  }
+}

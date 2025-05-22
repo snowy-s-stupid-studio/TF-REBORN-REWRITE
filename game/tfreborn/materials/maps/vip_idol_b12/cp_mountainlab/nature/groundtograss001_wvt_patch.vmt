@@ -1,0 +1,8 @@
+"LightmappedGeneric"
+{
+	"$basetexture"		"cp_mountainlab/nature/ground001"
+	"%detailtype"		"tf_forest_grass"
+	"%keywords"		"tf"
+	"$surfaceprop"		"dirt"
+	"%tooltexture"		"editor-abs/blendttx/cp_mountainlab/nature/groundtograss001"
+}

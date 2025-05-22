@@ -1,0 +1,13 @@
+"VertexLitGeneric"
+{
+	"$basetexture"	"models/props_movies/cu_minibox/cu_minibox"
+	"$surfaceprop"	"cardboard"
+	"$bumpmap"	"models/props_movies/cu_minibox/cu_minibox_n"
+	//phong properties
+	"$phong"	"1"
+	"$phongboost"	"1"
+	"$phongexponenttexture"	"models/props_movies/cu_minibox/cu_minibox_exp"
+	"$phongfresnelranges"	"[1 1.5 2]"
+
+	"$ambientocclusion" "1"
+}

@@ -1,0 +1,12 @@
+"VertexLitGeneric"
+{
+	"$basetexture"	"models/props_movies/floorcables001/floorcables001"
+	"$surfaceprop"	"rubber"
+	"$bumpmap"	"models/props_movies/floorcables001/floorcables001_n"
+	
+	//phong properties
+	"$phong"	"1"
+	"$phongboost"	"1"
+	"$phongexponenttexture"	"models/props_movies/floorcables001/floorcables001_exp"
+	"$phongfresnelranges"	"[1 1.5 2]"
+}

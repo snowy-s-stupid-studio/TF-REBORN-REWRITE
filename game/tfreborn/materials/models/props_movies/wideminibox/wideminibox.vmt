@@ -1,0 +1,11 @@
+"VertexLitGeneric"
+{
+	"$basetexture"	"models/props_movies/wideminibox/wideminibox"
+	"$surfaceprop"	"cardboard"
+	"$bumpmap"	"models/props_movies/wideminibox/wideminibox_n"
+	//phong properties
+	"$phong"	"1"
+	"$phongboost"	"1"
+	"$phongexponenttexture"	"models/props_movies/wideminibox/wideminibox_exp"
+	"$phongfresnelranges"	"[1 1.5 2]"
+}

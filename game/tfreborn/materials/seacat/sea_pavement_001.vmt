@@ -1,0 +1,11 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "seacat/sea_pavement_001"
+	"%keywords" "tf, seacat"
+
+ 	   "$detail" "overlays/detail004"
+	    "$detailscale" "[1 1]"
+	    "$detailblendmode" "0"
+	    "$detailblendfactor" ".5"
+	"$bumpmap" "seacat/sea_pavement_001_normal"
+}

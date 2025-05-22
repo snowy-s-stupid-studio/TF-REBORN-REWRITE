@@ -1,0 +1,9 @@
+"LightmappedGeneric"
+{
+	"$basetexture"		"cp_mountainlab/nature/rockwall001"
+	"$bumpmap"		"nature/rockwall009_height-ssbump"
+	"$ssbump"		"1"
+	"%keywords"		"tf"
+	"$surfaceprop"		"dirt"
+	"%tooltexture"		"editor-abs/blendttx/cp_mountainlab/nature/blendrocktograss002"
+}

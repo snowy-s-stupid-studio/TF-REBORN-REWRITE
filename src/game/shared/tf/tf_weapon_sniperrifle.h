@@ -36,39 +36,39 @@ class CSniperDot : public CBaseEntity
 {
 public:
 
-	DECLARE_CLASS( CSniperDot, CBaseEntity );
+	DECLARE_CLASS(CSniperDot, CBaseEntity);
 	DECLARE_NETWORKCLASS();
 	DECLARE_DATADESC();
 
 	// Creation/Destruction.
-	CSniperDot( void );
-	~CSniperDot( void );
+	CSniperDot(void);
+	~CSniperDot(void);
 
-	static CSniperDot *Create( const Vector &origin, CBaseEntity *pOwner = NULL, bool bVisibleDot = true );
-	void		ResetChargeTime( void ) { m_flChargeStartTime = gpGlobals->curtime; }
+	static CSniperDot* Create(const Vector& origin, CBaseEntity* pOwner = NULL, bool bVisibleDot = true);
+	void		ResetChargeTime(void) { m_flChargeStartTime = gpGlobals->curtime; }
 
 	// Attributes.
-	int			ObjectCaps()							{ return (BaseClass::ObjectCaps() & ~FCAP_ACROSS_TRANSITION) | FCAP_DONT_SAVE; }
+	int			ObjectCaps() { return (BaseClass::ObjectCaps() & ~FCAP_ACROSS_TRANSITION) | FCAP_DONT_SAVE; }
 
 	// Targeting.
-	void        Update( CBaseEntity *pTarget, const Vector &vecOrigin, const Vector &vecNormal );
-	CBaseEntity	*GetTargetEntity( void )				{ return m_hTargetEnt; }
+	void        Update(CBaseEntity* pTarget, const Vector& vecOrigin, const Vector& vecNormal);
+	CBaseEntity* GetTargetEntity(void) { return m_hTargetEnt; }
 	Vector		GetChasePosition();
 
-// Client specific.
+	// Client specific.
 #ifdef CLIENT_DLL
 
-	bool GetRenderingPositions( C_TFPlayer *pPlayer, Vector &vecAttachment, Vector &vecEndPos, float &flSize );
+	bool GetRenderingPositions(C_TFPlayer* pPlayer, Vector& vecAttachment, Vector& vecEndPos, float& flSize);
 
 	// Rendering.
-	virtual bool			IsTransparent( void )		{ return true; }
-	virtual RenderGroup_t	GetRenderGroup( void )		{ return RENDER_GROUP_TRANSLUCENT_ENTITY; }
-	virtual int				DrawModel( int flags );
-	virtual bool			ShouldDraw( void );
+	virtual bool			IsTransparent(void) { return true; }
+	virtual RenderGroup_t	GetRenderGroup(void) { return RENDER_GROUP_TRANSLUCENT_ENTITY; }
+	virtual int				DrawModel(int flags);
+	virtual bool			ShouldDraw(void);
 
-	virtual void			ClientThink( void );
+	virtual void			ClientThink(void);
 
-	virtual void			OnDataChanged( DataUpdateType_t updateType );
+	virtual void			OnDataChanged(DataUpdateType_t updateType);
 
 	CMaterialReference		m_hSpriteMaterial;
 	HPARTICLEFFECT			m_laserBeamEffect;
@@ -79,7 +79,7 @@ protected:
 	Vector					m_vecSurfaceNormal;
 	EHANDLE					m_hTargetEnt;
 
-	CNetworkVar( float, m_flChargeStartTime );
+	CNetworkVar(float, m_flChargeStartTime);
 };
 
 //=============================================================================
@@ -90,104 +90,106 @@ class CTFSniperRifle : public CTFWeaponBaseGun
 {
 public:
 
-	DECLARE_CLASS( CTFSniperRifle, CTFWeaponBaseGun );
-	DECLARE_NETWORKCLASS(); 
+	DECLARE_CLASS(CTFSniperRifle, CTFWeaponBaseGun);
+	DECLARE_NETWORKCLASS();
 	DECLARE_PREDICTABLE();
 	DECLARE_DATADESC();
 
 	CTFSniperRifle();
 	virtual ~CTFSniperRifle();
 
-	virtual int	GetWeaponID( void ) const			{ return TF_WEAPON_SNIPERRIFLE; }
+	virtual int	GetWeaponID(void) const { return TF_WEAPON_SNIPERRIFLE; }
 
 	virtual void Spawn();
 	virtual void Precache() OVERRIDE;
-	void		 ResetTimers( void );
+	void		 ResetTimers(void);
 
-	virtual bool Reload( void );
-	virtual bool CanHolster( void ) const;
-	virtual bool Holster( CBaseCombatWeapon *pSwitchingTo );
+	virtual bool Reload(void);
+	virtual bool CanHolster(void) const;
+	virtual bool Holster(CBaseCombatWeapon* pSwitchingTo);
 
-	virtual void HandleZooms( void );
-	virtual void ItemPostFrame( void );
-	virtual bool Lower( void );
-	virtual float GetProjectileDamage( void );
+	virtual void HandleZooms(void);
+	virtual void ItemPostFrame(void);
+	virtual bool Lower(void);
+	virtual float GetProjectileDamage(void);
 	virtual int	GetDamageType() const;
-	int		GetRifleType( void ) const { int iMode = 0; CALL_ATTRIB_HOOK_INT( iMode, set_weapon_mode ); return iMode; };
+	int		GetRifleType(void) const { int iMode = 0; CALL_ATTRIB_HOOK_INT(iMode, set_weapon_mode); return iMode; };
+	bool		HasMVMLaser(void) const { int iLaserMVM = 0; CALL_ATTRIB_HOOK_INT(iLaserMVM, sniper_has_laserdot); return (iLaserMVM == 1); };
 
-	virtual void WeaponReset( void );
 
-	virtual bool CanFireCriticalShot( bool bIsHeadshot = false, CBaseEntity *pTarget = NULL ) OVERRIDE;
+	virtual void WeaponReset(void);
 
-	virtual void PlayWeaponShootSound( void );
-	virtual bool MustBeZoomedToFire( void );
+	virtual bool CanFireCriticalShot(bool bIsHeadshot = false, CBaseEntity* pTarget = NULL) OVERRIDE;
+
+	virtual void PlayWeaponShootSound(void);
+	virtual bool MustBeZoomedToFire(void);
 
 	virtual ETFDmgCustom GetPenetrateType() const;
 
 #ifdef CLIENT_DLL
-	float GetHUDDamagePerc( void );
+	float GetHUDDamagePerc(void);
 
 	virtual bool ShouldEjectBrass();
 #endif
 
-	bool IsZoomed( void );
-	bool IsFullyCharged( void ) const;			// have we been zoomed in long enough for our shot to do max damage
+	bool IsZoomed(void);
+	bool IsFullyCharged(void) const;			// have we been zoomed in long enough for our shot to do max damage
 
-	virtual void OnControlStunned( void );
+	virtual void OnControlStunned(void);
 
 	virtual int GetCustomDamageType() const;
 
 #ifdef GAME_DLL
 	// Hit tracking for achievements
-	virtual void	OnPlayerKill( CTFPlayer *pVictim, const CTakeDamageInfo &info ) OVERRIDE;
-	virtual void	OnBulletFire( int iEnemyPlayersHit ) OVERRIDE;
+	virtual void	OnPlayerKill(CTFPlayer* pVictim, const CTakeDamageInfo& info) OVERRIDE;
+	virtual void	OnBulletFire(int iEnemyPlayersHit) OVERRIDE;
 
-	void			ExplosiveHeadShot( CTFPlayer *pAttacker, CTFPlayer *pVictim );
+	void			ExplosiveHeadShot(CTFPlayer* pAttacker, CTFPlayer* pVictim);
 #endif
-	
-	void			Detach( void ) OVERRIDE;
 
-	virtual bool	IsJarateRifle( void ) const;
-	virtual float	GetJarateTime( void ) const;
+	void			Detach(void) OVERRIDE;
+
+	virtual bool	IsJarateRifle(void) const;
+	virtual float	GetJarateTime(void) const;
 
 	virtual float	SniperRifleChargeRateMod() { return 0.f; }
 
-	virtual int		GetBuffType() { int iBuffType = 0; CALL_ATTRIB_HOOK_INT( iBuffType, set_buff_type ); return iBuffType; }
+	virtual int		GetBuffType() { int iBuffType = 0; CALL_ATTRIB_HOOK_INT(iBuffType, set_buff_type); return iBuffType; }
 
-	float			GetProgress( void );
-	bool			IsRageFull( void ); // same as GetProgress() without the division by 100.0f
-	const char*		GetEffectLabelText( void ) { return "#TF_SNIPERRAGE"; }
-	bool			EffectMeterShouldFlash( void );
+	float			GetProgress(void);
+	bool			IsRageFull(void); // same as GetProgress() without the division by 100.0f
+	const char* GetEffectLabelText(void) { return "#TF_SNIPERRAGE"; }
+	bool			EffectMeterShouldFlash(void);
 
 #ifdef SIXENSE
 	float			GetRezoomTime() const;
 #endif
-	virtual void	ZoomIn( void );
-	virtual void	ZoomOut( void );
+	virtual void	ZoomIn(void);
+	virtual void	ZoomOut(void);
 
-	void			ApplyScopeSpeedModifications( float &flBaseRef );
-	void			ApplyChargeSpeedModifications( float &flBaseRef );
+	void			ApplyScopeSpeedModifications(float& flBaseRef);
+	void			ApplyChargeSpeedModifications(float& flBaseRef);
 
 protected:
 
-	float			GetJarateTimeInternal( void ) const;
+	float			GetJarateTimeInternal(void) const;
 
 	bool	m_bCurrentShotIsHeadshot;
 
-	void CreateSniperDot( void );
-	void DestroySniperDot( void );
-	void UpdateSniperDot( void );
+	void CreateSniperDot(void);
+	void DestroySniperDot(void);
+	void UpdateSniperDot(void);
 
-	void Fire( CTFPlayer *pPlayer );
+	void Fire(CTFPlayer* pPlayer);
 
 	// Auto-rezooming handling
-	void SetRezoom( bool bRezoom, float flDelay );
-	virtual void Zoom( void );
-	void ZoomOutIn( void );
+	void SetRezoom(bool bRezoom, float flDelay);
+	virtual void Zoom(void);
+	void ZoomOutIn(void);
 
-	void HandleNoScopeFireDeny( void );
+	void HandleNoScopeFireDeny(void);
 
-	CNetworkVar( float,	m_flChargedDamage );
+	CNetworkVar(float, m_flChargedDamage);
 
 #ifdef GAME_DLL
 	CHandle<CSniperDot>		m_hSniperDot;
@@ -200,33 +202,33 @@ protected:
 	float m_flChargePerSec;
 	bool m_bWasAimedAtEnemy;
 
-	void SetInternalUnzoomTime( float flUnzoomTime );
+	void SetInternalUnzoomTime(float flUnzoomTime);
 
 private:
 	// Handles rezooming after the post-fire unzoom
 	float m_flUnzoomTime;
 	float m_flRezoomTime;
 
-	CTFSniperRifle( const CTFSniperRifle & );
+	CTFSniperRifle(const CTFSniperRifle&);
 };
 
 class CTFSniperRifleDecap : public CTFSniperRifle
 {
 public:
-	DECLARE_CLASS( CTFSniperRifleDecap, CTFSniperRifle );
-	DECLARE_NETWORKCLASS(); 
+	DECLARE_CLASS(CTFSniperRifleDecap, CTFSniperRifle);
+	DECLARE_NETWORKCLASS();
 	DECLARE_PREDICTABLE();
 
-	virtual int	GetWeaponID( void ) const			{ return TF_WEAPON_SNIPERRIFLE_DECAP; }
+	virtual int	GetWeaponID(void) const { return TF_WEAPON_SNIPERRIFLE_DECAP; }
 
 #ifdef GAME_DLL
-	virtual void	OnPlayerKill( CTFPlayer *pVictim, const CTakeDamageInfo &info );
+	virtual void	OnPlayerKill(CTFPlayer* pVictim, const CTakeDamageInfo& info);
 #endif // GAME_DLL
 
 	virtual float	SniperRifleChargeRateMod() OVERRIDE;
-	const char*		GetEffectLabelText( void ) { return "#TF_BERZERK"; }
-	float		GetProgress( void ) { return 0.f; }
-	int			GetCount( void );
+	const char* GetEffectLabelText(void) { return "#TF_BERZERK"; }
+	float		GetProgress(void) { return 0.f; }
+	int			GetCount(void);
 };
 
 //=============================================================================
@@ -237,7 +239,7 @@ class CTFSniperRifleClassic : public CTFSniperRifle
 {
 public:
 
-	DECLARE_CLASS( CTFSniperRifleClassic, CTFSniperRifle );
+	DECLARE_CLASS(CTFSniperRifleClassic, CTFSniperRifle);
 	DECLARE_NETWORKCLASS();
 	DECLARE_PREDICTABLE();
 
@@ -245,37 +247,32 @@ public:
 	~CTFSniperRifleClassic();
 	virtual void Precache() OVERRIDE;
 
-	virtual int	GetWeaponID( void ) const			{ return TF_WEAPON_SNIPERRIFLE_CLASSIC; }
+	virtual int	GetWeaponID(void) const { return TF_WEAPON_SNIPERRIFLE_CLASSIC; }
 
-	virtual void ZoomOut( void ) OVERRIDE;
-	virtual void ZoomIn( void ) OVERRIDE;
-	virtual void Zoom( void ) OVERRIDE;
- 	virtual void HandleZooms( void ) OVERRIDE;
- 	virtual void ItemPostFrame( void ) OVERRIDE;
-	virtual bool Lower( void ) OVERRIDE;
-	virtual bool Deploy( void ) OVERRIDE;
-	virtual bool MustBeZoomedToFire( void ) OVERRIDE { return false; }
+	virtual void ZoomOut(void) OVERRIDE;
+	virtual void ZoomIn(void) OVERRIDE;
+	virtual void Zoom(void) OVERRIDE;
+	virtual void HandleZooms(void) OVERRIDE;
+	virtual void ItemPostFrame(void) OVERRIDE;
+	virtual bool Lower(void) OVERRIDE;
+	virtual bool Deploy(void) OVERRIDE;
+	virtual bool MustBeZoomedToFire(void) OVERRIDE { return false; }
 	virtual int	GetDamageType() const OVERRIDE;
-	virtual bool Holster( CBaseCombatWeapon *pSwitchingTo ) OVERRIDE;
-	virtual void WeaponReset( void ) OVERRIDE;
+	virtual bool Holster(CBaseCombatWeapon* pSwitchingTo) OVERRIDE;
+	virtual void WeaponReset(void) OVERRIDE;
 #ifdef CLIENT_DLL
-	virtual void OnDataChanged( DataUpdateType_t updateType ) OVERRIDE;
+	virtual void OnDataChanged(DataUpdateType_t updateType) OVERRIDE;
 #endif
 
-	void		Detach( void ) OVERRIDE;
-
-protected:
-	bool m_bCanFire;
+	void		Detach(void) OVERRIDE;
 
 private:
-	CNetworkVar( bool, m_bCharging );
-	void FireOperation( void );
-	void ChargeOperation( void );
+	CNetworkVar(bool, m_bCharging);
 #ifdef CLIENT_DLL
-	void ManageChargeBeam( void );
-
+	void ManageChargeBeam(void);
 	HPARTICLEFFECT	m_pChargedEffect;
-#endif // CLIENT_DLL
+#endif
 };
+
 
 #endif // TF_WEAPON_SNIPERRIFLE_H

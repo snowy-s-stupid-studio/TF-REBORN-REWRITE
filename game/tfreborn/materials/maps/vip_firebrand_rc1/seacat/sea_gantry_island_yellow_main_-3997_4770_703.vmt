@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/SEACAT/SEA_GANTRY_ISLAND_YELLOW_MAIN.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/vip_firebrand_rc1/c-3997_4770_703"
+	}
+}

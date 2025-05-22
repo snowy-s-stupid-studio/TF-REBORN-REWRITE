@@ -1,0 +1,9 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "Models/props_construction/dyn_dynamite"
+	"$detail" "overlays/detail002"
+	"$detailscale" "1"
+	"$detailblendmode" "0"
+	"$detailblendfactor" "1"
+	"$surfaceprop" "Wood"
+}

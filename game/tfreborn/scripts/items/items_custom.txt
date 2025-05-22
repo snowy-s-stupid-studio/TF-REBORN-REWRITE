@@ -9,6 +9,43 @@
 {
 	"attributes"
 	{
+		"4000"
+		{
+			"name"	"override voice sound set"
+			"attribute_class"	"override_voice_sound_set"
+			"description_format"	"value_is_additive"
+			"hidden"	"1"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+		"4001"
+		{
+			"name"	"sniperrifle has laser pointer"
+			"attribute_class"	"sniper_has_laserdot"
+			"description_string"	"#Attrib_SniperLaser"
+			"description_format"	"value_is_additive"
+			"hidden"	"1"
+			"effect_type"	"negative"
+			"stored_as_integer"	"0"
+		}
+		"4002"
+		{
+			"name"	"drops reviver machine"
+			"attribute_class"	"drops_reviver_machine"
+			"description_format"	"value_is_additive"
+			"hidden"	"1"
+			"effect_type"	"negative"
+			"stored_as_integer"	"0"
+		}
+		"4003"
+		{
+			"name"	"medigun heals buildings"
+			"attribute_class"	"medic_machinery_beam"
+			"description_format"	"value_is_additive"
+			"hidden"	"1"
+			"effect_type"	"negative"
+			"stored_as_integer"	"0"
+		}
 		"3500"
 		{
 			"name"				"afterburn duration time"

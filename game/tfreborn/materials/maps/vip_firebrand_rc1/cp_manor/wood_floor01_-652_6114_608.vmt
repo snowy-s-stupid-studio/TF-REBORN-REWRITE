@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/CP_MANOR/WOOD_FLOOR01.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/vip_firebrand_rc1/c-652_6114_608"
+	}
+}

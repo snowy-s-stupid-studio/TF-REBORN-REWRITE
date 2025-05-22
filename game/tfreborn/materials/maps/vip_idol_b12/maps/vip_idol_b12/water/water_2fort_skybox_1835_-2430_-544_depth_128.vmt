@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/maps/vip_idol_b12/water/water_2fort_skybox_1835_-2430_-544.vmt"
+	"insert"
+	{
+		"$waterdepth"		"128"
+	}
+}

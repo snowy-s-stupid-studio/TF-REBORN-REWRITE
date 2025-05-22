@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/METAL/WALL_ISLAND_HEAVY02B.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/vip_firebrand_rc1/c591_5557_768"
+	}
+}

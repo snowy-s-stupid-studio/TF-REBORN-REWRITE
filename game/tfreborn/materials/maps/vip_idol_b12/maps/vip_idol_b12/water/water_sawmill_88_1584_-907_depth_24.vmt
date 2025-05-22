@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/maps/vip_idol_b12/water/water_sawmill_88_1584_-907.vmt"
+	"insert"
+	{
+		"$waterdepth"		"24"
+	}
+}
