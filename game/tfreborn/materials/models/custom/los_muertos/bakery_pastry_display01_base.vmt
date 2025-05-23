@@ -1,0 +1,6 @@
+VertexLitGeneric
+{
+$basetexture	"models/custom/los_muertos/bakery_pastry_display01_base"
+$selfillum 1
+$selfillummask         "models/custom/los_muertos/bakery_pastry_display01_base_selfilummask"
+}

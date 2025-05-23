@@ -1,0 +1,19 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "custom/tuscany/cobble_street_01"
+	//"$basetexture2" "Nature/grass_07"
+	
+	//"$bumpmap" "custom/tuscany/cobble_street_01_normal"
+	//"$ssbump" "1"
+	
+	//$basetexturetransform "center .5 .5 scale 1.4 1.4 rotate 0 translate 0 0"
+	
+	//"$blendmodulatetexture" "Nature/grass_blendmask"
+	//"%detailtype" "tf_forest_grass"
+	
+	"$surfaceprop"	"concrete"
+	//"$surfaceprop2" "dirt"
+	
+	"$color" " [ .8 .8 .8 ]"
+	"%keywords"	"tf"
+}

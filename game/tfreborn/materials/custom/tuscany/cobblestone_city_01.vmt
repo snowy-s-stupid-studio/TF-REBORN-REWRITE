@@ -1,0 +1,13 @@
+"WorldVertexTransition"
+{
+	
+	"$basetexture" "medieval/cobblestone001"
+	"$basetexture2" "Nature/grass_07"
+	"$blendmodulatetexture" "Nature/grass_blendmask"
+		"%detailtype" "tf_forest_grass"
+	"$surfaceprop" "dirt"
+	"$bumpmap" "Nature/dirtground005_height-ssbump"
+		"$ssbump" "1"
+	
+	"%keywords"	"tf"
+}

@@ -1,0 +1,12 @@
+"vertexlitgeneric"
+{
+	"$basetexture" "cp_manor/wood_floor01"
+	"$surfaceprop" "wood"
+	"%keywords" "tf"
+	"$detail" "overlays/detail006"
+	"$detailscale" "1"
+	"$detailblendmode" "0"
+	"$detailblendfactor" "1"
+
+
+}

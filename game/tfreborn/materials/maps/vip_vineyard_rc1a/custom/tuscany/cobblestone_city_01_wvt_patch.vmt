@@ -1,0 +1,9 @@
+"LightmappedGeneric"
+{
+	"$basetexture"		"medieval/cobblestone001"
+	"%detailtype"		"tf_forest_grass"
+	"$surfaceprop"		"dirt"
+	"$bumpmap"		"Nature/dirtground005_height-ssbump"
+	"$ssbump"		"1"
+	"%keywords"		"tf"
+}

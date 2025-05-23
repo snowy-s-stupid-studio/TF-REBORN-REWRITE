@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/SOHO/WINDOW001.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/vip_vineyard_rc1a/c-384_2176_480"
+	}
+}

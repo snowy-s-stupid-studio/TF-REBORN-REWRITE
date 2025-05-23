@@ -1,0 +1,9 @@
+"vertexlitgeneric"
+{
+	"$basetexture" "custom/tuscany/stucco_02"
+	
+	"$color2" "[.9 .9 .9 ]"
+	"$surfaceprop"	"concrete"
+	"%keywords"	"tf"
+}
+

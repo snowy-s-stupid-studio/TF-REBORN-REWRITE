@@ -3661,6 +3661,228 @@
 	"wave"	"ui/cyoa_objective_panel_collapse.wav"
 }
 
+"VIPMobster.Typewriter.Single"
+{
+  "channel"    "CHAN_STATIC"
+  "soundlevel" "SNDLVL_94dB"
+  "volume"     "1.0"
+  "rndwave"
+  {
+    "wave"     ")vip_mobster_brooklynn_r1a/typewriter_fire01.mp3"
+    "wave"     ")vip_mobster_brooklynn_r1a/typewriter_fire02.mp3"
+    "wave"     ")vip_mobster_brooklynn_r1a/typewriter_fire03.mp3"
+  }
+}
+
+"VIPMobster.Typewriter.SingleLow"
+{
+  "channel"    "CHAN_STATIC"
+  "soundlevel" "SNDLVL_94dB"
+  "volume"     "1.0"
+  "rndwave"
+  {
+    "wave"     ")vip_mobster_brooklynn_r1a/typewriter_fire01_low.mp3"
+    "wave"     ")vip_mobster_brooklynn_r1a/typewriter_fire02_low.mp3"
+    "wave"     ")vip_mobster_brooklynn_r1a/typewriter_fire03_low.mp3"
+  }
+}
+
+"VIPMobster.Typewriter.SingleCrit"
+{
+  "channel"    "CHAN_STATIC"
+  "soundlevel" "SNDLVL_94dB"
+  "volume"     "1.0"
+  "rndwave"
+  {
+    "wave"     ")vip_mobster_brooklynn_r1a/typewriter_fire01_crit.mp3"
+    "wave"     ")vip_mobster_brooklynn_r1a/typewriter_fire02_crit.mp3"
+    "wave"     ")vip_mobster_brooklynn_r1a/typewriter_fire03_crit.mp3"
+  }
+}
+
+"VIPMobster.Typewriter.SingleLowCrit"
+{
+  "channel"    "CHAN_STATIC"
+  "soundlevel" "SNDLVL_94dB"
+  "volume"     "1.0"
+  "rndwave"
+  {
+    "wave"     ")vip_mobster_brooklynn_r1a/typewriter_fire01_low_crit.mp3"
+    "wave"     ")vip_mobster_brooklynn_r1a/typewriter_fire02_low_crit.mp3"
+    "wave"     ")vip_mobster_brooklynn_r1a/typewriter_fire03_low_crit.mp3"
+  }
+}
+
+"VIPMobster.Typewriter.Reload"
+{
+  "channel"    "CHAN_STATIC"
+  "soundlevel" "SNDLVL_94dB"
+  "volume"     "0.3"
+  
+  "wave"       ")vip_mobster_brooklynn_r1a/typewriter_reload.mp3"
+}
+
+"VIPMobster.Typewriter.LowAmmo"
+{
+  "channel"    "CHAN_STATIC"
+  "soundlevel" "SNDLVL_94dB"
+  "volume"     "0.5"
+  
+  "wave"       ")sentry_empty.wav"
+}
+
+"VIPMobster.Typewriter.NoAmmo"
+{
+  "channel"    "CHAN_STATIC"
+  "soundlevel" "SNDLVL_94dB"
+  "volume"     "0.3"
+  
+  "wave"       ")vip_mobster_brooklynn_r1a/typewriter_noammo.mp3"
+}
+
+"VIPMobster.MoneyBag.Draw"
+{
+  "channel"    "CHAN_STATIC"
+  "soundlevel" "SNDLVL_94dB"
+  "volume"     "1.0"
+  
+  "wave"       ")vip_mobster_brooklynn_r1a/moneybag_draw.mp3"
+}
+
+"VIPMobster.MoneyBag.Deploy"
+{
+  "channel"    "CHAN_STATIC"
+  "soundlevel" "SNDLVL_94dB"
+  "volume"     "1.0"
+  
+  "wave"       ")vip_mobster_brooklynn_r1a/moneybag_deploy.mp3"
+}
+
+// "Heavy is Spy" when aiming at Hale =================================================
+
+"Scout.CloakedSpyIdentify01"
+{
+    "channel"       "CHAN_VOICE"
+    "volume"        "0.820"
+    "pitch"         "PITCH_NORM"
+    "soundlevel"    "SNDLVL_95dB"
+    
+    "rndwave"
+    {
+        "wave"      "vo/scout_CloakedSpy01.mp3"
+        "wave"      "vo/scout_CloakedSpy02.mp3"
+        "wave"      "vo/scout_CloakedSpy03.mp3"
+        "wave"      "vo/scout_CloakedSpy04.mp3"
+    }
+}
+
+"Soldier.CloakedSpyIdentify01"
+{
+    "channel"       "CHAN_VOICE"
+    "volume"        "0.820"
+    "pitch"         "PITCH_NORM"
+    "soundlevel"    "SNDLVL_95dB"
+    
+    "rndwave"
+    {
+        "wave"      "vo/soldier_CloakedSpy01.mp3"
+        "wave"      "vo/soldier_CloakedSpy02.mp3"
+        "wave"      "vo/soldier_CloakedSpy03.mp3"
+    }
+}
+
+"Demoman.CloakedSpyIdentify01"
+{
+    "channel"       "CHAN_VOICE"
+    "volume"        "0.820"
+    "pitch"         "PITCH_NORM"
+    "soundlevel"    "SNDLVL_95dB"
+    
+    "rndwave"
+    {
+        "wave"      "vo/demoman_CloakedSpy01.mp3"
+        "wave"      "vo/demoman_CloakedSpy02.mp3"
+        "wave"      "vo/demoman_CloakedSpy03.mp3"
+    }
+}
+
+"Heavy.CloakedSpyIdentify01"
+{
+    "channel"       "CHAN_VOICE"
+    "volume"        "0.820"
+    "pitch"         "PITCH_NORM"
+    "soundlevel"    "SNDLVL_95dB"
+    
+    "rndwave"
+    {
+        "wave"      "vo/heavy_CloakedSpy01.mp3"
+        "wave"      "vo/heavy_CloakedSpy02.mp3"
+        "wave"      "vo/heavy_CloakedSpy03.mp3"
+        "wave"      "vo/heavy_CloakedSpy04.mp3"
+    }
+}
+
+"Engineer.CloakedSpyIdentify01"
+{
+    "channel"       "CHAN_VOICE"
+    "volume"        "0.820"
+    "pitch"         "PITCH_NORM"
+    "soundlevel"    "SNDLVL_95dB"
+    
+    "rndwave"
+    {
+        "wave"      "vo/engineer_CloakedSpy01.mp3"
+        "wave"      "vo/engineer_CloakedSpy02.mp3"
+        "wave"      "vo/engineer_CloakedSpy03.mp3"
+    }
+}
+
+"Medic.CloakedSpyIdentify01"
+{
+    "channel"       "CHAN_VOICE"
+    "volume"        "0.820"
+    "pitch"         "PITCH_NORM"
+    "soundlevel"    "SNDLVL_95dB"
+    
+    "rndwave"
+    {
+        "wave"      "vo/medic_CloakedSpy01.mp3"
+        "wave"      "vo/medic_CloakedSpy02.mp3"
+    }
+}
+
+"Sniper.CloakedSpyIdentify01"
+{
+    "channel"       "CHAN_VOICE"
+    "volume"        "0.820"
+    "pitch"         "PITCH_NORM"
+    
+    "soundlevel"    "SNDLVL_95dB"
+    "rndwave"
+    {
+        "wave"      "vo/sniper_CloakedSpy01.mp3"
+        "wave"      "vo/sniper_CloakedSpy02.mp3"
+        "wave"      "vo/sniper_CloakedSpy03.mp3"
+    }
+}
+
+"Spy.CloakedSpyIdentify01"
+{
+    "channel"       "CHAN_VOICE"
+    "volume"        "0.820"
+    "pitch"         "PITCH_NORM"
+    
+    "soundlevel"    "SNDLVL_95dB"
+    "rndwave"
+    {
+        "wave"      "vo/spy_CloakedSpy01.mp3"
+        "wave"      "vo/spy_CloakedSpy02.mp3"
+        "wave"      "vo/spy_CloakedSpy03.mp3"
+        "wave"      "vo/spy_CloakedSpy04.mp3"
+    }
+}
+
+
 "CYOA.NodeLocked"
 {
 	"channel"		"CHAN_STATIC"

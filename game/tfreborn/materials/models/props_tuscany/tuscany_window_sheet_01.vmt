@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\props_tuscany/tuscany_window_sheet_01"
+	"$alphatest" "1"
+}

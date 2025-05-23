@@ -116,9 +116,9 @@
                 //todo hardcode
                 EmitSoundEx({
                     sound_name = RandomElement([
-                        "mvm/mobster_brooklynn_r1a/mobster_paincrticialdeath01.mp3",
-                        "mvm/mobster_brooklynn_r1a/mobster_paincrticialdeath02.mp3",
-                        "mvm/mobster_brooklynn_r1a/mobster_paincrticialdeath03.mp3"]),
+                        "mvm/mobster_dev_r1a/mobster_paincrticialdeath01.mp3",
+                        "mvm/mobster_dev_r1a/mobster_paincrticialdeath02.mp3",
+                        "mvm/mobster_dev_r1a/mobster_paincrticialdeath03.mp3"]),
                     entity = player,
                     speaker_entity = player,
                     filter_type = RECIPIENT_FILTER_PAS_ATTENUATION,

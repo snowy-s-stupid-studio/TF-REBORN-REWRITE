@@ -1,0 +1,9 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "custom/tuscany/handrail_01"
+	"$surfaceprop" "metal"
+	"%keywords" "tf"
+	"$alphatest" 1
+	"$nocull" "1"
+	"$color" "[ 0 0 0 ]"
+}

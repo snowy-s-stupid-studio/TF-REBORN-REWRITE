@@ -1,0 +1,8 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "custom/tuscany/tileroof_01"
+	//"$bumpmap"     "custom/tuscany/tileroof_01_normal"
+	"$surfaceprop"	"tile"
+	$basetexturetransform "center .5 .5 scale .8 .6 rotate 0 translate 0 0"
+		"%keywords"	"tf"
+}

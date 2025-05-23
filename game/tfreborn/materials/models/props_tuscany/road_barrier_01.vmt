@@ -1,0 +1,12 @@
+"vertexlitgeneric"
+{
+	"$basetexture" "models\props_tuscany/road_barrier_01"
+	"$surfaceprop"	"metal"
+	"%keywords"	"tf"
+	
+	"$basemapalphaphongmask" "1"
+	"$phong" "1"
+	"$phongexponent" "5"
+	"$phongboost" ".05"	
+	"$phongfresnelranges"	"[1 15 20]"
+}

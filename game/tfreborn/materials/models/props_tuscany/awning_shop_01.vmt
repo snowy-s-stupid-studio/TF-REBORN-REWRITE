@@ -1,0 +1,7 @@
+"vertexlitgeneric"
+{
+	"$basetexture" "models/props_tuscany/awning_shop_01"
+	"$model" "1"
+	"$surfaceprop"	"plastic"
+	"%keywords"	"tf"
+}

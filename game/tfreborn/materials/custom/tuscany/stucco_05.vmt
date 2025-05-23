@@ -1,0 +1,11 @@
+"WorldVertexTransition"
+{
+	"$basetexture" "custom/tuscany/stucco_05"
+	"$basetexture2" "custom/tuscany\ground_brick_01"
+	//"$color" "[ 1.1 1.1 1.1 ]"
+	"$blendmodulatetexture" "custom/tuscany/ground_brick_01-blendmask"
+	
+	"$surfaceprop"	"concrete"
+	"$surfaceprop2"	"concrete"
+	"%keywords"	"tf"
+}

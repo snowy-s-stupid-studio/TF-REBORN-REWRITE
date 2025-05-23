@@ -1,0 +1,7 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "custom/tuscany/leaves_01_solid"
+	"$surfaceprop"	"foliage"
+	//"$alphatest" "1"
+	"%keywords"	"tf"
+}

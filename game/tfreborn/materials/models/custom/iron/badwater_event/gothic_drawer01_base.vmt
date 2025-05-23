@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\custom\iron\badwater_event\gothic_drawer01_base"
+	"$envmap" "env_cubemap"
+	"$envmapmask"		"models\custom\iron\badwater_event\gothic_drawer01_base_envmapmask"
+	"$envmaptint" "[0.2 0.2 0.2]"
+}

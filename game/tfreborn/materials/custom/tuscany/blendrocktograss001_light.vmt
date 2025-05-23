@@ -1,0 +1,13 @@
+"WorldVertexTransition"
+{
+	"$basetexture" "custom/tuscany/rockwall012"
+	//"$color" "[ 2 2 2 ]"
+	"$basetexture2" "Nature/grass_07"
+	"$blendmodulatetexture" "nature/grass_blendmask"
+	"$bumpmap" "nature/rockwall009_height-ssbump"
+    	"$ssbump" "1"
+	"%keywords" "tf"
+	"$surfaceprop" "dirt"
+	"$color2" "{229 218 193}"
+	//"$color2" "{149 138 113}"
+}

@@ -5,7 +5,7 @@
 PlayerClass
 {
 	// Attributes.
-	"name"			"Mobster" // THIS IS THE ACTUAL NAME OF THE CLASS. This is what the command joinclass will reference
+	"name"			"mobster" // THIS IS THE ACTUAL NAME OF THE CLASS. This is what the command joinclass will reference
 	"model"			"models/vip_mobster/player/mobster.mdl" // you'll have to edit this with your own model
 	"model_hwm"		"models/vip_mobster/player/mobster.mdl"
 	"model_hands"		"models/vip_mobster/weapons/c_mobster_arms.mdl"
@@ -22,7 +22,7 @@ PlayerClass
     // Here you'll replace pyro's weapons to your actual class' weapons
 	"weapon1"		"TF_WEAPON_FIREAXE"
 	"weapon2"		"TF_WEAPON_SHOTGUN_PYRO"
-	"weapon3"		"TF_WEAPON_FLAMETHROWER"
+	"weapon3"		"TF_WEAPON_TYPEWRITER"
 
 	//Thirdperson
 	"cameraoffset_forward"	"85"

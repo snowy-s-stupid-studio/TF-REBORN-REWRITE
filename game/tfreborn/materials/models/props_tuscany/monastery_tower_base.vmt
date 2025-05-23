@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\props_tuscany\monastery_tower_base"
+	"$envmapmask"      "models\props_tuscany\monastery_tower_base_envmapmask"
+                "$envmap" "env_cubemap"
+	"$envmapcontrast" "1"
+}

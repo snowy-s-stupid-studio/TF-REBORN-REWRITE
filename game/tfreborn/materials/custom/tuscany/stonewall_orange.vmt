@@ -1,0 +1,11 @@
+"WorldVertexTransition"
+{
+	"$basetexture" "custom/tuscany/stonewall_orange"
+	"$basetexture2" "custom/tuscany/stonewall_orange_02"
+	
+	//"$blendmodulatetexture" "custom/tuscany/stonewall_orange-blendmask"
+	
+	"$surfaceprop"	"concrete"
+	"$surfaceprop2"	"concrete"
+	"%keywords"	"tf"
+}

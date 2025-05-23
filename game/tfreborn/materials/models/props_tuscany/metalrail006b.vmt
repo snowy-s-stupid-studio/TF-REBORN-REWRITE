@@ -1,0 +1,11 @@
+"vertexlitgeneric"
+// identical to 006a except for the nocull 1, added for using this material on displacements. -jeffl
+{
+	//"$translucent" 1
+	"$alphatest" 1
+	"$basetexture" "metal/metalrail006a"
+	"%compilepassbullets" 1
+	"$nocull" 1
+	"$surfaceprop" "metal"
+	"%keywords" "c17downtown,wasteland,coastline"
+}

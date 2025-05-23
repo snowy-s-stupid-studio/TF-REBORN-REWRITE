@@ -1,0 +1,8 @@
+"vertexlitgeneric"
+{
+	"$basetexture" "medieval/stonewall001a"
+	
+	"$color2" "[ 2.5 2.5 2.5 ]"
+	"$surfaceprop"	"concrete"
+	"%keywords"	"tf"
+}

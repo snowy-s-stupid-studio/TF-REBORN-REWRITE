@@ -1,0 +1,8 @@
+"vertexlitgeneric"
+{
+	"$basetexture" "custom/tuscany/roof_end_blue"
+	//"$bumpmap"	"medieval/stonetrim001a_ssbump"
+	"$surfaceprop"	"concrete"
+	"%keywords"	"tf"
+	"$color2" "[ .9 .75 .75 ]"
+}

@@ -1,0 +1,8 @@
+"LightmappedGeneric"
+{
+	"$baseTexture" "custom/tuscany/stonetrim_white"
+	//"$bumpmap"	"medieval/stonetrim001a_ssbump"
+	//"$ssbump"	"1"
+	"$surfaceprop"	"concrete"
+	"%keywords"	"tf"
+}

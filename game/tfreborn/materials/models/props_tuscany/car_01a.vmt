@@ -1,0 +1,11 @@
+"vertexlitgeneric"
+{
+	"$basetexture" "models\props_tuscany/car_01a"
+	"$surfaceprop"	"metal"
+	"%keywords"	"tf"
+	"$basemapalphaphongmask" "1"
+	"$phong" "1"
+	"$phongexponent" "10"
+	"$phongboost" ".1"	
+	"$phongfresnelranges"	"[.7 15 20]"
+}

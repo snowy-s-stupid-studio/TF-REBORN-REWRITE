@@ -145,6 +145,13 @@ screenspace_general
 			max				"$world_mins[0]"
 			resultVar		 $c2_x
 		}	
+		Clamp
+		{
+			srcVar1			 $zero
+			min				"$world_mins[1]"
+			max				"$world_mins[1]"
+			resultVar		 $c2_y
+		}	
 		Add
 		{
 			srcVar1			 "$c0_z"

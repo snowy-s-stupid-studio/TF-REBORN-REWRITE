@@ -1,0 +1,8 @@
+"vertexlitgeneric"
+{
+	"$basetexture" "custom/tuscany/stonewall_orange"
+	
+	
+	"$surfaceprop"	"concrete"
+	"%keywords"	"tf"
+}

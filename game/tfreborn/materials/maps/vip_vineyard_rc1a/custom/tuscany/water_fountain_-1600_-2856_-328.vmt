@@ -1,0 +1,11 @@
+"patch"
+{
+	"include"		"materials/CUSTOM/TUSCANY/WATER_FOUNTAIN.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/vip_vineyard_rc1a/c-1600_-2856_-328"
+		"Proxies"
+		{
+		}
+	}
+}

@@ -1,0 +1,13 @@
+"WorldVertexTransition"
+{
+	"$basetexture" "custom/tuscany/cobble_street_01"
+	"$basetexture2" "Nature/grass_07"
+	
+	"$blendmodulatetexture" "Nature/grass_blendmask"
+	"%detailtype" "tf_forest_grass"
+	
+	"$surfaceprop"	"concrete"
+	"$surfaceprop2" "dirt"
+	
+	"%keywords"	"tf"
+}

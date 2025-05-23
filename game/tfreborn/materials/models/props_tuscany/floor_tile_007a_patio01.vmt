@@ -1,0 +1,7 @@
+"vertexlitgeneric"
+{
+	"$basetexture"       "custom\los_muertos\floor_tile_007a_patio01"
+	"$envmap" "env_cubemap"
+                "$envmaptint" "[0.15 0.15 0.15]"
+	"$surfaceprop" "tile"
+}

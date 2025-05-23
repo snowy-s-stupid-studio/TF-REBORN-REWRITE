@@ -115,8 +115,8 @@
 ::VIPEngineerSoundBank <- class extends SoundBank
 {
     contact = [
-        "vo/mercs_brooklynn_r1a/engineer_contact_01.mp3"
-        "vo/mercs_brooklynn_r1a/engineer_contact_02.mp3"
+        "vo/mercs_dev_r1a/engineer_contact_01.mp3"
+        "vo/mercs_dev_r1a/engineer_contact_02.mp3"
     ]
 }
 
@@ -153,7 +153,7 @@
 ::VIPDemoSoundBank <- class extends SoundBank
 {
     contact = [
-        "vo/mercs_brooklynn_r1a/demo_contact_01.mp3"
+        "vo/mercs_dev_r1a/demo_contact_01.mp3"
     ]
 }
 
@@ -165,11 +165,11 @@
 ::VIPHeavySoundBank <- class extends SoundBank
 {
     contact = [
-        "vo/mercs_brooklynn_r1a/heavy_contact_01.mp3"
-        "vo/mercs_brooklynn_r1a/heavy_contact_02.mp3"
-        "vo/mercs_brooklynn_r1a/heavy_contact_03.mp3"
-        "vo/mercs_brooklynn_r1a/heavy_contact_04.mp3"
-        "vo/mercs_brooklynn_r1a/heavy_contact_05.mp3"
+        "vo/mercs_dev_r1a/heavy_contact_01.mp3"
+        "vo/mercs_dev_r1a/heavy_contact_02.mp3"
+        "vo/mercs_dev_r1a/heavy_contact_03.mp3"
+        "vo/mercs_dev_r1a/heavy_contact_04.mp3"
+        "vo/mercs_dev_r1a/heavy_contact_05.mp3"
     ]
 }
 
@@ -181,7 +181,7 @@
 ::VIPMedicSoundBank <- class extends SoundBank
 {
     contact = [
-        "vo/mercs_brooklynn_r1a/medic_contact_uber_01.mp3"
+        "vo/mercs_dev_r1a/medic_contact_uber_01.mp3"
     ]
 }
 
@@ -193,10 +193,10 @@
 ::VIPScoutSoundBank <- class extends SoundBank
 {
     contact = [
-        "vo/mercs_brooklynn_r1a/scout_contact_01.mp3"
-        "vo/mercs_brooklynn_r1a/scout_contact_02.mp3"
-        "vo/mercs_brooklynn_r1a/scout_contact_03.mp3"
-        "vo/mercs_brooklynn_r1a/scout_contact_04.mp3"
+        "vo/mercs_dev_r1a/scout_contact_01.mp3"
+        "vo/mercs_dev_r1a/scout_contact_02.mp3"
+        "vo/mercs_dev_r1a/scout_contact_03.mp3"
+        "vo/mercs_dev_r1a/scout_contact_04.mp3"
     ]
 }
 
@@ -208,9 +208,9 @@
 ::VIPSoldierSoundBank <- class extends SoundBank
 {
     contact = [
-        "vo/mercs_brooklynn_r1a/soldier_contact_01.mp3"
-        "vo/mercs_brooklynn_r1a/soldier_contact_02.mp3"
-        "vo/mercs_brooklynn_r1a/soldier_contact_03.mp3"
+        "vo/mercs_dev_r1a/soldier_contact_01.mp3"
+        "vo/mercs_dev_r1a/soldier_contact_02.mp3"
+        "vo/mercs_dev_r1a/soldier_contact_03.mp3"
     ]
 }
 

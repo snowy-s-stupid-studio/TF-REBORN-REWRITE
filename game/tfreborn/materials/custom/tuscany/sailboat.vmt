@@ -1,0 +1,9 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "custom/tuscany/sailboat"
+
+	"$surfaceprop"	"metal"
+	"$alphatest" "1"
+	"%keywords"	"tf"
+	"$color" "[ 1 1 1 ]"
+}

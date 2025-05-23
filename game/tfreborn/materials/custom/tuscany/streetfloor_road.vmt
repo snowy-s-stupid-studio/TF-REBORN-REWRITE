@@ -1,0 +1,11 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "custom/tuscany/streetfloor_road"
+	
+	
+	"$surfaceprop"	"concrete"
+	
+	
+	
+	"%keywords"	"tf"
+}

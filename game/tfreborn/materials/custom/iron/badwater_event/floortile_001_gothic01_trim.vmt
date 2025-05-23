@@ -1,0 +1,7 @@
+"LightmappedGeneric"
+{
+	"$baseTexture" "custom/iron/badwater_event/FloorTile_001_gothic01_trim"
+	"$surfaceprop" "tile"
+	"$bumpmap" "Tile/floor_tile_006a_normal"
+	"%keywords" "tf"
+}

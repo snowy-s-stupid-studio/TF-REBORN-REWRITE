@@ -1,0 +1,7 @@
+"vertexlitgeneric"
+{
+	"$basetexture" "custom/tuscany/tileroof_01"
+	//"$bumpmap"     "custom/tuscany/tileroof_01_normal"
+	"$surfaceprop"	"tile"
+		"%keywords"	"tf"
+}

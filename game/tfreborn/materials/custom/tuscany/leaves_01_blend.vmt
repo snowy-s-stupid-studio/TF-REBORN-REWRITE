@@ -1,0 +1,19 @@
+"WorldVertexTransition"
+{
+	"$basetexture" "custom/tuscany/leaves_01"
+	"$basetexture2" "custom/tuscany/leaves_01"
+	
+	"$blendmodulatetexture" "custom/tuscany/leaves_01_mask"
+	
+	"$alphatest" "1"
+	"$nocull" "1"
+	
+	"$alphatestreference" "0.5"
+
+	//"$translucent" "1"
+	
+	"$surfaceprop"	"foliage"
+	"$surfaceprop2" "foliage"
+	
+	"%keywords"	"tf"
+}

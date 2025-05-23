@@ -1,0 +1,10 @@
+"Unlitgeneric"
+{
+	"$basetexture" "custom/tuscany/window_gradient_vineyard"
+
+	
+	"$surfaceprop"	"concrete"
+	"$nodecal" "1"
+	
+	"%keywords"	"tf"
+}

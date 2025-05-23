@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/CUSTOM/TUSCANY/GLASS_WINDOW_01.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/vip_vineyard_rc1a/c1856_2944_448"
+	}
+}

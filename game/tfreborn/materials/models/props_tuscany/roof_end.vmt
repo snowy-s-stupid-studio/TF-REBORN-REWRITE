@@ -1,0 +1,7 @@
+"vertexlitgeneric"
+{
+	"$basetexture" "custom/tuscany/roof_end"
+	//"$bumpmap"	"medieval/stonetrim001a_ssbump"
+	"$surfaceprop"	"concrete"
+	"%keywords"	"tf"
+}

@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\props_tuscany/tree_02_trunk"
+	"$color2" "[ 3 3 3 ]"
+}

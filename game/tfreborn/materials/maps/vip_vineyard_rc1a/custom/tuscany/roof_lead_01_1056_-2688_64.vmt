@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/CUSTOM/TUSCANY/ROOF_LEAD_01.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/vip_vineyard_rc1a/c1056_-2688_64"
+	}
+}

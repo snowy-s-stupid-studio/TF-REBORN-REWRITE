@@ -1,0 +1,9 @@
+"LightmappedGeneric"
+{
+	"$basetexture"		"custom/tuscany/rockwall012"
+	"$bumpmap"		"nature/rockwall009_height-ssbump"
+	"$ssbump"		"1"
+	"%keywords"		"tf"
+	"$surfaceprop"		"dirt"
+	"$color2"		"{229 218 193}"
+}

@@ -1,0 +1,7 @@
+"LightmappedGeneric"
+{
+	"$basetexture"		"custom/tuscany/cobble_street_01"
+	"%detailtype"		"tf_forest_grass"
+	"$surfaceprop"		"concrete"
+	"%keywords"		"tf"
+}

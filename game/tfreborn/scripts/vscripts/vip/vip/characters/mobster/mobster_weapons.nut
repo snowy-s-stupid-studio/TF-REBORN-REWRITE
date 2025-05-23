@@ -4,8 +4,8 @@ PrecacheScriptSound("VIPMobster.Typewriter.SingleCrit");
 PrecacheScriptSound("VIPMobster.Typewriter.SingleLowCrit");
 PrecacheScriptSound("VIPMobster.Typewriter.NoAmmo");
 PrecacheModel("models/vip_mobster/weapons/w_moneybag_open.mdl");
-PrecacheSound("vip_mobster_brooklynn_r1a/moneybag_resist.mp3")
-PrecacheSound("vip_mobster_brooklynn_r1a/moneybag_hitsound.mp3")
+PrecacheSound("vip_mobster_dev_r1a/moneybag_resist.mp3")
+PrecacheSound("vip_mobster_dev_r1a/moneybag_hitsound.mp3")
 
 class ::MobsterTypeWriter extends CustomWeaponBase
 {
@@ -393,7 +393,7 @@ class ::MoneyBagEffect
         {
             params.damage *= 1.15;
             EmitSoundEx({
-                sound_name = "vip_mobster_brooklynn_r1a/moneybag_hitsound.mp3",
+                sound_name = "vip_mobster_dev_r1a/moneybag_hitsound.mp3",
                 entity = params.attacker,
                 filter_type = RECIPIENT_FILTER_SINGLE_PLAYER,
                 volume = 0.15,
@@ -511,7 +511,7 @@ class ::MoneyBagProjectile
         return;
 
     EmitSoundEx({
-        sound_name = "vip_mobster_brooklynn_r1a/moneybag_resist.mp3",
+        sound_name = "vip_mobster_dev_r1a/moneybag_resist.mp3",
         entity = player,
         volume = 1
         sound_level = 45

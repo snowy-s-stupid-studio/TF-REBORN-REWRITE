@@ -1,0 +1,7 @@
+lightmappedGeneric
+{
+	"$basetexture"	"custom/tuscany\italy_water_diffuse"
+	"$surfaceprop" "rock"
+	//"$color" "[ .6 .6 .8 ]"
+	"$translucent" "1"
+}

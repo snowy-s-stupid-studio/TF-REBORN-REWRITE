@@ -1,0 +1,8 @@
+"vertexlitgeneric"
+{
+	"$basetexture"	"medieval/pasterwall002b"
+	//"$bumpmap"	"medieval/pasterwall_ssbump"
+
+	"$surfaceprop"	"concrete"
+	"%keywords"	"tf"
+}

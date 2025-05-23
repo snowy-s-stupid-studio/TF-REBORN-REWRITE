@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/TILE/FLOOR_TILE_005A.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/vip_vineyard_rc1a/c-3369_-1056_-256"
+	}
+}

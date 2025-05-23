@@ -1,0 +1,7 @@
+"vertexlitgeneric"
+{
+	"$basetexture" "models\props_tuscany/van_01b"
+	"$surfaceprop"	"metal"
+	"%keywords"	"tf"
+
+}

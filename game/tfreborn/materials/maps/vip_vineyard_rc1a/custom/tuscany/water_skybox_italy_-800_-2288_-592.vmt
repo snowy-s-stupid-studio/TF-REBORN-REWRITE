@@ -1,0 +1,11 @@
+"patch"
+{
+	"include"		"materials/CUSTOM/TUSCANY/WATER_SKYBOX_ITALY.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/vip_vineyard_rc1a/c-800_-2288_-592"
+		"Proxies"
+		{
+		}
+	}
+}

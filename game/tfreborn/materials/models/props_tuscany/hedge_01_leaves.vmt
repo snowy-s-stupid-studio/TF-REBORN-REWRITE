@@ -1,0 +1,10 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\props_tuscany/hedge_01_leaves"
+		"$bumpmap" "models/effects/flat_normal"
+		//"$halflambert" "1"
+	//"$color2" "[ 3 1 .2 ]"
+	"$alphatest" 1
+	"$nocull" 1	
+	"$nodecal" "1"
+}

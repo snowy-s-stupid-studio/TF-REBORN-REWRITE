@@ -1,0 +1,7 @@
+"LightmappedGeneric"
+{
+	"$basetexture"		"custom/tuscany/stucco_03_trim"
+	"$color"		"[ 1.2 1.1 1 ]"
+	"$surfaceprop"		"concrete"
+	"%keywords"		"tf"
+}

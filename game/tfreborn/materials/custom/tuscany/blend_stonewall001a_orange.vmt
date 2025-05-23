@@ -1,0 +1,9 @@
+"WorldVertexTransition"
+{
+	"$baseTexture2"	"nature/dirtground009"
+	"$basetexture"      "custom/tuscany/stonewall_orange"
+	//"$bumpmap"	"medieval/stonewall001a_ssbump"
+	//"$ssbump"	"1"
+	"$surfaceprop"	"concrete"
+	"$blendmodulatetexture" "custom/tuscany/stonewall001a_blendmodulate"
+}

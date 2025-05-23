@@ -1,0 +1,12 @@
+"vertexlitgeneric"
+{
+	"$basetexture" "custom/tuscany/roof_lead_01"
+	"$surfaceprop" "metal"
+	"%keywords" "tf"
+	//"$color2" "{100 88 110}"
+	"$color2" "[ .7 .6 .7 ]"
+	"$envmap" "env_cubemap"
+	"$envmaptint"    "[ .3 .3 .3 ]"
+	"$envmapmask" "custom/tuscany/roof_lead_01_mask"		
+	"$envmapcontrast" "1"
+}

@@ -1,0 +1,62 @@
+screenspace_general
+{
+	$pixshader "vip_healthbar_indev_ps20"	
+	$basetexture "_rt_FullFrameFB"
+	$texture1    "vip_mobster/hud/vip_healthbar"
+
+	$x360appchooser 1
+	$ignorez        0
+	"<dx90"
+	{
+		$no_draw 1 //todo
+	}
+	
+	$copyalpha                 0
+	$alpha_blend_color_overlay 0
+	$alpha_blend               0
+	$linearwrite               1
+	$linearread_basetexture    0
+	$linearread_texture1       1
+	$linearread_texture2       0
+	$linearread_texture3       0
+
+	$zero 0
+	  
+    $world_mins "[0.0 0.0 0.0]"
+		
+	$thousand 1000.0
+					 				 
+	Proxies
+	{
+        "WorldDims"
+        {
+        }	
+		"Clamp"
+		{
+			srcVar1			 $zero
+			min				"$world_mins[0]"
+			max				"$world_mins[0]"
+			resultVar		 $c0_x
+		}	
+		"Divide"
+		{
+			srcVar1			 $c0_x
+			srcVar2			 $thousand
+			resultVar		 $c0_x
+		}
+		"Sine"
+		{
+			sineperiod		0.25
+			sinemin			0
+			sinemax			1
+			resultVar		"$c0_y"
+		}	
+		"Sine"
+		{
+			sineperiod		0.5
+			sinemin			0.35
+			sinemax			0.65
+			resultVar		"$c0_z"
+		}
+	}
+}

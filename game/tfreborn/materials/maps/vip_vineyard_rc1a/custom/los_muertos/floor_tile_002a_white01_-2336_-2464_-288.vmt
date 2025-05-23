@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/CUSTOM/LOS_MUERTOS/FLOOR_TILE_002A_WHITE01.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/vip_vineyard_rc1a/c-2336_-2464_-288"
+	}
+}
