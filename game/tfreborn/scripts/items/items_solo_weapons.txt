@@ -152,7 +152,7 @@
 				"can_deal_long_distance_damage"	"1"
 			}
 			"first_sale_date"	"2010/09/29"
-			"item_class"	"tf_weapon_smg"
+			"item_class"	"tf_weapon_typewriter"
 			"soloitem" "1"
 			"craft_class"	"weapon"
 			"craft_material_type"	"weapon"
