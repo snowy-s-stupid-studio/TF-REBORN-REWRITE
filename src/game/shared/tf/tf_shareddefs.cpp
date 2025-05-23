@@ -713,9 +713,11 @@ const char* g_aWeaponNames[] =
 	"TF_WEAPON_JAR_GAS",
 	"TF_WEAPON_GRENADE_JAR_GAS",
 	"TF_WEPON_FLAME_BALL",
-
+	"TF_WEAPON_TYPEWRITER",
+	"TF_WEAPON_CHARGED_TYPEWRITER"
 };
 COMPILE_TIME_ASSERT(ARRAYSIZE(g_aWeaponNames) == TF_WEAPON_COUNT);
+
 
 int g_aWeaponDamageTypes[] =
 {
