@@ -801,7 +801,7 @@ void CAchievementMgr::LoadGlobalState()
     // HPE_END
     //=============================================================================
 
-	KeyValues *pKV = new KeyValues("GameState" );
+	KeyValuesAD pKV( "GameState" );
 	if ( pKV->LoadFromFile( filesystem, szFilename, "MOD" ) )
 	{
 		KeyValues *pNode = pKV->GetFirstSubKey();
@@ -833,7 +833,7 @@ void CAchievementMgr::SaveGlobalState( bool bAsync )
 {
 	VPROF_BUDGET( "CAchievementMgr::SaveGlobalState", "Achievements" );
 
-	KeyValues *pKV = new KeyValues("GameState" );
+	KeyValues *pKV = new KeyValues("GameState" ); // Why not change this like the other one to "KeyValuesAD pKV("GameState" );"? -Birch
 	FOR_EACH_MAP( m_mapAchievement, i )
 	{
 		CBaseAchievement *pAchievement = m_mapAchievement[i];
