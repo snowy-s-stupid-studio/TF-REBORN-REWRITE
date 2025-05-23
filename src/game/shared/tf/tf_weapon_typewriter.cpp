@@ -32,9 +32,9 @@ END_DATADESC()
 
 // ---------- Charged SMG -------------
 
-IMPLEMENT_NETWORKCLASS_ALIASED( TFChargedTYPEWRITER, DT_WeaponChargedSMG )
+IMPLEMENT_NETWORKCLASS_ALIASED( TFChargedTYPEWRITER, DT_WeaponChargedTypewriter )
 
-BEGIN_NETWORK_TABLE( CTFChargedTYPEWRITER, DT_WeaponChargedSMG )
+BEGIN_NETWORK_TABLE( CTFChargedTYPEWRITER, DT_WeaponChargedTypewriter)
 // Client specific.
 #ifdef CLIENT_DLL
 RecvPropFloat( RECVINFO( m_flMinicritCharge ) ),
