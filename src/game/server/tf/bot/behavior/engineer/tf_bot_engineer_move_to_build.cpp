@@ -67,6 +67,8 @@ void CTFBotEngineerMoveToBuild::CollectBuildAreas( CTFBot *me )
 
 	CCaptureZone *zone = me->GetFlagCaptureZone();
 	auto passzone = me->GetBallCaptureZone();
+	auto genericzone = me->GetAnyObjective();
+	CTeamControlPoint* ctrlPoint = me->GetMyControlPoint();
 	if ( zone )
 	{
 		// NOTE: Not strictly the right thing - should defend location of our team's flag
@@ -122,12 +124,9 @@ void CTFBotEngineerMoveToBuild::CollectBuildAreas( CTFBot *me )
 			}
 		}
 	}
-	else
+	else if (ctrlPoint)
 	{
 		// collect all areas overlapping the point
-		CTeamControlPoint *ctrlPoint = me->GetMyControlPoint();
-		if ( !ctrlPoint )
-			return;
 
 		const CUtlVector< CTFNavArea * > *ctrlPointAreaVector = TheTFNavMesh()->GetControlPointAreas( ctrlPoint->GetPointIndex() );
 
@@ -143,7 +142,16 @@ void CTFBotEngineerMoveToBuild::CollectBuildAreas( CTFBot *me )
 			}
 		}
 	}
-
+	else if (genericzone)
+	{
+		CTFNavArea* zoneArea = (CTFNavArea*)TheTFNavMesh()->GetNearestNavArea(genericzone->WorldSpaceCenter(), false, 500.0f, true);
+		if (zoneArea)
+		{
+			pointAreaVector.AddToTail(zoneArea);
+			pointCentroid += zoneArea->GetCenter();
+			pointEnemyIncursion += zoneArea->GetIncursionDistance(enemyTeam);
+		}
+	}
 	if ( pointAreaVector.Count() == 0 )
 		return;
 

@@ -24,10 +24,7 @@ ConVar tf_bot_teleport_build_surface_normal_limit( "tf_bot_teleport_build_surfac
 // Returns the initial Action we will run concurrently as a child to us
 Action< CTFBot >* CTFBotEngineerBuildTeleportEntrance::InitialContainedAction(CTFBot* me)
 {
-	CTeamControlPoint* point = me->GetMyControlPoint();
-	auto zone = me->GetFlagCaptureZone();
-	auto passzone = me->GetBallCaptureZone();
-	if (!point && !zone && !passzone)
+	if (!me->GetAnyObjective())
 	{
 		// wait until a control point becomes available
 		return new CTFBotSeekAndDestroy(-1.0f, true);
@@ -49,7 +46,8 @@ ActionResult< CTFBot >	CTFBotEngineerBuildTeleportEntrance::Update( CTFBot *me, 
 	CTeamControlPoint *point = me->GetMyControlPoint();
 	CCaptureZone *zone = me->GetFlagCaptureZone();				// auto zone = me->GetFlagCaptureZone();
 	CFuncPasstimeGoal *passzone = me->GetBallCaptureZone();		// auto passzone = me->GetBallCaptureZone();
-	if ( !point && !zone && !passzone )
+	auto generic = me->GetAnyObjective();
+	if (!generic)
 	{
 		// wait until a control point becomes available
 		return Continue();
@@ -95,6 +93,10 @@ ActionResult< CTFBot >	CTFBotEngineerBuildTeleportEntrance::Update( CTFBot *me, 
 		else if (passzone)
 		{
 			m_path.Compute(me, passzone->WorldSpaceCenter(), cost);
+		}
+		else if (generic)
+		{
+			m_path.Compute(me, generic->WorldSpaceCenter(), cost);
 		}
 	}
 

@@ -39,6 +39,14 @@ ActionResult< CTFBot >	CTFBotSniperLurk::OnStart( CTFBot *me, Action< CTFBot > *
 	m_boredTimer.Start( RandomFloat( 0.9f, 1.1f ) * tf_bot_sniper_patience_duration.GetFloat() );
 
 	m_homePosition = me->GetAbsOrigin();
+	// Go somewhere already
+	int count = TheTFNavMesh()->GetNavAreaCount();
+	auto area = TheTFNavMesh()->GetNavAreaByID(RandomInt(0, count - 1));
+	if (area)
+	{
+		m_homePosition = area->GetCenter();
+		m_findHomeTimer.Start(RandomFloat(20.0f, 35.0f));
+	}
 	m_isHomePositionValid = false;
 	m_isAtHome = false;
 	m_failCount = 0;
