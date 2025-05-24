@@ -397,7 +397,7 @@ CON_COMMAND_F( tf_bot_add, "Add a bot.", FCVAR_GAMEDLL )
 	{
 		skill = CTFBot::EASY;
 	}
-
+	
 	if (preset != NULL)
 	{
 		auto presetKey = TheTFBots().m_presetsKV->FindKey(preset);
@@ -471,7 +471,7 @@ CON_COMMAND_F( tf_bot_add, "Add a bot.", FCVAR_GAMEDLL )
 
 			if (preset != NULL)
 			{
-				// set up a proper name now that we are in training
+			// set up a proper name now that we are in training
 				if (TFGameRules()->IsInTraining())
 				{
 					CreateBotName(pBot->GetTeamNumber(), pBot->GetPlayerClass()->GetClassIndex(), skill, name, sizeof(name));
@@ -702,6 +702,7 @@ DEFINE_SCRIPTFUNC( ShouldQuickBuild, "Returns if the bot should build instantly"
 DEFINE_SCRIPTFUNC( SetShouldQuickBuild, "Sets if the bot should build instantly" )
 
 DEFINE_SCRIPTFUNC_WRAPPED( GetNearestKnownSappableTarget, "Gets the nearest known sappable target" )
+DEFINE_SCRIPTFUNC_WRAPPED( GenerateAndWearItem, "Give me an item!" )
 
 DEFINE_SCRIPTFUNC( IsInASquad, "Checks if we are in a squad" )
 DEFINE_SCRIPTFUNC( LeaveSquad, "Makes us leave the current squad (if any)" )
@@ -750,9 +751,9 @@ DEFINE_SCRIPTFUNC( IsOnAnyMission, "Return true if this bot has a current missio
 DEFINE_SCRIPTFUNC_WRAPPED( SetMissionTarget, "Set this bot's mission target to the given entity" )
 DEFINE_SCRIPTFUNC_WRAPPED( GetMissionTarget, "Get this bot's current mission target" )
 
-DEFINE_SCRIPTFUNC( SetBehaviorFlag, "Set the given behavior flag(s) for this bot" )
-DEFINE_SCRIPTFUNC( ClearBehaviorFlag, "Clear the given behavior flag(s) for this bot" )
-DEFINE_SCRIPTFUNC( IsBehaviorFlagSet, "Return true if the given behavior flag(s) are set for this bot" )
+DEFINE_SCRIPTFUNC_WRAPPED( SetBehaviorFlag, "Set the given behavior flag(s) for this bot" )
+DEFINE_SCRIPTFUNC_WRAPPED( ClearBehaviorFlag, "Clear the given behavior flag(s) for this bot" )
+DEFINE_SCRIPTFUNC_WRAPPED( IsBehaviorFlagSet, "Return true if the given behavior flag(s) are set for this bot" )
 
 DEFINE_SCRIPTFUNC_WRAPPED( SetActionPoint, "Set the given action point for this bot" )
 DEFINE_SCRIPTFUNC_WRAPPED( GetActionPoint, "Get the given action point for this bot" )
@@ -2105,6 +2106,7 @@ CCaptureFlag *CTFBot::GetFlagToFetch( void ) const
 		switch( flag->GetType() )
 		{
 		case TF_FLAGTYPE_CTF:
+			// if ( flag->GetTeamNumber() == GetEnemyTeam( GetTeamNumber() ) ) might be better -Birch
 			if ( flag->GetTeamNumber() != GetTeamNumber() )
 			{
 				// we want to steal the other team's flag

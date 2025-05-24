@@ -216,12 +216,13 @@ void CCurrencyPack::ComeToRest( void )
 
 	for ( int i = 0; i < IFuncRespawnRoomAutoList::AutoList().Count(); i++ )
 	{
-		CFuncRespawnRoom* pRespawnRoom = static_cast< CFuncRespawnRoom* >( IFuncRespawnRoomAutoList::AutoList()[ i ] );
+		CFuncRespawnRoom *pRespawnRoom = static_cast< CFuncRespawnRoom *>( IFuncRespawnRoomAutoList::AutoList()[ i ] );
 		Vector vecMins, vecMaxs;
 		pRespawnRoom->GetCollideable()->WorldSpaceSurroundingBounds( &vecMins, &vecMaxs );
 		if ( IsPointInBox( GetCollideable()->GetCollisionOrigin(), vecMins, vecMaxs ) )
 		{
 			TFGameRules()->DistributeCurrencyAmount( m_nAmount );
+
 			m_bTouched = true;
 			UTIL_Remove( this );
 		}
