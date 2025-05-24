@@ -9709,11 +9709,13 @@ void CTFPlayerShared::StunPlayer( float flTime, float flReductionAmount, int iSt
 		if ( ( pAttacker->GetTeamNumber() == TF_TEAM_RED ) || ( pAttacker->GetTeamNumber() == TF_TEAM_BLUE ) )
 			return;
 	}
-#endif
+#endif // GAME_DLL
 
 	float flRemapAmount = RemapValClamped( flReductionAmount, 0.0, 1.0, 0, 255 );
 
+#ifdef GAME_DLL
 	int iOldStunFlags = GetStunFlags();
+#endif // GAME_DLL
 
 	// Already stunned
 	bool bStomp = false;
