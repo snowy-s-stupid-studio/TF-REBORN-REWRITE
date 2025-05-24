@@ -96,7 +96,7 @@ int C_TF_PlayerResource::GetTeam( int iIndex )
 	{
 		// In MvM, force everybody to show as being on the defending team,
 		// even if they have not picked a team yet
-		if ( TFGameRules() && TFGameRules()->IsMannVsMachineMode() )
+		if (TFGameRules() && TFGameRules()->IsMannVsMachineMode() && !tf_mvm_bwr.GetBool())
 		{
 			iTeam = TF_TEAM_PVE_DEFENDERS;
 		}

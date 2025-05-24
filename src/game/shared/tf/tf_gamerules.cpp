@@ -879,6 +879,7 @@ ConVar tf_raid_allow_overtime( "tf_raid_allow_overtime", "0"/*, FCVAR_CHEAT*/ );
 #endif // TF_RAID_MODE
 
 ConVar tf_mvm_defenders_team_size( "tf_mvm_defenders_team_size", "6", FCVAR_REPLICATED | FCVAR_NOTIFY, "Maximum number of defenders in MvM" );
+ConVar tf_mvm_forceversus("tf_mvm_forcebwr", "0", FCVAR_REPLICATED | FCVAR_NOTIFY, "Enable be with robots in MvM");
 ConVar tf_mvm_max_connected_players( "tf_mvm_max_connected_players", "10", FCVAR_GAMEDLL, "Maximum number of connected real players in MvM" );
 ConVar tf_mvm_max_invaders( "tf_mvm_max_invaders", "22", FCVAR_GAMEDLL, "Maximum number of invaders in MvM" );
 
@@ -21440,11 +21441,11 @@ int CTFGameRules::GetTeamAssignmentOverride( CTFPlayer *pTFPlayer, int iDesiredT
 	int nMatchPlayers = pMatch ? pMatch->GetNumActiveMatchPlayers() : 0;
 	CMatchInfo::PlayerMatchData_t *pMatchPlayer = ( pMatch && steamID.IsValid() ) ? pMatch->GetMatchDataForPlayer( steamID ) : NULL;
 
-	if ( IsMannVsMachineMode() )
+	if (IsMannVsMachineMode() && !tf_mvm_bwr.GetBool())
 	{
 		if ( !pTFPlayer->IsBot() && iTeam != TEAM_SPECTATOR )
 		{
-			if ( pMatchPlayer && !pMatchPlayer->bDropped )
+			if (pMatchPlayer && !pMatchPlayer->bDropped)
 			{
 				// Part of the lobby match
 				Log( "MVM assigned %s to defending team (player is in lobby)\n", pTFPlayer->GetPlayerName() );

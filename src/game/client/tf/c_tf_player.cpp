@@ -10523,7 +10523,7 @@ void C_TFPlayer::UpdateMVMEyeGlowEffect( bool bVisible )
 	m_pMVMEyeGlowEffect[ 0 ] = NULL;
 	m_pMVMEyeGlowEffect[ 1 ] = NULL;
 
-	if ( bVisible )
+	if (bVisible && !(IsLocalPlayer() && LocalPlayerInFirstPersonView()))
 	{
 		// Set color based on skill
 		Vector vColor = m_nBotSkill >= 2 ? Vector( 255, 180, 36 ) : Vector( 0, 240, 255 );

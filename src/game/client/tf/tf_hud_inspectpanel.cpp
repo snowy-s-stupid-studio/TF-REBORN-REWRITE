@@ -28,6 +28,7 @@
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
+ConVar tf_mvm_bwr("tf_mvm_bwr", "0", FCVAR_NONE, "Enable/disable MvM BWR feature");
 
 DECLARE_HUDELEMENT( CHudInspectPanel );
 
@@ -179,10 +180,10 @@ void CHudInspectPanel::UserCmd_InspectTarget( void )
 				
 				pUpgradePanel->InspectUpgradesForPlayer( pTargetPlayer );
 			}
-			// Inspect self
-			else if ( !pTargetPlayer && pLocalTFPlayer  )
+			// Inspect self | MVM BWR
+			else if (!pTargetPlayer && pLocalTFPlayer && pLocalTFPlayer->GetTeamNumber() != TF_TEAM_PVE_INVADERS)
 			{
-				pUpgradePanel->InspectUpgradesForPlayer( pLocalTFPlayer );
+				// Add the necessary logic here if required.
 			}
 		}
 	}

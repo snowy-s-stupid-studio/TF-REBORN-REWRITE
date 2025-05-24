@@ -8,6 +8,7 @@
 #include "cbase.h"
 #include <stdarg.h>
 #include "gamerules.h"
+#include "tf_gamerules.h"
 #include "player.h"
 #include "model_types.h"
 #include "movehelper_server.h"
@@ -363,9 +364,20 @@ bool CMoveHelperServer::PlayerFallingDamage( void )
 	if ( flFallDamage > 0 )
 	{
 		int iDamageTaken = m_pHostPlayer->TakeDamage( CTakeDamageInfo( GetContainingEntity(INDEXENT(0)), GetContainingEntity(INDEXENT(0)), flFallDamage, DMG_FALL ) ); 
-		if ( iDamageTaken > 0 )
+
+		if (TFGameRules()->IsMannVsMachineMode())
 		{
-			StartSound( m_pHostPlayer->GetAbsOrigin(), "Player.FallDamage" );
+			if (iDamageTaken > 0)
+			{
+				StartSound(m_pHostPlayer->GetAbsOrigin(), m_pHostPlayer->GetTeamNumber() == TF_TEAM_PVE_INVADERS ? "MVM.FallDamageBots" : "Player.FallDamage");
+			}
+		}
+		else
+		{
+			if (iDamageTaken > 0)
+			{
+				StartSound(m_pHostPlayer->GetAbsOrigin(), "Player.FallDamage");
+			}
 		}
 
         //=============================================================================

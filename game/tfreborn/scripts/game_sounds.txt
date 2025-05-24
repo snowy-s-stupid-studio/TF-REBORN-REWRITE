@@ -3674,6 +3674,19 @@
   }
 }
 
+"VIPMobster.Death"
+{
+  "channel"    "CHAN_STATIC"
+  "soundlevel" "SNDLVL_94dB"
+  "volume"     "1.0"
+  "rndwave"
+  {
+    "wave"     ")mvm/mobster_brooklynn_r1a/mobster_paincrticialdeath01.mp3"
+	"wave"     ")mvm/mobster_brooklynn_r1a/mobster_paincrticialdeath02.mp3"
+	"wave"     ")mvm/mobster_brooklynn_r1a/mobster_paincrticialdeath03.mp3"
+  }
+}
+
 "VIPMobster.Typewriter.SingleLow"
 {
   "channel"    "CHAN_STATIC"

@@ -152,7 +152,7 @@
 				"can_deal_long_distance_damage"	"1"
 			}
 			"first_sale_date"	"2010/09/29"
-			"item_class"	"tf_weapon_typewriter"
+			"item_class"	"tf_weapon_handgun_scout_primary"
 			"soloitem" "1"
 			"craft_class"	"weapon"
 			"craft_material_type"	"weapon"

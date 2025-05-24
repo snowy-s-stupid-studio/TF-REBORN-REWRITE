@@ -790,6 +790,12 @@ void CTFClassMenu::SelectClass( int iClass )
 	{
 		m_pTFPlayerModelPanel->SetToPlayerClass( iClass, bClassWasRandom );
 
+		if (TFGameRules() && TFGameRules()->IsMannVsMachineMode() && GetTeamNumber() == TF_TEAM_PVE_INVADERS)
+		{
+			MDLHandle_t hModel = mdlcache->FindMDL(g_szBotModels[iClass]);
+			m_pTFPlayerModelPanel->SetMDL(hModel);
+		}
+
 		m_pEditLoadoutButton->SetVisible( true );
 		if ( m_pEditLoadoutHintIcon )
 		{

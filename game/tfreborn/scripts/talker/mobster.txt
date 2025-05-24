@@ -1,0 +1,710 @@
+//--------------------------------------------------------------------------------------------------------------
+// Mobster Response Rule File
+//--------------------------------------------------------------------------------------------------------------
+
+Criterion "MobsterIsNotStillonFire" "MobsterOnFire" "!=1" "required" weight 0
+Criterion "MobsterIsStillonFire" "MobsterOnFire" "1" "required" weight 0
+Criterion "NotMobsterGrabbedIntelligence" "MobsterGrabbedIntelligence" "!=1" "required"
+Criterion "MobsterNotKillSpeechMelee" "MobsterKillSpeechMelee" "!=1" "required" weight 0
+
+
+Response PlayerCloakedSpyDemomanMobster
+{
+	speak "Mobster.CloakedSpyIdentify05"
+}
+Rule PlayerCloakedSpyDemomanMobster
+{
+	criteria ConceptPlayerCloakedSpy IsMobster IsOnDemoman
+	Response PlayerCloakedSpyDemomanMobster
+}
+
+Response PlayerCloakedSpyEngineerMobster
+{
+	speak "Mobster.CloakedSpyIdentify08"
+}
+Rule PlayerCloakedSpyEngineerMobster
+{
+	criteria ConceptPlayerCloakedSpy IsMobster IsOnEngineer
+	Response PlayerCloakedSpyEngineerMobster
+}
+
+Response PlayerCloakedSpyHeavyMobster
+{
+	speak "Mobster.CloakedSpyIdentify03"
+}
+Rule PlayerCloakedSpyHeavyMobster
+{
+	criteria ConceptPlayerCloakedSpy IsMobster IsOnHeavy
+	Response PlayerCloakedSpyHeavyMobster
+}
+
+Response PlayerCloakedSpyMedicMobster
+{
+	speak "Mobster.CloakedSpyIdentify07"
+}
+Rule PlayerCloakedSpyMedicMobster
+{
+	criteria ConceptPlayerCloakedSpy IsMobster IsOnMedic
+	Response PlayerCloakedSpyMedicMobster
+}
+
+Response PlayerCloakedSpyPyroMobster
+{
+	speak "Mobster.CloakedSpyIdentify04"
+}
+Rule PlayerCloakedSpyPyroMobster
+{
+	criteria ConceptPlayerCloakedSpy IsMobster IsOnPyro
+	Response PlayerCloakedSpyPyroMobster
+}
+
+Response PlayerCloakedSpyScoutMobster
+{
+	speak "Mobster.CloakedSpyIdentify01"
+}
+Rule PlayerCloakedSpyScoutMobster
+{
+	criteria ConceptPlayerCloakedSpy IsMobster IsOnScout
+	Response PlayerCloakedSpyScoutMobster
+}
+
+Response PlayerCloakedSpySniperMobster
+{
+	speak "Mobster.CloakedSpyIdentify09"
+}
+Rule PlayerCloakedSpySniperMobster
+{
+	criteria ConceptPlayerCloakedSpy IsMobster IsOnSniper
+	Response PlayerCloakedSpySniperMobster
+}
+
+Response PlayerCloakedSpySoldierMobster
+{
+	speak "Mobster.CloakedSpyIdentify02"
+}
+Rule PlayerCloakedSpySoldierMobster
+{
+	criteria ConceptPlayerCloakedSpy IsMobster IsOnSoldier
+	Response PlayerCloakedSpySoldierMobster
+}
+
+Response PlayerCloakedSpySpyMobster
+{
+	speak "Mobster.CloakedSpyIdentify06"
+}
+Rule PlayerCloakedSpySpyMobster
+{
+	criteria ConceptPlayerCloakedSpy IsMobster IsOnSpy
+	Response PlayerCloakedSpySpyMobster
+}
+
+Response PlayerCloakedSpyCivilianMobster
+{
+	speak "Mobster.CloakedSpyIdentify10"
+}
+Rule PlayerCloakedSpyMobsterMobster
+{
+	criteria ConceptPlayerCloakedSpy IsMobster IsOnMobster
+	Response PlayerCloakedSpyMobsterMobster
+}
+
+//--------------------------------------------------------------------------------------------------------------
+// Auto Speech
+//--------------------------------------------------------------------------------------------------------------
+Response PlayerRoundStartMobster
+{
+	speak "Mobster.BattleCry01" predelay "1.0, 5.0"
+	speak "Mobster.BattleCry02" predelay "1.0, 5.0"
+	speak "Mobster.BattleCry03" predelay "1.0, 5.0"
+	speak "Mobster.BattleCry04" predelay "1.0, 5.0"
+	speak "Mobster.BattleCry05" predelay "1.0, 5.0"
+	speak "Mobster.BattleCry06" predelay "1.0, 5.0"
+	speak "Mobster.BattleCry07" predelay "1.0, 5.0"
+	speak "Mobster.BattleCry08" predelay "1.0, 5.0"
+}
+Rule PlayerRoundStartMobster
+{
+	criteria ConceptPlayerRoundStart IsMobster
+	Response PlayerRoundStartMobster
+}
+
+Response PlayerCappedIntelligenceMobster
+{
+	speak "Mobster.AutoCappedIntelligence01" 
+	speak "Mobster.AutoCappedIntelligence02" 
+	speak "Mobster.AutoCappedIntelligence03" 
+	speak "Mobster.AutoCappedIntelligence04" 
+}
+Rule PlayerCappedIntelligenceMobster
+{
+	criteria ConceptPlayerCapturedIntelligence IsMobster
+	Response PlayerCappedIntelligenceMobster
+}
+
+Response PlayerCapturedPointMobster
+{
+	speak "Mobster.AutoCappedControlPoint01"
+	speak "Mobster.AutoCappedControlPoint02"
+	speak "Mobster.AutoCappedControlPoint03"
+	speak "Mobster.AutoCappedControlPoint04" 
+	speak "Mobster.AutoCappedControlPoint05" 
+}
+Rule PlayerCapturedPointMobster
+{
+	criteria ConceptPlayerCapturedPoint IsMobster
+	Response PlayerCapturedPointMobster
+}
+
+Response PlayerGrabbedIntelligenceMobster
+{
+	speak "Mobster.SpecialCompleted01"
+	speak "Mobster.SpecialCompleted02"
+	speak "Mobster.SpecialCompleted03"
+	speak "Mobster.SpecialCompleted04"
+}
+Rule PlayerGrabbedIntelligenceMobster
+{
+	criteria ConceptPlayerGrabbedIntelligence IsMobster NotMobsterGrabbedIntelligence
+	ApplyContext "MobsterGrabbedIntelligence:1:30"
+	Response PlayerGrabbedIntelligenceMobster
+}
+
+Response PlayerSuddenDeathMobster
+{
+	speak "Mobster.Jeers01"
+	speak "Mobster.Jeers02"
+	speak "Mobster.Jeers03"
+	speak "Mobster.Jeers04"
+	speak "Mobster.Jeers05"
+}
+Rule PlayerSuddenDeathMobster
+{
+	criteria ConceptPlayerSuddenDeathStart IsMobster
+	Response PlayerSuddenDeathMobster
+}
+
+Response PlayerStalemateMobster
+{
+	speak "Mobster.AutoDejectedTie01"
+	speak "Mobster.AutoDejectedTie02"
+}
+Rule PlayerStalemateMobster
+{
+	criteria ConceptPlayerStalemate IsMobster
+	Response PlayerStalemateMobster
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Auto Speech Pain
+//--------------------------------------------------------------------------------------------------------------
+Response PlayerAttackerPainMobster
+{
+	speak "Mobster.PainSevere01"
+	speak "Mobster.PainSevere02"
+	speak "Mobster.PainSevere03"
+	speak "Mobster.PainSevere04"
+}
+Rule PlayerAttackerPainMobster
+{
+	criteria ConceptAttackerPain IsMobster
+	Response PlayerAttackerPainMobster
+}
+
+Response PlayerOnFireMobster
+{
+	speak "Mobster.AutoOnFire04"
+	speak "Mobster.AutoOnFire05"
+	speak "Mobster.AutoOnFire06"
+}
+Rule PlayerOnFireMobster
+{
+	criteria ConceptFire IsMobster MobsterIsNotStillonFire
+	ApplyContext "MobsterOnFire:1:7"
+	Response PlayerOnFireMobster
+}
+
+Response PlayerOnFireRareMobster
+{
+	speak "Mobster.AutoOnFire01"
+	speak "Mobster.AutoOnFire02"
+	speak "Mobster.AutoOnFire03"
+	speak "Mobster.AutoOnFire07"
+}
+Rule PlayerOnFireRareMobster
+{
+	criteria ConceptFire IsMobster 10PercentChance MobsterIsNotStillonFire
+	ApplyContext "MobsterOnFire:1:7"
+	Response PlayerOnFireRareMobster
+}
+
+Response PlayerPainMobster
+{
+	speak "Mobster.PainSharp01"
+	speak "Mobster.PainSharp02"
+	speak "Mobster.PainSharp03"
+	speak "Mobster.PainSharp04"
+}
+Rule PlayerPainMobster
+{
+	criteria ConceptPain IsMobster
+	Response PlayerPainMobster
+}
+
+Response PlayerStillOnFireMobster
+{
+	speak "Mobster.autoonfiresecondary01"
+}
+Rule PlayerStillOnFireMobster
+{
+	criteria ConceptFire IsMobster  MobsterIsStillonFire
+	ApplyContext "MobsterOnFire:1:7"
+	Response PlayerStillOnFireMobster
+}
+
+Response KilledPlayerMeleeMobster
+{
+	speak "Mobster.Domination01"
+	speak "Mobster.Domination04"
+	speak "Mobster.Domination07"
+}
+Rule KilledPlayerMeleeMobster
+{
+	criteria ConceptKilledPlayer KilledPlayerDelay 50PercentChance IsWeaponMelee MobsterNotKillSpeechMelee IsMobster
+	ApplyContext "MobsterKillSpeechMelee:1:10"
+	Response KilledPlayerMeleeMobster
+}
+
+Response PlayerKilledDominatingMobster
+{
+	speak "Mobster.Domination01" predelay "2.5"
+	speak "Mobster.Domination02" predelay "2.5"
+	speak "Mobster.Domination03" predelay "2.5"
+	speak "Mobster.Domination04" predelay "2.5"
+	speak "Mobster.Domination05" predelay "2.5"
+	speak "Mobster.Domination06" predelay "2.5"
+	speak "Mobster.Domination07" predelay "2.5"
+}
+Rule PlayerKilledDominatingMobster
+{
+	criteria ConceptKilledPlayer IsMobster IsDominated
+	ApplyContext "MobsterKillSpeech:1:7"
+	ApplyContext "IsDominating:1:7"
+	Response PlayerKilledDominatingMobster
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Speech Menu 1
+//--------------------------------------------------------------------------------------------------------------
+Response PlayerGoMobster
+{
+	speak "Mobster.Go01"
+	speak "Mobster.Go02"
+	speak "Mobster.Go03"
+	speak "Mobster.Go04"
+}
+Rule PlayerGoMobster
+{
+	criteria ConceptPlayerGo IsMobster
+	Response PlayerGoMobster
+}
+
+Response PlayerHeadLeftMobster
+{
+	speak "Mobster.HeadLeft01"
+	speak "Mobster.HeadLeft02"
+	speak "Mobster.HeadLeft03"
+}
+Rule PlayerHeadLeftMobster
+{
+	criteria ConceptPlayerLeft  IsMobster
+	Response PlayerHeadLeftMobster
+}
+
+Response PlayerHeadRightMobster
+{
+	speak "Mobster.HeadRight01"
+	speak "Mobster.HeadRight02"
+	speak "Mobster.HeadRight03"
+}
+Rule PlayerHeadRightMobster
+{
+	criteria ConceptPlayerRight  IsMobster
+	Response PlayerHeadRightMobster
+}
+
+Response PlayerHelpMobster
+{
+	speak "Mobster.HelpMe01"
+	speak "Mobster.HelpMe02"
+	speak "Mobster.HelpMe03"
+}
+Rule PlayerHelpMobster
+{
+	criteria ConceptPlayerHelp IsMobster
+	Response PlayerHelpMobster
+}
+
+Response PlayerHelpCaptureMobster
+{
+	speak "Mobster.HelpMeCapture01"
+	speak "Mobster.HelpMeCapture02"
+	speak "Mobster.HelpMeCapture03"
+	speak "Mobster.HelpMeCapture04"
+}
+Rule PlayerHelpCaptureMobster
+{
+	criteria ConceptPlayerHelp IsMobster IsOnCappableControlPoint
+	ApplyContext "MobsterHelpCap:1:7"
+	Response PlayerHelpCaptureMobster
+}
+
+Response PlayerMedicMobster
+{
+	speak "Mobster.Medic01"
+	speak "Mobster.Medic02"
+	speak "Mobster.Medic03"
+}
+Rule PlayerMedicMobster
+{
+	criteria ConceptPlayerMedic IsMobster
+	Response PlayerMedicMobster
+}
+
+// Custom Medic follow
+Response MedicFollowMobster
+{
+	speak "Mobster.MedicFollow01" predelay ".25"
+	speak "Mobster.MedicFollow02" predelay ".25"
+	speak "Mobster.MedicFollow03" predelay ".25"
+	speak "Mobster.MedicFollow04" predelay ".25"
+	speak "Mobster.MedicFollow05" predelay ".25"
+}
+Rule MedicFollowMobster
+{
+	criteria ConceptPlayerMedic IsOnMedic IsMobster IsNotCrossHairEnemy NotLowHealth MobsterIsNotStillonFire
+	Response MedicFollowMobster
+}
+
+Response PlayerMoveUpMobster
+{
+	speak "Mobster.MoveUp01"
+	speak "Mobster.MoveUp02"
+	speak "Mobster.MoveUp03"
+}
+Rule PlayerMoveUpMobster
+{
+	criteria ConceptPlayerMoveUp  IsMobster
+	Response PlayerMoveUpMobster
+}
+
+Response PlayerNoMobster
+{
+	speak "Mobster.No01"
+	speak "Mobster.No02"
+	speak "Mobster.No03"
+	speak "Mobster.No04"
+}
+Rule PlayerNoMobster
+{
+	criteria ConceptPlayerNo  IsMobster
+	Response PlayerNoMobster
+}
+
+Response PlayerThanksMobster
+{
+	speak "Mobster.Thanks01"
+	speak "Mobster.Thanks02"
+	speak "Mobster.Thanks03"
+	speak "Mobster.Thanks04"
+}
+Rule PlayerThanksMobster
+{
+	criteria ConceptPlayerThanks IsMobster
+	Response PlayerThanksMobster
+}
+
+Response PlayerYesMobster
+{
+	speak "Mobster.Yes01"
+	speak "Mobster.Yes02"
+	speak "Mobster.Yes03"
+	speak "Mobster.Yes04"
+	speak "Mobster.Yes05"
+}
+Rule PlayerYesMobster
+{
+	criteria ConceptPlayerYes  IsMobster
+	Response PlayerYesMobster
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Speech Menu 2
+//--------------------------------------------------------------------------------------------------------------
+Response PlayerActivateChargeMobster
+{
+	speak "Mobster.ActivateCharge01"
+	speak "Mobster.ActivateCharge02"
+	speak "Mobster.ActivateCharge03"
+	speak "Mobster.ActivateCharge04"
+	speak "Mobster.ActivateCharge05"
+}
+Rule PlayerActivateChargeMobster
+{
+	criteria ConceptPlayerActivateCharge IsMobster
+	Response PlayerActivateChargeMobster
+}
+
+Response PlayerCloakedSpyMobster
+{
+	speak "Mobster.CloakedSpy01"
+	speak "Mobster.CloakedSpy02"
+}
+Rule PlayerCloakedSpyMobster
+{
+	criteria ConceptPlayerCloakedSpy IsMobster
+	Response PlayerCloakedSpyMobster
+}
+
+Response PlayerDispenserHereMobster
+{
+	speak "Mobster.NeedDispenser01"
+}
+Rule PlayerDispenserHereMobster
+{
+	criteria ConceptPlayerDispenserHere IsMobster
+	Response PlayerDispenserHereMobster
+}
+
+Response PlayerIncomingMobster
+{
+	speak "Mobster.Incoming01"
+	speak "Mobster.Incoming02"
+	speak "Mobster.Incoming03"
+}
+Rule PlayerIncomingMobster
+{
+	criteria ConceptPlayerIncoming IsMobster
+	Response PlayerIncomingMobster
+}
+
+Response PlayerSentryAheadMobster
+{
+	speak "Mobster.SentryAhead01"
+	speak "Mobster.SentryAhead02"
+	speak "Mobster.SentryAhead03"
+}
+Rule PlayerSentryAheadMobster
+{
+	criteria ConceptPlayerSentryAhead IsMobster
+	Response PlayerSentryAheadMobster
+}
+
+Response PlayerSentryHereMobster
+{
+	speak "Mobster.NeedSentry01"
+}
+Rule PlayerSentryHereMobster
+{
+	criteria ConceptPlayerSentryHere IsMobster
+	Response PlayerSentryHereMobster
+}
+
+Response PlayerTeleporterHereMobster
+{
+	speak "Mobster.NeedTeleporter01"
+}
+Rule PlayerTeleporterHereMobster
+{
+	criteria ConceptPlayerTeleporterHere IsMobster
+	Response PlayerTeleporterHereMobster
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// Speech Menu 3
+//--------------------------------------------------------------------------------------------------------------
+Response PlayerBattleCryMobster
+{
+	speak "Mobster.BattleCry01"
+	speak "Mobster.BattleCry02"
+	speak "Mobster.BattleCry03"
+	speak "Mobster.BattleCry04"
+	speak "Mobster.BattleCry05"
+	speak "Mobster.BattleCry06"
+	speak "Mobster.BattleCry07"
+	speak "Mobster.BattleCry08"
+}
+Rule PlayerBattleCryMobster
+{
+	criteria ConceptPlayerBattleCry IsMobster
+	Response PlayerBattleCryMobster
+}
+
+Response PlayerCheersMobster
+{
+	speak "Mobster.Cheers01"
+	speak "Mobster.Cheers02"
+	speak "Mobster.Cheers03"
+}
+Rule PlayerCheersMobster
+{
+	criteria ConceptPlayerCheers IsMobster
+	Response PlayerCheersMobster
+}
+
+Response PlayerGoodJobMobster
+{
+	speak "Mobster.GoodJob01"
+	speak "Mobster.GoodJob02"
+	speak "Mobster.GoodJob03"
+	speak "Mobster.GoodJob04"
+}
+Rule PlayerGoodJobMobster
+{
+	criteria ConceptPlayerGoodJob IsMobster
+	Response PlayerGoodJobMobster
+}
+
+Response PlayerJeersMobster
+{
+	speak "Mobster.Jeers01"
+	speak "Mobster.Jeers02"
+	speak "Mobster.Jeers03"
+	speak "Mobster.Jeers04"
+	speak "Mobster.Jeers05"
+}
+Rule PlayerJeersMobster
+{
+	criteria ConceptPlayerJeers IsMobster
+	Response PlayerJeersMobster
+}
+
+Response PlayerLostPointMobster
+{
+	speak "Mobster.NegativeVocalization01"
+	speak "Mobster.NegativeVocalization02"
+	speak "Mobster.NegativeVocalization03"
+	speak "Mobster.NegativeVocalization04"
+	speak "Mobster.NegativeVocalization05"
+}
+Rule PlayerLostPointMobster
+{
+	criteria ConceptPlayerLostPoint IsMobster
+	Response PlayerLostPointMobster
+}
+
+Response PlayerNegativeMobster
+{
+	speak "Mobster.NegativeVocalization01"
+	speak "Mobster.NegativeVocalization02"
+	speak "Mobster.NegativeVocalization03"
+	speak "Mobster.NegativeVocalization04"
+	speak "Mobster.NegativeVocalization05"
+}
+Rule PlayerNegativeMobster
+{
+	criteria ConceptPlayerNegative IsMobster
+	Response PlayerNegativeMobster
+}
+
+Response PlayerNiceShotMobster
+{
+	speak "Mobster.NiceShot01"
+	speak "Mobster.NiceShot02"
+	speak "Mobster.NiceShot03"
+}
+Rule PlayerNiceShotMobster
+{
+	criteria ConceptPlayerNiceShot IsMobster
+	Response PlayerNiceShotMobster
+}
+
+Response PlayerPositiveMobster
+{
+	speak "Mobster.PositiveVocalization01"
+	speak "Mobster.PositiveVocalization02"
+	speak "Mobster.PositiveVocalization03"
+}
+Rule PlayerPositiveMobster
+{
+	criteria ConceptPlayerPositive IsMobster
+	Response PlayerPositiveMobster
+}
+
+//--------------------------------------------------------------------------------------------------------------
+// Round Win Responses
+//--------------------------------------------------------------------------------------------------------------
+Response PlayerSuccessMobster
+{
+	speak "Mobster.success01"
+	speak "Mobster.success02"
+	speak "Mobster.success03"
+	speak "Mobster.success04"
+	speak "Mobster.success05"
+	speak "Mobster.success06"
+	speak "Mobster.success07"
+	speak "Mobster.success08"
+}
+Rule PlayerSuccessMobster
+{
+	criteria ConceptPlayerSuccess IsMobster
+	Response PlayerSuccessMobster
+}
+
+//--------------------------------------------------------------------------------------------------------------
+// Round Lose Responses
+//--------------------------------------------------------------------------------------------------------------
+Response PlayerFailureMobster
+{
+	speak "Mobster.failure01" predelay "6.0"
+	speak "Mobster.failure02" predelay "6.0"
+	speak "Mobster.failure03" predelay "6.0"
+	speak "Mobster.failure04" predelay "6.0"
+	speak "Mobster.failure05" predelay "6.0"
+}
+Rule PlayerVictoryMobster
+{
+	criteria ConceptPlayerFailure IsMobster
+	Response PlayerFailureMobster
+}
+
+//--------------------------------------------------------------------------------------------------------------
+// Auto Speech Cart
+//--------------------------------------------------------------------------------------------------------------
+Criterion "MobsterNotSaidCartMovingForwardD" "SaidCartMovingForwardD" "!=1" "required" weight 0
+Criterion "MobsterNotSaidCartMovingForwardO" "SaidCartMovingForwardO" "!=1" "required" weight 0
+Criterion "MobsterNotSaidCartMovingStoppedD" "SaidCartMovingStoppedD" "!=1" "required" weight 0
+Criterion "MobsterNotSaidCartMovingStoppedO" "SaidCartMovingStoppedO" "!=1" "required" weight 0
+Response CartMovingForwardOffenseMobster                                                       
+{
+	speak "Mobster.cartmovingforwardoffense01"
+	speak "Mobster.cartmovingforwardoffense02"
+	speak "Mobster.cartmovingforwardoffense03"
+	speak "Mobster.cartmovingforwardoffense04"
+	speak "Mobster.cartstaycloseoffense01"
+	speak "Mobster.cartstaycloseoffense02"
+	speak "Mobster.cartstaycloseoffense03"
+}
+Rule CartMovingForwardOffenseMobster                                                      
+{
+	criteria ConceptCartMovingForward IsOnOffense IsMobster MobsterNotSaidCartMovingForwardO IsNotDisguised 75PercentChance                                                                                                                                                            
+	ApplyContext "SaidCartMovingForwardO:1:20"
+	Response CartMovingForwardOffenseMobster                                                       
+}
+Response CartMovingStoppedOffenseMobster                                                       
+{
+	speak "Mobster.cartstoppedoffense01"
+	speak "Mobster.cartstoppedoffense02"
+}
+Rule CartMovingStoppedOffenseMobster                                                       
+{
+	criteria ConceptCartMovingStopped IsOnOffense IsMobster MobsterNotSaidCartMovingStoppedO IsNotDisguised 75PercentChance                                                                                                                                                            
+	ApplyContext "SaidCartMovingStoppedO:1:20"
+	Response CartMovingStoppedOffenseMobster                                                       
+}
+//--------------------------------------------------------------------------------------------------------------
+// END OF Auto Speech Cart
+//--------------------------------------------------------------------------------------------------------------

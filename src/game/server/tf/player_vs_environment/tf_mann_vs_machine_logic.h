@@ -36,6 +36,7 @@ private:
 	CHandle< CPopulationManager > m_populationManager;
 
 	float m_flNextAlarmCheck;
+	bool m_bAllowbwr;
 };
 
 extern CHandle<CMannVsMachineLogic> g_hMannVsMachineLogic;
