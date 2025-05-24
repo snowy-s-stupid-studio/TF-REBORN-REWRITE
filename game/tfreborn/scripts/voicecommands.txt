@@ -199,9 +199,7 @@
 		{
 			"concept"				"TLK_PLAYER_BATTLECRY"
 			"menu_label"				"#Voice_Menu_BattleCry"
-			"show_subtitle"				"1"
 			"distance_check_subtitle"		"1"
-			"subtitle"				"(Battle Cry)"
 			"activity"				"ACT_MP_GESTURE_VC_FISTPUMP"
 		}
 		
@@ -210,9 +208,7 @@
 		{
 			"concept"				"TLK_PLAYER_CHEERS"
 			"menu_label"				"#Voice_Menu_Cheers"
-			"show_subtitle"				"1"
-			"distance_check_subtitle"		"1"
-			"subtitle"				"Yay!"			
+			"distance_check_subtitle"		"1"			
 			"activity"				"ACT_MP_GESTURE_VC_FISTPUMP"
 		}
 		
@@ -220,34 +216,27 @@
 		{
 			"concept"				"TLK_PLAYER_JEERS"	
 			"menu_label"				"#Voice_Menu_Jeers"
-			"show_subtitle"				"1"
 			"distance_check_subtitle"		"1"
-			"subtitle"				"Grrr!"
 		}
 		
 		"item_5"
 		{
 			"concept"				"TLK_PLAYER_POSITIVE"		
 			"menu_label"				"#Voice_Menu_Positive"
-			"show_subtitle"				"1"
 			"distance_check_subtitle"		"1"
-			"subtitle"				"Oh yeah!"
 		}
 		
 		"item_6"
 		{
 			"concept"				"TLK_PLAYER_NEGATIVE"		
 			"menu_label"				"#Voice_Menu_Negative"
-			"show_subtitle"				"1"
 			"distance_check_subtitle"		"1"
-			"subtitle"				"Darn..."
 		}
 		
 		"item_7"
 		{
 			"concept"				"TLK_PLAYER_NICESHOT"		
 			"menu_label"				"#Voice_Menu_NiceShot"
-			"show_subtitle"				"1"
 			"distance_check_subtitle"		"1"
 			"subtitle"				"#Voice_Menu_NiceShot"			
 			"activity"				"ACT_MP_GESTURE_VC_THUMBSUP"
@@ -257,9 +246,7 @@
 		{
 			"concept"				"TLK_PLAYER_GOODJOB"		
 			"menu_label"				"#Voice_Menu_GoodJob"
-			"show_subtitle"				"1"
-			"distance_check_subtitle"		"1"
-			"subtitle"				"#Voice_Menu_GoodJob"			
+			"distance_check_subtitle"		"1"		
 			"activity"				"ACT_MP_GESTURE_VC_THUMBSUP"
 		}
 	}
