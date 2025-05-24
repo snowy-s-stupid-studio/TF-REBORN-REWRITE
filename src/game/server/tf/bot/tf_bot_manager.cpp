@@ -22,7 +22,7 @@
 // Creates and sets CTFBotManager as the NextBotManager singleton
 static CTFBotManager sTFBotManager;
 
-ConVar tf_bot_difficulty( "tf_bot_difficulty", "1", FCVAR_NONE, "Defines the skill of bots joining the game.  Values are: 0=easy, 1=normal, 2=hard, 3=expert." );
+ConVar tf_bot_difficulty( "tf_bot_difficulty", "3", FCVAR_NONE, "Defines the skill of bots joining the game.  Values are: 0=easy, 1=normal, 2=hard, 3=expert." );
 ConVar tf_bot_quota( "tf_bot_quota", "0", FCVAR_NONE, "Determines the total number of tf bots in the game." );
 ConVar tf_bot_quota_mode( "tf_bot_quota_mode", "normal", FCVAR_NONE, "Determines the type of quota.\nAllowed values: 'normal', 'fill', and 'match'.\nIf 'fill', the server will adjust bots to keep N players in the game, where N is bot_quota.\nIf 'match', the server will maintain a 1:N ratio of humans to bots, where N is bot_quota." );
 ConVar tf_bot_quota_use_presets("tf_bot_quota_use_presets", "0", FCVAR_NONE, "Set a random preset to every bot added by quota.");
@@ -475,8 +475,11 @@ void CTFBotManager::MaintainBotQuota()
 				{
 					if (V_strcmp(key->GetName(), "version"))
 					{
-						chosen.AddToTail(key);
-						count++;
+						if (key->GetInt("Rarity", 1) == 1)
+						{
+							chosen.AddToTail(key);
+							count++;
+						}
 					}
 					key = key->GetNextKey();
 				}

@@ -21,12 +21,13 @@ ConVar tf_bot_debug_seek_and_destroy( "tf_bot_debug_seek_and_destroy", "0", FCVA
 
 
 //---------------------------------------------------------------------------------------------
-CTFBotSeekAndDestroy::CTFBotSeekAndDestroy( float duration )
+CTFBotSeekAndDestroy::CTFBotSeekAndDestroy(float duration, bool roamer)
 {
 	if ( duration > 0.0f )
 	{
 		m_giveUpTimer.Start( duration );
 	}
+	m_isRoaming = roamer;
 }
 
 
@@ -83,7 +84,7 @@ ActionResult< CTFBot >	CTFBotSeekAndDestroy::Update( CTFBot *me, float interval 
 			}
 		}
 		
-		if ( !TFGameRules()->RoundHasBeenWon() && me->GetTimeLeftToCapture() != 0.0f && me->GetTimeLeftToCapture() < tf_bot_offense_must_push_time.GetFloat() )
+		if (!m_isRoaming && !TFGameRules()->RoundHasBeenWon() && me->GetTimeLeftToCapture() < tf_bot_offense_must_push_time.GetFloat())
 		{
 			return Done( "Time to push for the objective" );
 		}
