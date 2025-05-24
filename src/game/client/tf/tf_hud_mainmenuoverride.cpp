@@ -1194,7 +1194,7 @@ void CHudMainMenuOverride::OnConfirm( KeyValues *pParams )
 //-----------------------------------------------------------------------------
 void CHudMainMenuOverride::UpdateMOTD( bool bNewMOTDs )
 {
-	return;
+	//return;
 
 	if ( m_bInitMOTD == false )
 	{

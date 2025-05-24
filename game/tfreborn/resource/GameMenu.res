@@ -7,13 +7,6 @@
 		"subimage"		"glyph_vr"
 		"OnlyWhenVREnabled"	"1	"
 	}
-	
-	"ConsoleButton"
-	{
-		"label"			"Console"
-		"command"		"engine toggleconsole"
-		"subimage"		"glyph_forums"
-	}
 
 	"RetryButton"
 	{
@@ -42,15 +35,9 @@
 		"OnlyAtMenu"	"1"
 	}
 
+
 	// These buttons get positioned by the MainMenuOverride.res	
-	"OfflinePracticeButton"
-	{
-		"label"			""
-		"command"		"offlinepractice"
-		"subimage"		"glyph_practice"
-		"OnlyAtMenu"	"1"
-		"tooltip"		"Offline Practice"
-	}
+	// These buttons get positioned by the MainMenuOverride.res	
 	
 	"CharacterSetupButton"
 	{
@@ -59,32 +46,6 @@
 		"subimage"		"glyph_items"
 	}
 	
-	"SND"
-	{
-		"label"			""
-		"command"		"engine snd_restart"
-		"subimage"		"replay/thumbnails/glyphs/glyph_musstop"
-		"tooltip"		"Reload Sounds"
-	}
-	
-	"HUD"
-	{
-		"label"			""
-		"command"		"engine hud_reloadscheme"
-		"subimage"		"replay/thumbnails/glyphs/glyph_huddington"
-		"tooltip"		"Reload HUD"
-		"OnlyInGame"	"1"
-	}
-	
-	"MM"
-	{
-		"label"			""
-		"command"		"engine toggle mat_aaquality"
-		"subimage"		"replay/thumbnails/glyphs/glyph_consolington"
-		"tooltip"		"Reload Main Menu"
-		"OnlyAtMenu"	"1"
-	}
-
 	"AchievementsButton"
 	{
 		"label"			"#GameUI_Achievements_Title"
@@ -99,6 +60,7 @@
 		"subimage"		"glyph_create"
 		"tooltip"		"Create Server"
 	}
+	
 
 	"OptionsButton"
 	{
@@ -124,14 +86,6 @@
 		"tooltip"		"#MMenu_SteamWorkshop"
 	}
 
-	"StoreButton"
-	{
-		"label"			""
-		"command"		"engine open_store"
-		"OnlyAtMenu"	"0"
-		"subimage"		"glyph_store"
-		"tooltip"		"Shop for Items"
-	}
 
 	"ToggleBlogButton"
 	{
@@ -139,6 +93,7 @@
 		"command"		"motd_show"
 		"subimage"		"glyph_quest_icon"
 	}
+
 
 	"AvatarBGPanel"
 	{
@@ -185,6 +140,15 @@
 		"label"			"#MMenu_MOTD_Show"
 		"command"		"toggle_chat"
 		"subimage"		"glyph_chat"
+	}
+	
+	"RequestCoachButton"
+	{
+		"label"			""
+		"command"		"engine cl_coach_find_coach"
+		"OnlyInGame"	"1"
+		"subimage"		"icon_whistle"
+		"tooltip"		"#MMenu_RequestCoach"
 	}
 	
 	"ReplayButtonInGame"
