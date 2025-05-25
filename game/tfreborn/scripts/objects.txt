@@ -118,7 +118,7 @@ objects
 	{
 		ClassName			obj_catapult
 		StatusName			"#TF_Object_catapult"
-		BuildTime			20
+		BuildTime			15
 		MaxObjects			2
 		Cost				25
 		CostMultiplier		1
@@ -127,7 +127,7 @@ objects
 		MaxUpgradeLevel		0
 		BuilderWeaponName	"Catapult"
 		BuilderPlacementString	"Place on ground"
-		SelectionSlot		6
+		SelectionSlot		5
 		SelectionPosition	2
 		SapperAttachTime	0.0
 		IconActive			obj_teleporter_entrance

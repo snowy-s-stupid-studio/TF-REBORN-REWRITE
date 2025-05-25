@@ -10,8 +10,11 @@
 #include "mathlib/mathlib.h"
 #include "tf_gamestats.h"
 #include "tf_team.h"
-#include "in_buttons.h"
+#include "shareddefs.h"
 #include "tf_shareddefs.h"
+#include "in_buttons.h"
+#include "props.h"
+#include "world.h"
 
 #define CATAPULT_THINK_CONTEXT				"CatapultContext"
 
@@ -54,39 +57,29 @@ CObjectCatapult::CObjectCatapult()
 
 void CObjectCatapult::Spawn()
 {
-    SetSolid(SOLID_VPHYSICS);
-    SetMoveType(MOVETYPE_NONE);
-    m_takedamage = DAMAGE_NO;
-    SetModel(CATAPULT_MODEL);
+	SetModel(CATAPULT_MODEL);
+	UTIL_SetSize(this, CATAPULT_MINS, CATAPULT_MAXS);
 
-    int nBodyDir = FindBodygroupByName("teleporter_direction");
-    if (nBodyDir != -1)
-    {
-        SetBodygroup(nBodyDir, 0);
-    }
+	SetSolid(SOLID_BBOX);
+	SetMoveType(MOVETYPE_NONE);
+	m_takedamage = DAMAGE_NO;
 
-    UTIL_SetSize(this, CATAPULT_MINS, CATAPULT_MAXS);
+	int nBodyDir = FindBodygroupByName("teleporter_direction");
+	if (nBodyDir != -1)
+	{
+		SetBodygroup(nBodyDir, 0);
+	}
 
-    BaseClass::Spawn();
+	BaseClass::Spawn();
 
-    // Spin building 180 degrees if your model needs this fix
-    RotateBuildAngles();
-    RotateBuildAngles();
+	SetCollisionGroup(COLLISION_GROUP_PLAYER);
 
-    UpdateDesiredBuildRotation(5.f);
+	m_iUpgradeLevel = 1;
+	RotateBuildAngles();
+	RotateBuildAngles();
 
-    // Set collision group for solid objects that players collide with
-    SetCollisionGroup(COLLISION_GROUP_PLAYER);
-    
-    // Create physics object to enable collisions
-    if (VPhysicsInitNormal(SOLID_VPHYSICS, 0, false) == false)
-    {
-        DevMsg("Failed to initialize physics for catapult!\n");
-    }
+	UpdateDesiredBuildRotation(5.f);
 }
-
-
-
 
 void CObjectCatapult::Precache()
 {
