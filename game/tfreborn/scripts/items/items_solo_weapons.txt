@@ -266,7 +266,7 @@
 				"can_deal_long_distance_damage"	"1"
 			}
 			"first_sale_date"	"2010/09/29"
-			"item_class"	"tf_weapon_physcannon"
+			"item_class"	"weapon_physgun"
 			"soloitem" "1"
 			"craft_class"	"weapon"
 			"craft_material_type"	"weapon"
@@ -280,8 +280,8 @@
 			"image_inventory"	"backpack/weapons/w_models/w_smg"
 			"image_inventory_size_w"	"128"
 			"image_inventory_size_h"	"82"
-			"model_world"	"models/vip_mobster/weapons/w_typewriter.mdl"
-			"model_player"	"models/vip_mobster/weapons/v_typewriter.mdl"			
+			"model_world"	"models\weapons\w_physics.mdl"
+			"model_player"	"models\weapons\v_physcannon.mdl"			
 			"attach_to_hands"	"1"
 			"used_by_classes"
 			{
