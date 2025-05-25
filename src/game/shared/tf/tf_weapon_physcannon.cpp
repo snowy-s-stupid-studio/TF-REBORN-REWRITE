@@ -1,4 +1,4 @@
-//========= Copyright © 1996-2005, Valve Corporation, All rights reserved. ============//
+//========= Copyright Valve Corporation, All rights reserved. ============//
 //
 // Purpose: 
 //
@@ -19,7 +19,7 @@
 #include "ndebugoverlay.h"
 #include "physics_saverestore.h"
 #include "player_pickup.h"
-#include "soundemittersystem/isoundemittersystembase.h"
+#include "SoundEmitterSystem/isoundemittersystembase.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
@@ -30,6 +30,7 @@ ConVar phys_gunforce("phys_gunforce", "5e5");
 ConVar phys_guntorque("phys_guntorque", "100");
 ConVar phys_gunglueradius("phys_gunglueradius", "128");
 
+static void CC_CollisionTest(const CCommand& args);
 static int g_physgunBeam;
 #define PHYSGUN_BEAM_SPRITE		"sprites/physbeam.vmt"
 
@@ -293,7 +294,7 @@ IMotionEvent::simresult_e CGravControllerPoint::Simulate(IPhysicsMotionControlle
 	pObject->LocalToWorld(&world, m_localPosition);
 	m_worldPosition = world;
 	pObject->GetVelocity(&vel, &angVel);
-	//pObject->GetVelocityAtPoint( world, vel );
+	//pObject->GetVelocityAtPoint( world, &vel );
 	float damping = 1.0;
 	world += vel * deltaTime * damping;
 	Vector delta = (m_targetPosition - world) * fracRemainingSimTime * invDeltaTime;
@@ -1423,7 +1424,7 @@ bool CWeaponGravityGun::Reload(void)
 }
 
 #define NUM_COLLISION_TESTS 2500
-void CC_CollisionTest(void)
+void CC_CollisionTest(const CCommand& args)
 {
 	if (!physenv)
 		return;
@@ -1469,9 +1470,9 @@ void CC_CollisionTest(void)
 	//Vector results[NUM_COLLISION_TESTS];
 
 	int testType = 0;
-	if (engine->Cmd_Argc() >= 2)
+	if (args.ArgC() >= 2)
 	{
-		testType = atoi(engine->Cmd_Argv(1));
+		testType = atoi(args[1]);
 	}
 	float duration = 0;
 	Vector size[2];
