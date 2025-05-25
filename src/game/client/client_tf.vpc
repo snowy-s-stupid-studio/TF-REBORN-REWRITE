@@ -43,6 +43,7 @@ $Project "Client (TF)"
 
 	$Folder	"Source Files"
 	{
+		$File 	"hl2\c_weapon_gravitygun.cpp"
 		$File	"$SRCDIR\game\shared\basecombatweapon_shared.h"
 		$File	"$SRCDIR\game\client\abuse_report.cpp"
 		$File	"$SRCDIR\game\client\abuse_report.h"

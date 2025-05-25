@@ -22,31 +22,33 @@ CLIENTEFFECT_REGISTER_END()
 class C_BeamQuadratic : public CDefaultClientRenderable
 {
 public:
-	C_BeamQuadratic();
-	void			Update( C_BaseEntity *pOwner );
+    // Existing functions
+    C_BeamQuadratic();
+    void Update(C_BaseEntity *pOwner);
+    virtual const Vector& GetRenderOrigin() { return m_worldPosition; }
+    virtual const QAngle& GetRenderAngles() { return vec3_angle; }
+    virtual bool ShouldDraw() { return true; }
+    virtual bool IsTransparent() { return true; }
+    virtual bool ShouldReceiveProjectedTextures(int flags) { return false; }
+    virtual int DrawModel(int flags);
+    
+    virtual void GetRenderBounds(Vector& mins, Vector& maxs)
+    {
+        mins.Init(-32,-32,-32);
+        maxs.Init(32,32,32);
+    }
 
-	// IClientRenderable
-	virtual const Vector&			GetRenderOrigin( void ) { return m_worldPosition; }
-	virtual const QAngle&			GetRenderAngles( void ) { return vec3_angle; }
-	virtual bool					ShouldDraw( void ) { return true; }
-	virtual bool					IsTransparent( void ) { return true; }
-	virtual bool					ShouldReceiveProjectedTextures( int flags ) { return false; }
-	virtual int						DrawModel( int flags );
-
-	// Returns the bounds relative to the origin (render bounds)
-	virtual void	GetRenderBounds( Vector& mins, Vector& maxs )
-	{
-		// bogus.  But it should draw if you can see the end point
-		mins.Init(-32,-32,-32);
-		maxs.Init(32,32,32);
-	}
-
-	C_BaseEntity			*m_pOwner;
-	Vector					m_targetPosition;
-	Vector					m_worldPosition;
-	int						m_active;
-	int						m_glueTouching;
-	int						m_viewModelIndex;
+    // New minimal required implementations
+    virtual bool ShouldDrawForSplitScreenUser(int nSlot) { return true; }
+    virtual bool IsTwoPass() { return false; }
+    
+    // Member variables
+    C_BaseEntity* m_pOwner;
+    Vector m_targetPosition;
+    Vector m_worldPosition;
+    int m_active;
+    int m_glueTouching;
+    int m_viewModelIndex;
 };
 
 
@@ -159,7 +161,8 @@ int	C_BeamQuadratic::DrawModel( int )
 	}
 
 	float scrollOffset = gpGlobals->curtime - (int)gpGlobals->curtime;
-	materials->Bind( pMat );
+	CMatRenderContextPtr pRenderContext(materials);
+	pRenderContext->Bind(pMat);
 	DrawBeamQuadratic( points[0], points[1], points[2], 13, color, scrollOffset );
 	return 1;
 }
