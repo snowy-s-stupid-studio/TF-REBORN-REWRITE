@@ -5,6 +5,12 @@
 // $NoKeywords: $
 //===========================================================================//
 
+/* No. just no.
+ * This file is a stub for the HL2 weapon gravity gun.
+ * It is not used in the game, and it is not intended to be used in the game.
+ * It is only here to satisfy the compiler and linker.
+ * Do not use this file as a reference for how to implement a weapon.
+
 #include "cbase.h"
 #include "hud.h"
 #include "in_buttons.h"
