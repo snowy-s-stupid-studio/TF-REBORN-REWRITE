@@ -17,6 +17,7 @@
 #include "tf_weapon_grenadelauncher.h"
 #include "tf_logic_robot_destruction.h"
 #include "tf_logic_player_destruction.h"
+#include "tf_logic_domination.h"
 #include "tf_matchmaking_shared.h"
 #include "tf_progression_description.h"
 
@@ -659,6 +660,11 @@ ConVar tf_feign_death_activate_damage_scale( "tf_feign_death_activate_damage_sca
 ConVar tf_feign_death_damage_scale( "tf_feign_death_damage_scale", "0.35", FCVAR_CHEAT | FCVAR_DEVELOPMENTONLY );
 ConVar tf_stealth_damage_reduction( "tf_stealth_damage_reduction", "0.8", FCVAR_CHEAT | FCVAR_DEVELOPMENTONLY );
 
+// Domination Convars
+
+ConVar tf_domination_score_limit("tf_domination_score_limit", "100", FCVAR_REPLICATED | FCVAR_NOTIFY, "Score limit for Domination mode.");
+ConVar tf_domination_point_difference("tf_domination_point_difference", "0", FCVAR_REPLICATED | FCVAR_NOTIFY, "Point difference for Domination win condition.");
+
 // training
 ConVar training_class( "training_class", "3", FCVAR_REPLICATED, "Class to use in training." );
 ConVar training_can_build_sentry( "training_can_build_sentry", "1", FCVAR_REPLICATED, "Player can build sentry as engineer." );
@@ -1061,6 +1067,7 @@ ConVar hide_server( "hide_server", "0", FCVAR_GAMEDLL, "Whether the server shoul
 ConVar mp_waitingforplayers_time( "mp_waitingforplayers_time", "0", FCVAR_GAMEDLL | WAITING_FOR_PLAYERS_FLAGS, "WaitingForPlayers time length in seconds" );
 
 ConVar tf_gamemode_arena ( "tf_gamemode_arena", "0", FCVAR_REPLICATED | FCVAR_NOTIFY | FCVAR_DEVELOPMENTONLY );
+ConVar tf_gamemode_arena("tf_gamemode_domination", "0", FCVAR_REPLICATED | FCVAR_NOTIFY | FCVAR_DEVELOPMENTONLY);
 ConVar tf_gamemode_cp ( "tf_gamemode_cp", "0", FCVAR_REPLICATED | FCVAR_NOTIFY | FCVAR_DEVELOPMENTONLY );
 ConVar tf_gamemode_ctf ( "tf_gamemode_ctf", "0", FCVAR_REPLICATED | FCVAR_NOTIFY | FCVAR_DEVELOPMENTONLY );
 ConVar tf_gamemode_sd ( "tf_gamemode_sd", "0", FCVAR_REPLICATED | FCVAR_NOTIFY | FCVAR_DEVELOPMENTONLY );
