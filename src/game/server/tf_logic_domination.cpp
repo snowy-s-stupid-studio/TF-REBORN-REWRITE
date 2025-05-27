@@ -22,6 +22,8 @@ DEFINE_FIELD(m_isBlueScoring, FIELD_BOOLEAN),
 DEFINE_FIELD(m_isRoundOver, FIELD_BOOLEAN),
 END_DATADESC()
 
+LINK_ENTITY_TO_CLASS(tf_logic_player_destruction, CDominationLogic);
+
 CDominationLogic::CDominationLogic()
 {
     m_maxPoints = 100;
