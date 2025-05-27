@@ -1,0 +1,7 @@
+"UnlitGeneric"
+{
+	"$basetexture" "hud/dom_corepanel_meter_fill"
+	$translucent 1
+	"$vertexcolor" 1
+
+}

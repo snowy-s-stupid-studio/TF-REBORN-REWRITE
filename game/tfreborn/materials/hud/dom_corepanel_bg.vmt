@@ -1,0 +1,5 @@
+"UnlitGeneric"
+{
+	"$basetexture" "hud/dom_corepanel_bg"
+	"$translucent" 1
+}

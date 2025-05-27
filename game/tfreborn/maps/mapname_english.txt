@@ -1,0 +1,5 @@
+Objective:
+Capture Control Points to increase your score. Score 100 points before the enemy team does to win.
+
+Other Notes:
+Your team's meter will fill up faster the more Control Points you own.
