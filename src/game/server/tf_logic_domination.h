@@ -1,10 +1,9 @@
 #pragma once
 
 #include "cbase.h"
-#include "team_control_point.h"
-#include "tf_player.h"
+#include "igameevents.h"
 
-class CDominationLogic : public CBaseEntity
+class CDominationLogic : public CBaseEntity, public IGameEventListener2
 {
     DECLARE_CLASS(CDominationLogic, CBaseEntity);
     DECLARE_DATADESC();
@@ -12,20 +11,22 @@ class CDominationLogic : public CBaseEntity
 public:
     CDominationLogic();
 
-    virtual void Spawn() OVERRIDE;
-    virtual void Activate() OVERRIDE;
+    void Spawn() override;
+    void Activate() override;
 
-    void OnRoundStart();
-    void OnPointCaptured();
-    void ScoreRedPoint();
-    void ScoreBluePoint();
+    // Input functions
+    void OnRoundStart(inputdata_t& inputData);
+    void ScoreRedPoint(inputdata_t& inputData);
+    void ScoreBluePoint(inputdata_t& inputData);
+
+    // Game event handler
+    void FireGameEvent(IGameEvent* event) override;
+
+    // Helper logic
+    void UpdateCaps();
     void CheckForWinner();
-    void CalculateScoreDifference();
     void RoundEnd();
 
-    void OnRoundStart(inputdata_t &inputData);
-
-private:
     int m_totalCaps;
     int m_totalRedCaps;
     int m_totalBlueCaps;
@@ -33,11 +34,7 @@ private:
     int m_totalBluePoints;
     int m_maxPoints;
     float m_domRate;
-    float m_domPointDif;
-    int m_domPointDifLeader;
     bool m_isRedScoring;
     bool m_isBlueScoring;
     bool m_isRoundOver;
-
-    // Add handles to optional entities as needed
 };
