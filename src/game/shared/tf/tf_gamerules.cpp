@@ -17,7 +17,6 @@
 #include "tf_weapon_grenadelauncher.h"
 #include "tf_logic_robot_destruction.h"
 #include "tf_logic_player_destruction.h"
-#include "tf_logic_domination.h"
 #include "tf_matchmaking_shared.h"
 #include "tf_progression_description.h"
 
