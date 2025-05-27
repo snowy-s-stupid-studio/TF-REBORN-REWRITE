@@ -8,7 +8,7 @@ PlayerClass
 	"name"			"mobster" // THIS IS THE ACTUAL NAME OF THE CLASS. This is what the command joinclass will reference
 	"model"			"models/vip_mobster/player/mobster.mdl" // you'll have to edit this with your own model
 	"model_hwm"		"models/vip_mobster/player/mobster.mdl"
-	"model_hands"	"models/vip_mobster/weapons/c_mobster_arms.mdl"
+	"model_hands"	"models/weapons/c_models/c_scout_arms.mdl"
 	"localize_name"		"TF_Class_Name_Mobster"
 	"speed_max"		    "300"
 	"health_max"		"500"
