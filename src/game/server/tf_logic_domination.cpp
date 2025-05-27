@@ -59,7 +59,7 @@ void CDominationLogic::Activate()
     gameeventmanager->AddListener(this, "teamplay_point_captured", false);
 }
 
-void CDominationLogic::OnRoundStart()
+void CDominationLogic::OnRoundStart(inputdata_t &inputData)
 {
     m_totalCaps = 0;
     for (CBaseEntity* ent = NULL; (ent = gEntList.FindEntityByClassname(ent, "team_control_point")) != NULL;)

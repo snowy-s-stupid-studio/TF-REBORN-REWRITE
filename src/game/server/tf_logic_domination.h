@@ -23,6 +23,8 @@ public:
     void CalculateScoreDifference();
     void RoundEnd();
 
+    void OnRoundStart(inputdata_t &inputData);
+
 private:
     int m_totalCaps;
     int m_totalRedCaps;
