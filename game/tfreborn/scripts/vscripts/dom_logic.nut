@@ -1,4 +1,3 @@
-//Script by John 'MilkMaster72' Worden
 ClearGameEventCallbacks()
 
 local pdLogic = Entities.FindByName(null, "logic_pd")

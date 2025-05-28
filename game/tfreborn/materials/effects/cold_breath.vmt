@@ -1,0 +1,14 @@
+"ParticleSphere"
+{
+  "$bumpmap"     "particle/BillowNormalMap"
+  "$basetexture" "particle/SmokeStackFallback"
+  "$translucent" "1"
+  "$color"       "[255 255 255]"
+
+  "Proxies"
+  {
+    "ParticleSphereProxy"
+    {
+    }
+  }
+}
